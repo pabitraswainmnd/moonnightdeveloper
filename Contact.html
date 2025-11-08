@@ -1837,6 +1837,27 @@
       )
         return false;
     };
+
+    // zoom in zoom out None/Black
+
+    function zoomIn(element, scaleFactor = 1.2) {
+  let currentScale = parseFloat(element.style.transform.replace('scale(', '').replace(')', '')) || 1;
+  element.style.transform = `scale(${currentScale * scaleFactor})`;
+}
+
+function zoomOut(element, scaleFactor = 0.8) {
+  let currentScale = parseFloat(element.style.transform.replace('scale(', '').replace(')', '')) || 1;
+  element.style.transform = `scale(${currentScale * scaleFactor})`;
+}
+
+function resetZoom(element) {
+  element.style.transform = 'scale(1)';
+}
+
+// Example usage:
+const myImage = document.getElementById('myImage');
+// Attach these functions to buttons or other events
+// e.g., document.getElementById('zoomInBtn').onclick = () => zoomIn(myImage);
   </script>
 </body>
 
