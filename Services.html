@@ -748,257 +748,6 @@
             text-align: center;
         }
 
-        /* Responsive Styles for Services Page */
-        @media (max-width: 1200px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 992px) {
-            .main-content {
-                padding: 30px 16px;
-            }
-
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .tabs {
-                order: 3;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .auth-buttons {
-                order: 2;
-            }
-
-            .content-box {
-                padding: 24px 16px;
-            }
-
-            .page-title {
-                font-size: 28px;
-            }
-
-            .page-subtitle {
-                font-size: 16px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-steps {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .service-pricing {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
-
-            .services-intro {
-                font-size: 16px;
-                margin-bottom: 30px;
-            }
-
-            .service-icon img {
-                height: 220px;
-            }
-
-            .service-info {
-                padding: 20px;
-            }
-
-            .service-name {
-                font-size: 20px;
-            }
-
-            .mission-card {
-                padding: 20px;
-            }
-
-            .mission-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 24px;
-            }
-
-            .testimonial-card {
-                padding: 20px;
-            }
-
-            .faq-question {
-                padding: 16px;
-                font-size: 14px;
-            }
-
-            .faq-answer {
-                padding: 0 16px;
-            }
-
-            .faq-item.active .faq-answer {
-                padding: 16px;
-            }
-
-            .cta-section {
-                padding: 40px 20px;
-            }
-
-            .cta-title {
-                font-size: 2rem;
-            }
-
-            .cta-description {
-                font-size: 1rem;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .footer-divider {
-                display: none;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .main-content {
-                padding: 20px 12px;
-            }
-
-            .content-box {
-                padding: 20px;
-            }
-
-            .page-title {
-                font-size: 24px;
-            }
-
-            .page-subtitle {
-                font-size: 14px;
-            }
-
-            .services-intro {
-                font-size: 15px;
-                margin-bottom: 25px;
-            }
-
-            .service-icon img {
-                height: 180px;
-            }
-
-            .service-features li {
-                padding: 6px 0;
-                font-size: 14px;
-            }
-
-            .price {
-                font-size: 20px;
-            }
-
-            .service-button {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-
-            .step-number {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-
-            .step-title {
-                font-size: 18px;
-            }
-
-            .cta-section {
-                padding: 30px 16px;
-            }
-
-            .cta-title {
-                font-size: 1.6rem;
-            }
-
-            .cta-description {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-container {
-                padding: 8px 12px;
-            }
-
-            .creator-info {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .logo {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-
-            .creator-name {
-                font-size: 18px;
-            }
-
-            .tabs {
-                gap: 8px;
-            }
-
-            .tab {
-                font-size: 12px;
-                padding: 6px;
-            }
-
-            .service-info {
-                padding: 16px;
-            }
-
-            .service-name {
-                font-size: 18px;
-            }
-
-            .service-description {
-                font-size: 14px;
-            }
-
-            .process-step {
-                padding: 20px 15px;
-            }
-
-            .testimonial-author {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-
-            .author-avatar {
-                align-self: center;
-            }
-        }
-
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-container {
@@ -1051,74 +800,6 @@
                 display: none;
             }
         }
-
-        /* Mobile Navigation */
-        .mobile-nav-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .mobile-nav-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 74px;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            z-index: 999;
-            padding: 0;
-            transform: translateY(-10px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav.active {
-            display: block;
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: background-color 0.3s;
-        }
-
-        .mobile-nav-link:hover {
-            background-color: var(--accent-color);
-        }
-
-        .mobile-nav-link.active {
-            color: var(--primary-color);
-            font-weight: 600;
-            background-color: rgba(28, 57, 116, 0.05);
-        }
     </style>
 </head>
 
@@ -1134,35 +815,14 @@
                 </div>
             </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="tabs" id="navTabs">
-                <a href="index.html" class="tab ">Home</a>
+            <nav class="tabs">
+                <a href="index.html" class="tab">Home</a>
                 <a href="about.html" class="tab">About</a>
                 <a href="services.html" class="tab active">Services</a>
                 <a href="project.html" class="tab">Project's</a>
                 <a href="blog.html" class="tab">Blog</a>
                 <a href="Contact.html" class="tab">Contact</a>
             </nav>
-
-            <!-- Mobile Navigation Toggle -->
-            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <nav class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-links">
-                <a href="index.html" class="mobile-nav-link">Home</a>
-                <a href="about.html" class="mobile-nav-link">About</a>
-                <a href="services.html" class="mobile-nav-link active">Services</a>
-                <a href="projects.html" class="mobile-nav-link">Projects</a>
-                <a href="blog.html" class="mobile-nav-link">Blog</a>
-                <a href="contact.html" class="mobile-nav-link">Contact</a>
-            </div>
-        </nav>
         </div>
     </header>
 
@@ -1489,7 +1149,7 @@
                 <div class="footer-divider"></div>
                 <a href="Terms_of_Service.html" class="footer-link">Privacy Policy</a>
                 <div class="footer-divider"></div>
-                <a href="404.html" class="footer-link">Terms of Service</a>
+                 <a href="404.html" class="footer-link">Terms of Service</a>
             </div>
             <div class="footer-cta">
                 <h5>© Copyright 2025 by MND. All rights reserved!</h5>
@@ -1544,52 +1204,6 @@
             )
                 return false;
         };
-
-        // Mobile Navigation Toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileNavToggle = document.getElementById('mobileNavToggle');
-            const mobileNav = document.getElementById('mobileNav');
-
-            mobileNavToggle.addEventListener('click', function () {
-                mobileNav.classList.toggle('active');
-                mobileNavToggle.classList.toggle('active');
-
-                // Animate hamburger to X
-                const spans = mobileNavToggle.querySelectorAll('span');
-                if (mobileNavToggle.classList.contains('active')) {
-                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-                } else {
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
-            });
-
-            // Close mobile menu when clicking on a link
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    mobileNav.classList.remove('active');
-                    mobileNavToggle.classList.remove('active');
-
-                    // Reset hamburger animation
-                    const spans = mobileNavToggle.querySelectorAll('span');
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                });
-            });
-
-            // Form submission
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Thank you for your message! We will get back to you soon.');
-                contactForm.reset();
-            });
-        });
     </script>
 </body>
 

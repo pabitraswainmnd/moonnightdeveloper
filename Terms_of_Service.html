@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +11,14 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1C1B1F;
             background-color: #fef2f2;
         }
-
+        
         /* Header Styles */
         .header {
             background-color: white;
@@ -116,7 +115,6 @@
             display: flex;
             gap: 12px;
         }
-
         .login-btn {
             font-size: 14px;
             color: #1C1B1F;
@@ -124,11 +122,11 @@
             border-bottom: 1px solid transparent;
             transition: border-color 0.2s;
         }
-
+        
         .login-btn:hover {
             border-color: #1C1B1F;
         }
-
+        
         .menu-btn {
             width: 32px;
             height: 32px;
@@ -139,18 +137,18 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-
+        
         .menu-btn:hover {
             background-color: rgba(0, 0, 0, 0.05);
         }
-
+        
         /* Main Content */
         .main-content {
             max-width: 1500px;
             margin: 0 auto;
             padding: 40px 16px;
         }
-
+        
         .content-box {
             background-color: white;
             border-radius: 12px;
@@ -158,7 +156,7 @@
             padding: 40px;
             margin-bottom: 32px;
         }
-
+        
         .page-title {
             font-size: 32px;
             font-weight: 700;
@@ -166,7 +164,7 @@
             margin-bottom: 16px;
             color: #1c3974;
         }
-
+        
         .page-subtitle {
             font-size: 18px;
             text-align: center;
@@ -176,7 +174,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-
+        
         /* Legal Document Navigation */
         .legal-nav {
             display: flex;
@@ -184,7 +182,7 @@
             gap: 16px;
             margin-bottom: 40px;
         }
-
+        
         .legal-nav-btn {
             padding: 12px 24px;
             background-color: white;
@@ -195,26 +193,26 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
+        
         .legal-nav-btn.active {
             background-color: #1c3974;
             color: white;
             border-color: #1c3974;
         }
-
+        
         .legal-nav-btn:hover:not(.active) {
             background-color: #f8f9fa;
         }
-
+        
         /* Legal Content */
         .legal-content {
             display: none;
         }
-
+        
         .legal-content.active {
             display: block;
         }
-
+        
         .last-updated {
             text-align: center;
             font-style: italic;
@@ -223,36 +221,35 @@
             padding-bottom: 20px;
             border-bottom: 1px solid #e5e5e5;
         }
-
+        
         .section {
             margin-bottom: 30px;
         }
-
+        
         .section-title {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 16px;
             color: #1c3974;
         }
-
+        
         .section-content {
             color: #1C1B1F;
         }
-
+        
         .section-content p {
             margin-bottom: 16px;
         }
-
-        .section-content ul,
-        .section-content ol {
+        
+        .section-content ul, .section-content ol {
             margin-left: 24px;
             margin-bottom: 16px;
         }
-
+        
         .section-content li {
             margin-bottom: 8px;
         }
-
+        
         .highlight-box {
             background-color: #f8f9fa;
             border-left: 4px solid #1c3974;
@@ -260,34 +257,34 @@
             margin: 20px 0;
             border-radius: 0 8px 8px 0;
         }
-
+        
         .contact-info {
             background-color: #f8f9fa;
             padding: 24px;
             border-radius: 8px;
             margin-top: 30px;
         }
-
+        
         .contact-title {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 12px;
             color: #1c3974;
         }
-
+        
         /* Footer */
         .footer {
             background-color: white;
             padding: 40px 0;
             margin-top: 40px;
         }
-
+        
         .footer-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 16px;
         }
-
+        
         .footer-links {
             display: flex;
             justify-content: center;
@@ -296,27 +293,27 @@
             gap: 16px;
             margin-bottom: 24px;
         }
-
+        
         .footer-link {
             color: #1C1B1F;
             text-decoration: none;
             font-size: 14px;
         }
-
+        
         .footer-link:hover {
             text-decoration: underline;
         }
-
+        
         .footer-divider {
             width: 1px;
             height: 16px;
             background-color: #e5e5e5;
         }
-
+        
         .footer-cta {
             text-align: center;
         }
-
+        
         .footer-cta-link {
             color: #1c3974;
             font-weight: 700;
@@ -325,294 +322,48 @@
             align-items: center;
             gap: 4px;
         }
-
+        
         .footer-cta-link:hover {
             text-decoration: underline;
         }
-
-        /* Responsive Styles for Terms of Service Page */
-        @media (max-width: 1200px) {
-            .main-content {
-                padding: 30px 16px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .section-content {
-                font-size: 15px;
-            }
-
-            .section-title {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .tabs {
-                order: 3;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .content-box {
-                padding: 24px 16px;
-            }
-
-            .page-title {
-                font-size: 28px;
-            }
-
-            .page-subtitle {
-                font-size: 16px;
-            }
-
-            .legal-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-
-            .legal-nav-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .section-title {
-                font-size: 20px;
-            }
-
-            .section-content {
-                font-size: 14px;
-            }
-
-            .section-content ul,
-            .section-content ol {
-                margin-left: 20px;
-            }
-
-            .highlight-box {
-                padding: 16px;
-            }
-
-            .contact-info {
-                padding: 20px;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .footer-divider {
-                display: none;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .main-content {
-                padding: 20px 12px;
-            }
-
-            .content-box {
-                padding: 20px;
-            }
-
-            .page-title {
-                font-size: 24px;
-            }
-
-            .page-subtitle {
-                font-size: 14px;
-            }
-
-            .legal-nav-btn {
-                padding: 10px 20px;
-                font-size: 14px;
-            }
-
-            .section {
-                margin-bottom: 20px;
-            }
-
-            .section-title {
-                font-size: 18px;
-            }
-
-            .section-content h3 {
-                font-size: 16px;
-            }
-
-            .last-updated {
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-container {
-                padding: 8px 12px;
-            }
-
-            .creator-info {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .logo {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-
-            .creator-name {
-                font-size: 18px;
-            }
-
-            .tabs {
-                gap: 8px;
-            }
-
-            .tab {
-                font-size: 12px;
-                padding: 6px;
-            }
-
-            .section-content ul,
-            .section-content ol {
-                margin-left: 16px;
-            }
-
-            .section-content li {
-                font-size: 13px;
-                margin-bottom: 6px;
-            }
-
-            .highlight-box {
-                padding: 12px;
-                font-size: 13px;
-            }
-
-            .contact-info {
-                padding: 16px;
-            }
-
-            .contact-title {
-                font-size: 16px;
-            }
-        }
-
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
                 gap: 16px;
             }
-
+            
             .tabs {
                 order: 3;
                 width: 100%;
                 justify-content: center;
             }
-
+            
             .content-box {
                 padding: 24px 16px;
             }
-
+            
             .page-title {
                 font-size: 28px;
             }
-
+            
             .legal-nav {
                 flex-direction: column;
                 align-items: center;
             }
-
+            
             .legal-nav-btn {
                 width: 100%;
                 max-width: 300px;
             }
-
+            
             .section-title {
                 font-size: 20px;
             }
         }
-
-        /* Mobile Navigation */
-        .mobile-nav-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .mobile-nav-toggle span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 74px;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            z-index: 999;
-            padding: 0;
-            transform: translateY(-10px);
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav.active {
-            display: block;
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .mobile-nav-links {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .mobile-nav-link {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: background-color 0.3s;
-        }
-
-        .mobile-nav-link:hover {
-            background-color: var(--accent-color);
-        }
-
-        .mobile-nav-link.active {
-            color: var(--primary-color);
-            font-weight: 600;
-            background-color: rgba(28, 57, 116, 0.05);
-        }
     </style>
 </head>
-
 <body>
     <!-- Header -->
     <header class="header">
@@ -625,105 +376,67 @@
                 </div>
             </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="tabs" id="navTabs">
-                <a href="index.html" class="tab ">Home</a>
-                <a href="about.html" class="tab">About</a>
-                <a href="services.html" class="tab active">Services</a>
+            <nav class="tabs">
+                <a href="index.html" class="tab">Home</a>
+                <a href="about.html" class="tab active">About</a>
+                <a href="services.html" class="tab">Services</a>
                 <a href="project.html" class="tab">Project's</a>
                 <a href="blog.html" class="tab">Blog</a>
                 <a href="Contact.html" class="tab">Contact</a>
             </nav>
-
-            <!-- Mobile Navigation Toggle -->
-            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <nav class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-links">
-                <a href="index.html" class="mobile-nav-link">Home</a>
-                <a href="about.html" class="mobile-nav-link active">About</a>
-                <a href="services.html" class="mobile-nav-link">Services</a>
-                <a href="projects.html" class="mobile-nav-link">Projects</a>
-                <a href="blog.html" class="mobile-nav-link">Blog</a>
-                <a href="contact.html" class="mobile-nav-link">Contact</a>
-            </div>
-        </nav>
         </div>
     </header>
-
+    
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-box">
             <h1 class="page-title">Legal Documents</h1>
-            <p class="page-subtitle">Please review our Privacy Policy and Terms of Use to understand how we handle your
-                information and govern the use of our services.</p>
-
+            <p class="page-subtitle">Please review our Privacy Policy and Terms of Use to understand how we handle your information and govern the use of our services.</p>
+            
             <!-- Legal Navigation -->
             <div class="legal-nav">
                 <button class="legal-nav-btn active" data-content="privacy">Privacy Policy</button>
                 <button class="legal-nav-btn" data-content="terms">Terms of Use</button>
             </div>
-
+            
             <!-- Privacy Policy Content -->
             <div class="legal-content active" id="privacy-content">
                 <div class="last-updated">Last Updated: January 1, 2025</div>
-
+                
                 <div class="section">
                     <h2 class="section-title">1. Introduction</h2>
                     <div class="section-content">
-                        <p>Welcome to MND Development ("we," "our," or "us"). We are committed to protecting your
-                            privacy and ensuring you have a positive experience on our website and in using our products
-                            and services.</p>
-                        <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information
-                            when you visit our website or purchase our digital products. Please read this policy
-                            carefully. If you do not agree with the terms of this Privacy Policy, please do not access
-                            the site.</p>
+                        <p>Welcome to MND Development ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience on our website and in using our products and services.</p>
+                        <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or purchase our digital products. Please read this policy carefully. If you do not agree with the terms of this Privacy Policy, please do not access the site.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">2. Information We Collect</h2>
                     <div class="section-content">
-                        <p>We may collect information about you in a variety of ways. The information we may collect
-                            includes:</p>
-
+                        <p>We may collect information about you in a variety of ways. The information we may collect includes:</p>
+                        
                         <h3>Personal Data</h3>
-                        <p>Personally identifiable information, such as your name, shipping address, email address, and
-                            telephone number, that you voluntarily give to us when you register with us or when you
-                            choose to participate in various activities related to our website, such as online chat and
-                            message boards.</p>
-
+                        <p>Personally identifiable information, such as your name, shipping address, email address, and telephone number, that you voluntarily give to us when you register with us or when you choose to participate in various activities related to our website, such as online chat and message boards.</p>
+                        
                         <h3>Derivative Data</h3>
-                        <p>Information our servers automatically collect when you access our website, such as your IP
-                            address, your browser type, your operating system, your access times, and the pages you have
-                            viewed directly before and after accessing our website.</p>
-
+                        <p>Information our servers automatically collect when you access our website, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing our website.</p>
+                        
                         <h3>Financial Data</h3>
-                        <p>Financial information, such as data related to your payment method (e.g., valid credit card
-                            number, card brand, expiration date) that we may collect when you purchase, order, return,
-                            exchange, or request information about our services from our website.</p>
+                        <p>Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase, order, return, exchange, or request information about our services from our website.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">3. Use of Your Information</h2>
                     <div class="section-content">
-                        <p>Having accurate information about you permits us to provide you with a smooth, efficient, and
-                            customized experience. Specifically, we may use information collected about you via our
-                            website to:</p>
+                        <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via our website to:</p>
                         <ul>
                             <li>Create and manage your account</li>
                             <li>Process your transactions and deliver purchased products</li>
                             <li>Email you regarding your account or order</li>
                             <li>Enable user-to-user communications</li>
-                            <li>Generate a personal profile about you to make future visits to our website more
-                                personalized</li>
+                            <li>Generate a personal profile about you to make future visits to our website more personalized</li>
                             <li>Increase the efficiency and operation of our website</li>
                             <li>Monitor and analyze usage and trends to improve your experience with our website</li>
                             <li>Notify you of updates to our website and products</li>
@@ -732,101 +445,70 @@
                         </ul>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">4. Disclosure of Your Information</h2>
                     <div class="section-content">
-                        <p>We may share information we have collected about you in certain situations. Your information
-                            may be disclosed as follows:</p>
-
+                        <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
+                        
                         <h3>By Law or to Protect Rights</h3>
-                        <p>If we believe the release of information about you is necessary to respond to legal process,
-                            to investigate or remedy potential violations of our policies, or to protect the rights,
-                            property, and safety of others, we may share your information as permitted or required by
-                            any applicable law, rule, or regulation.</p>
-
+                        <p>If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.</p>
+                        
                         <h3>Third-Party Service Providers</h3>
-                        <p>We may share your information with third parties that perform services for us or on our
-                            behalf, including payment processing, data analysis, email delivery, hosting services,
-                            customer service, and marketing assistance.</p>
-
+                        <p>We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</p>
+                        
                         <h3>Business Transfers</h3>
-                        <p>We may share or transfer your information in connection with, or during negotiations of, any
-                            merger, sale of company assets, financing, or acquisition of all or a portion of our
-                            business to another company.</p>
+                        <p>We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">5. Tracking Technologies</h2>
                     <div class="section-content">
                         <h3>Cookies and Web Beacons</h3>
-                        <p>We may use cookies, web beacons, tracking pixels, and other tracking technologies on our
-                            website to help customize our website and improve your experience. Most browsers are set to
-                            accept cookies by default. You can remove or reject cookies, but be aware that such action
-                            could affect the availability and functionality of our website.</p>
-
+                        <p>We may use cookies, web beacons, tracking pixels, and other tracking technologies on our website to help customize our website and improve your experience. Most browsers are set to accept cookies by default. You can remove or reject cookies, but be aware that such action could affect the availability and functionality of our website.</p>
+                        
                         <h3>Website Analytics</h3>
-                        <p>We may also partner with selected third-party vendors to allow tracking technologies and
-                            remarketing services on our website through the use of first-party cookies and third-party
-                            cookies, to, among other things, analyze and track users' use of our website, determine the
-                            popularity of certain content, and better understand online activity.</p>
+                        <p>We may also partner with selected third-party vendors to allow tracking technologies and remarketing services on our website through the use of first-party cookies and third-party cookies, to, among other things, analyze and track users' use of our website, determine the popularity of certain content, and better understand online activity.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">6. Your Privacy Rights</h2>
                     <div class="section-content">
-                        <p>Depending on your location, you may have the following rights regarding your personal
-                            information:</p>
+                        <p>Depending on your location, you may have the following rights regarding your personal information:</p>
                         <ul>
                             <li>The right to access – You have the right to request copies of your personal data.</li>
-                            <li>The right to rectification – You have the right to request that we correct any
-                                information you believe is inaccurate or complete information you believe is incomplete.
-                            </li>
-                            <li>The right to erasure – You have the right to request that we erase your personal data,
-                                under certain conditions.</li>
-                            <li>The right to restrict processing – You have the right to request that we restrict the
-                                processing of your personal data, under certain conditions.</li>
-                            <li>The right to object to processing – You have the right to object to our processing of
-                                your personal data, under certain conditions.</li>
-                            <li>The right to data portability – You have the right to request that we transfer the data
-                                that we have collected to another organization, or directly to you, under certain
-                                conditions.</li>
+                            <li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</li>
+                            <li>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</li>
+                            <li>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+                            <li>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</li>
+                            <li>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
                         </ul>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">7. Data Security</h2>
                     <div class="section-content">
-                        <p>We use administrative, technical, and physical security measures to help protect your
-                            personal information. While we have taken reasonable steps to secure the personal
-                            information you provide to us, please be aware that despite our efforts, no security
-                            measures are perfect or impenetrable, and no method of data transmission can be guaranteed
-                            against any interception or other type of misuse.</p>
+                        <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">8. Policy for Children</h2>
                     <div class="section-content">
-                        <p>We do not knowingly solicit information from or market to children under the age of 13. If
-                            you become aware of any data we have collected from children under age 13, please contact us
-                            using the contact information provided below.</p>
+                        <p>We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us using the contact information provided below.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">9. Changes to This Privacy Policy</h2>
                     <div class="section-content">
-                        <p>We may update this Privacy Policy from time to time in order to reflect, for example, changes
-                            to our practices or for other operational, legal, or regulatory reasons. We will notify you
-                            of any changes by posting the new Privacy Policy on this page and updating the "Last
-                            Updated" date.</p>
+                        <p>We may update this Privacy Policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
                     </div>
                 </div>
-
+                
                 <div class="contact-info">
                     <h3 class="contact-title">Contact Us</h3>
                     <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
@@ -834,39 +516,28 @@
                     <p>Address: 123 Web Development Street, Digital City, DC 12345</p>
                 </div>
             </div>
-
+            
             <!-- Terms of Use Content -->
             <div class="legal-content" id="terms-content">
                 <div class="last-updated">Last Updated: January 1, 2025</div>
-
+                
                 <div class="section">
                     <h2 class="section-title">1. Agreement to Terms</h2>
                     <div class="section-content">
-                        <p>By accessing and using MND Development's website and services, you accept and agree to be
-                            bound by the terms and provision of this agreement. In addition, when using these particular
-                            services, you shall be subject to any posted guidelines or rules applicable to such
-                            services.</p>
+                        <p>By accessing and using MND Development's website and services, you accept and agree to be bound by the terms and provision of this agreement. In addition, when using these particular services, you shall be subject to any posted guidelines or rules applicable to such services.</p>
                         <div class="highlight-box">
-                            <p><strong>Important:</strong> If you do not agree to these Terms of Use, please do not use
-                                our website or services.</p>
+                            <p><strong>Important:</strong> If you do not agree to these Terms of Use, please do not use our website or services.</p>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">2. Intellectual Property Rights</h2>
                     <div class="section-content">
-                        <p>Unless otherwise indicated, our website and all content and other materials therein,
-                            including, without limitation, our logo, and all designs, text, graphics, pictures,
-                            information, data, software, sound files, and the selection and arrangement thereof
-                            (collectively, "Content") are the proprietary property of MND Development or our licensors
-                            or users and are protected by international copyright and other intellectual property laws.
-                        </p>
-
+                        <p>Unless otherwise indicated, our website and all content and other materials therein, including, without limitation, our logo, and all designs, text, graphics, pictures, information, data, software, sound files, and the selection and arrangement thereof (collectively, "Content") are the proprietary property of MND Development or our licensors or users and are protected by international copyright and other intellectual property laws.</p>
+                        
                         <h3>License to Use Our Products</h3>
-                        <p>When you purchase a digital product from MND Development, you are granted a non-exclusive,
-                            non-transferable license to use the product for personal or commercial projects. This
-                            license does not include the right to:</p>
+                        <p>When you purchase a digital product from MND Development, you are granted a non-exclusive, non-transferable license to use the product for personal or commercial projects. This license does not include the right to:</p>
                         <ul>
                             <li>Resell or redistribute the product as a standalone item</li>
                             <li>Claim ownership of the product</li>
@@ -875,164 +546,121 @@
                         </ul>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">3. User Representations</h2>
                     <div class="section-content">
                         <p>By using our website, you represent and warrant that:</p>
                         <ul>
-                            <li>All registration information you submit will be true, accurate, current, and complete
-                            </li>
-                            <li>You will maintain the accuracy of such information and promptly update such registration
-                                information as necessary</li>
+                            <li>All registration information you submit will be true, accurate, current, and complete</li>
+                            <li>You will maintain the accuracy of such information and promptly update such registration information as necessary</li>
                             <li>You have the legal capacity and you agree to comply with these Terms of Use</li>
                             <li>You are not under the age of 13</li>
-                            <li>You will not access our website through automated or non-human means, whether through a
-                                bot, script, or otherwise</li>
+                            <li>You will not access our website through automated or non-human means, whether through a bot, script, or otherwise</li>
                             <li>You will not use our website for any illegal or unauthorized purpose</li>
                             <li>Your use of our website will not violate any applicable law or regulation</li>
                         </ul>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">4. Prohibited Activities</h2>
                     <div class="section-content">
-                        <p>You may not access or use our website for any purpose other than that for which we make the
-                            website available. The website may not be used in connection with any commercial endeavors
-                            except those that are specifically endorsed or approved by us.</p>
+                        <p>You may not access or use our website for any purpose other than that for which we make the website available. The website may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
                         <p>As a user of the website, you agree not to:</p>
                         <ul>
-                            <li>Systematically retrieve data or other content from the website to create or compile,
-                                directly or indirectly, a collection, compilation, database, or directory without
-                                written permission from us</li>
-                            <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn
-                                sensitive account information such as user passwords</li>
-                            <li>Circumvent, disable, or otherwise interfere with security-related features of the
-                                website</li>
+                            <li>Systematically retrieve data or other content from the website to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us</li>
+                            <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords</li>
+                            <li>Circumvent, disable, or otherwise interfere with security-related features of the website</li>
                             <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the website</li>
-                            <li>Use any information obtained from the website in order to harass, abuse, or harm another
-                                person</li>
-                            <li>Make improper use of our support services or submit false reports of abuse or misconduct
-                            </li>
+                            <li>Use any information obtained from the website in order to harass, abuse, or harm another person</li>
+                            <li>Make improper use of our support services or submit false reports of abuse or misconduct</li>
                             <li>Engage in unauthorized framing of or linking to the website</li>
-                            <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or
-                                other material that interferes with any party's uninterrupted use and enjoyment of the
-                                website</li>
-                            <li>Engage in any automated use of the system, such as using scripts to send comments or
-                                messages, or using any data mining, robots, or similar data gathering and extraction
-                                tools</li>
+                            <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material that interferes with any party's uninterrupted use and enjoyment of the website</li>
+                            <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools</li>
                             <li>Delete the copyright or other proprietary rights notice from any Content</li>
                             <li>Attempt to impersonate another user or person or use the username of another user</li>
                             <li>Sell or otherwise transfer your profile</li>
                         </ul>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">5. Product Licensing and Usage</h2>
                     <div class="section-content">
                         <h3>Standard License</h3>
-                        <p>All digital products sold by MND Development come with a standard license that allows you to:
-                        </p>
+                        <p>All digital products sold by MND Development come with a standard license that allows you to:</p>
                         <ul>
                             <li>Use the product in personal projects</li>
                             <li>Use the product in commercial projects for yourself or clients</li>
                             <li>Modify the product to suit your needs</li>
                         </ul>
-
+                        
                         <h3>Restrictions</h3>
                         <p>The standard license does not allow you to:</p>
                         <ul>
                             <li>Resell the product as a template or theme</li>
                             <li>Distribute the product as stock, in a tool, or with source files</li>
                             <li>Use the product for more than one end product</li>
-                            <li>Make the product available on a digital asset management system, shared drive, or
-                                similar technologies</li>
+                            <li>Make the product available on a digital asset management system, shared drive, or similar technologies</li>
                         </ul>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">6. Payment and Refunds</h2>
                     <div class="section-content">
                         <h3>Payment</h3>
-                        <p>All purchases through our website are subject to product availability and will be shipped or
-                            made available for download accordingly. We accept various forms of payment including credit
-                            cards and PayPal. You agree to provide current, complete, and accurate purchase and account
-                            information for all purchases made via our website.</p>
-
+                        <p>All purchases through our website are subject to product availability and will be shipped or made available for download accordingly. We accept various forms of payment including credit cards and PayPal. You agree to provide current, complete, and accurate purchase and account information for all purchases made via our website.</p>
+                        
                         <h3>Refund Policy</h3>
-                        <p>Due to the digital nature of our products, we generally do not offer refunds once a product
-                            has been downloaded. However, we may make exceptions in the following circumstances:</p>
+                        <p>Due to the digital nature of our products, we generally do not offer refunds once a product has been downloaded. However, we may make exceptions in the following circumstances:</p>
                         <ul>
                             <li>The product is significantly different from what was described</li>
                             <li>The product is defective or doesn't work as advertised</li>
-                            <li>You have not downloaded the product and request cancellation within 24 hours of purchase
-                            </li>
+                            <li>You have not downloaded the product and request cancellation within 24 hours of purchase</li>
                         </ul>
-                        <p>To request a refund, please contact our support team with your order details and reason for
-                            the request.</p>
+                        <p>To request a refund, please contact our support team with your order details and reason for the request.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">7. Third-Party Websites and Content</h2>
                     <div class="section-content">
-                        <p>Our website may contain links to other websites ("Third-Party Websites") as well as articles,
-                            photographs, text, graphics, pictures, designs, music, sound, video, information,
-                            applications, software, and other content or items belonging to or originating from third
-                            parties.</p>
-                        <p>We are not responsible for any Third-Party Websites accessed through our website or any
-                            Third-Party Content posted on, available through, or installed from our website, including
-                            the content, accuracy, offensiveness, opinions, reliability, privacy practices, or other
-                            policies of or contained in the Third-Party Websites or the Third-Party Content.</p>
+                        <p>Our website may contain links to other websites ("Third-Party Websites") as well as articles, photographs, text, graphics, pictures, designs, music, sound, video, information, applications, software, and other content or items belonging to or originating from third parties.</p>
+                        <p>We are not responsible for any Third-Party Websites accessed through our website or any Third-Party Content posted on, available through, or installed from our website, including the content, accuracy, offensiveness, opinions, reliability, privacy practices, or other policies of or contained in the Third-Party Websites or the Third-Party Content.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">8. Modifications and Interruptions</h2>
                     <div class="section-content">
-                        <p>We reserve the right to change, modify, or remove the contents of our website at any time or
-                            for any reason at our sole discretion without notice. However, we have no obligation to
-                            update any information on our website.</p>
-                        <p>We cannot guarantee the website will be available at all times. We may experience hardware,
-                            software, or other problems or need to perform maintenance related to the website, resulting
-                            in interruptions, delays, or errors.</p>
+                        <p>We reserve the right to change, modify, or remove the contents of our website at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our website.</p>
+                        <p>We cannot guarantee the website will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the website, resulting in interruptions, delays, or errors.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">9. Governing Law</h2>
                     <div class="section-content">
-                        <p>These Terms of Use and your use of our website are governed by and construed in accordance
-                            with the laws of the State of California applicable to agreements made and to be entirely
-                            performed within the State of California, without regard to its conflict of law principles.
-                        </p>
+                        <p>These Terms of Use and your use of our website are governed by and construed in accordance with the laws of the State of California applicable to agreements made and to be entirely performed within the State of California, without regard to its conflict of law principles.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">10. Disclaimer</h2>
                     <div class="section-content">
-                        <p>OUR WEBSITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF OUR
-                            WEBSITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW,
-                            WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH OUR WEBSITE AND YOUR USE
-                            THEREOF.</p>
+                        <p>OUR WEBSITE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF OUR WEBSITE AND OUR SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH OUR WEBSITE AND YOUR USE THEREOF.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">11. Limitation of Liability</h2>
                     <div class="section-content">
-                        <p>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD
-                            PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE
-                            DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM
-                            YOUR USE OF OUR WEBSITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-                        </p>
+                        <p>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF OUR WEBSITE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
                     </div>
                 </div>
-
+                
                 <div class="section">
                     <h2 class="section-title">12. Contact Information</h2>
                     <div class="section-content">
@@ -1044,7 +672,7 @@
             </div>
         </div>
     </main>
-
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1065,18 +693,18 @@
 
     <script>
         // Legal document navigation functionality
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const navButtons = document.querySelectorAll('.legal-nav-btn');
             const contentSections = document.querySelectorAll('.legal-content');
-
+            
             navButtons.forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const targetContent = this.getAttribute('data-content');
-
+                    
                     // Update active button
                     navButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-
+                    
                     // Show target content
                     contentSections.forEach(section => {
                         section.classList.remove('active');
@@ -1086,7 +714,7 @@
                     });
                 });
             });
-
+            
             // Set active tab based on URL hash
             if (window.location.hash) {
                 const hash = window.location.hash.substring(1);
@@ -1115,53 +743,6 @@
             )
                 return false;
         };
-
-        // Mobile Navigation Toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileNavToggle = document.getElementById('mobileNavToggle');
-            const mobileNav = document.getElementById('mobileNav');
-
-            mobileNavToggle.addEventListener('click', function () {
-                mobileNav.classList.toggle('active');
-                mobileNavToggle.classList.toggle('active');
-
-                // Animate hamburger to X
-                const spans = mobileNavToggle.querySelectorAll('span');
-                if (mobileNavToggle.classList.contains('active')) {
-                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-                } else {
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
-            });
-
-            // Close mobile menu when clicking on a link
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    mobileNav.classList.remove('active');
-                    mobileNavToggle.classList.remove('active');
-
-                    // Reset hamburger animation
-                    const spans = mobileNavToggle.querySelectorAll('span');
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                });
-            });
-
-            // Form submission
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Thank you for your message! We will get back to you soon.');
-                contactForm.reset();
-            });
-        });
     </script>
 </body>
-
 </html>
