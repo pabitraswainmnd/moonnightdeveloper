@@ -117,6 +117,40 @@
       gap: 12px;
     }
 
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #1c3974;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
     /* Main Content */
     .main-content {
       max-width: 1500px;
@@ -506,17 +540,40 @@
 
     @media (max-width: 768px) {
       .header-container {
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 16px;
-        text-align: center;
+      }
+
+      .menu-toggle {
+        display: flex;
       }
 
       .tabs {
-        order: 3;
+        display: none;
+        flex-direction: column;
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
+        gap: 0;
+        order: 3;
+        margin-top: 16px;
+        border-top: 1px solid #e5e5e5;
+        padding-top: 16px;
+      }
+
+      .tabs.active {
+        display: flex;
+      }
+
+      .tab {
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .tab:last-child {
+        border-bottom: none;
+      }
+
+      .tab.active::after {
+        display: none;
       }
 
       .contact-layout {
@@ -985,7 +1042,13 @@
         </div>
       </div>
 
-      <nav class="tabs">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="tabs" id="navTabs">
         <a href="index.html" class="tab ">Home</a>
         <a href="about.html" class="tab">About</a>
         <a href="services.html" class="tab">Services</a>
@@ -1354,8 +1417,26 @@
   </footer>
 
   <script>
-    // Contact Modal Functionality
+    // Mobile Menu Toggle
     document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.getElementById('menuToggle');
+      const navTabs = document.getElementById('navTabs');
+
+      menuToggle.addEventListener('click', function () {
+        navTabs.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      const navLinks = document.querySelectorAll('.tab');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          navTabs.classList.remove('active');
+          menuToggle.classList.remove('active');
+        });
+      });
+
+      // Contact Modal Functionality
       const floatingBtn = document.getElementById('floatingContactBtn');
       const contactModal = document.getElementById('contactModal');
       const modalOverlay = document.getElementById('modalOverlay');
@@ -1553,7 +1634,133 @@
       alert('This would open a calendar to schedule a video call with our team.');
       // In a real implementation, this would open a scheduling system
     }
+// assets/js/no-zoom.js
 
+class NoZoom {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.preventAllZoom();
+        this.fixViewport();
+        this.blockZoomEvents();
+        this.disableDoubleTap();
+        this.preventPinchZoom();
+        this.handleOrientation();
+        this.forceNoZoom();
+    }
+
+    // Completely prevent all forms of zoom
+    preventAllZoom() {
+        // Block wheel zoom
+        document.addEventListener('wheel', (e) => {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, { passive: false });
+
+        // Block keyboard zoom (Ctrl +, Ctrl -)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey  e.metaKey) && (e.key === '+'  e.key === '-'  e.key === '='  e.keyCode === 187 || e.keyCode === 189)) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        });
+
+        // Block context menu zoom
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
+    }
+
+    // Fix viewport for maximum zoom prevention
+    fixViewport() {
+        let viewport = document.querySelector('meta[name="viewport"]');
+        if (!viewport) {
+            viewport = document.createElement('meta');
+            viewport.name = 'viewport';
+            document.head.appendChild(viewport);
+        }
+        
+        const viewportContent = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no';
+        viewport.setAttribute('content', viewportContent);
+        
+        // Force viewport update
+        this.forceViewportUpdate();
+    }
+
+    forceViewportUpdate() {
+        // This forces mobile browsers to respect the viewport
+        window.addEventListener('resize', () => {
+            document.body.style.zoom = "1";
+        });
+
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                document.body.style.zoom = "1";
+                this.resetViewport();
+            }, 100);
+        });
+    }
+
+    resetViewport() {
+        const viewport = document.querySelector('meta[name="viewport"]');
+        if (viewport) {
+            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no');
+        }
+    }
+
+    // Block all zoom-related events
+    blockZoomEvents() {
+        // Block gesture events
+        document.addEventListener('gesturestart', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+
+        document.addEventListener('gesturechange', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+
+        document.addEventListener('gestureend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+
+        // Block touch events that could cause zoom
+        document.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, { passive: false });
+
+        document.addEventListener('touchend', (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }, { passive: false });
+    }
     // inspect block function
     /// Disable right-click
     document.addEventListener('contextmenu', (e) => e.preventDefault());
