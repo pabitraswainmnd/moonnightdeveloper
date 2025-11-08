@@ -539,6 +539,13 @@
     }
 
     @media (max-width: 768px) {
+      .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: flex;
+            }
       .header-container {
         flex-wrap: wrap;
         gap: 16px;
@@ -1027,6 +1034,111 @@
         padding: 20px;
       }
     }
+
+
+    /* mobile nevbar */
+     /* Mobile Navigation */
+        .mobile-nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mobile-nav-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 74px;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 999;
+            padding: 0;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav.active {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav-link:hover {
+            background-color: var(--accent-color);
+        }
+
+        .mobile-nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            background-color: rgba(28, 57, 116, 0.05);
+        }
+        /*  */
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-link {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
   </style>
 </head>
 
@@ -1056,6 +1168,25 @@
         <a href="blog.html" class="tab">Blog</a>
         <a href="Contact.html" class="tab active">Contact</a>
       </nav>
+      <!-- Mobile Navigation Toggle -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About</a>
+                <a href="services.html" class="mobile-nav-link">Services</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="blog.html" class="mobile-nav-link">Blog</a>
+                <a href="contact.html" class="mobile-nav-link active">Contact</a>
+            </div>
+        </nav>
     </div>
   </header>
 
@@ -1634,133 +1765,52 @@
       alert('This would open a calendar to schedule a video call with our team.');
       // In a real implementation, this would open a scheduling system
     }
-// assets/js/no-zoom.js
 
-class NoZoom {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        this.preventAllZoom();
-        this.fixViewport();
-        this.blockZoomEvents();
-        this.disableDoubleTap();
-        this.preventPinchZoom();
-        this.handleOrientation();
-        this.forceNoZoom();
-    }
-
-    // Completely prevent all forms of zoom
-    preventAllZoom() {
-        // Block wheel zoom
-        document.addEventListener('wheel', (e) => {
-            if (e.ctrlKey) {
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.getElementById('mobileNavToggle');
+            const mobileNav = document.getElementById('mobileNav');
+            
+            mobileNavToggle.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                mobileNavToggle.classList.toggle('active');
+                
+                // Animate hamburger to X
+                const spans = mobileNavToggle.querySelectorAll('span');
+                if (mobileNavToggle.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                    mobileNavToggle.classList.remove('active');
+                    
+                    // Reset hamburger animation
+                    const spans = mobileNavToggle.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-        }, { passive: false });
-
-        // Block keyboard zoom (Ctrl +, Ctrl -)
-        document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey  e.metaKey) && (e.key === '+'  e.key === '-'  e.key === '='  e.keyCode === 187 || e.keyCode === 189)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
         });
-
-        // Block context menu zoom
-        document.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-            return false;
-        });
-    }
-
-    // Fix viewport for maximum zoom prevention
-    fixViewport() {
-        let viewport = document.querySelector('meta[name="viewport"]');
-        if (!viewport) {
-            viewport = document.createElement('meta');
-            viewport.name = 'viewport';
-            document.head.appendChild(viewport);
-        }
-        
-        const viewportContent = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no';
-        viewport.setAttribute('content', viewportContent);
-        
-        // Force viewport update
-        this.forceViewportUpdate();
-    }
-
-    forceViewportUpdate() {
-        // This forces mobile browsers to respect the viewport
-        window.addEventListener('resize', () => {
-            document.body.style.zoom = "1";
-        });
-
-        window.addEventListener('orientationchange', () => {
-            setTimeout(() => {
-                document.body.style.zoom = "1";
-                this.resetViewport();
-            }, 100);
-        });
-    }
-
-    resetViewport() {
-        const viewport = document.querySelector('meta[name="viewport"]');
-        if (viewport) {
-            viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no');
-        }
-    }
-
-    // Block all zoom-related events
-    blockZoomEvents() {
-        // Block gesture events
-        document.addEventListener('gesturestart', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
-
-        document.addEventListener('gesturechange', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
-
-        document.addEventListener('gestureend', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
-
-        // Block touch events that could cause zoom
-        document.addEventListener('touchstart', (e) => {
-            if (e.touches.length > 1) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-        }, { passive: false });
-
-        document.addEventListener('touchmove', (e) => {
-            if (e.touches.length > 1) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-        }, { passive: false });
-
-        document.addEventListener('touchend', (e) => {
-            if (e.touches.length > 1) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-        }, { passive: false });
-    }
     // inspect block function
     /// Disable right-click
     document.addEventListener('contextmenu', (e) => e.preventDefault());
