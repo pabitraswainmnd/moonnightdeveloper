@@ -163,7 +163,7 @@ function openAuthModal(type) {
                 <label class="checkbox-label">
                     <input type="checkbox" id="agreeTerms" required>
                     <span class="checkmark"></span>
-                    I agree to the <a href="Privacy_Policy_Terms.html" target="_blank">Terms of Service</a> and <a href="Privacy_Policy_Terms.html" target="_blank">Privacy Policy</a>
+                    I agree to the <a href="Privacy_Policy_Terms.html">Terms of Service</a> and <a href="Privacy_Policy_Terms.html">Privacy Policy</a>
                 </label>
             </div>
         `;
