@@ -26,8 +26,14 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 20;
+            z-index: 100;
             padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 8px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .header-container {
@@ -56,6 +62,11 @@
             font-weight: 800;
             color: white;
             font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(5deg) scale(1.05);
         }
 
         .creator-name {
@@ -66,6 +77,11 @@
         .creator-name a {
             color: inherit;
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .creator-name a:hover {
+            color: #1c3974;
         }
 
         .supporter-count {
@@ -160,6 +176,39 @@
             background-color: rgba(0, 0, 0, 0.05);
         }
 
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #1C1B1F;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
         /* Cover Image */
         .cover-image {
             height: 320px;
@@ -179,6 +228,38 @@
             transform: scale(1.02);
         }
 
+        .cover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(28, 57, 116, 0.3), rgba(28, 57, 116, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .cover-text {
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .cover-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .cover-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
         /* Main Content */
         .main-content {
             max-width: 95%;
@@ -195,6 +276,18 @@
             padding: 32px;
             margin-bottom: 32px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #1c3974, #4a74c7);
         }
 
         .content-box:hover {
@@ -208,6 +301,19 @@
             text-align: center;
             margin-bottom: 24px;
             color: #1c3974;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #1c3974, #4a74c7);
+            border-radius: 2px;
         }
 
         /* Search and Filter Section */
@@ -255,6 +361,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            justify-content: center;
         }
 
         .filter-btn {
@@ -276,6 +383,7 @@
             background-color: #1c3974;
             color: white;
             border-color: #1c3974;
+            transform: scale(1.05);
         }
 
         .clear-filters {
@@ -364,6 +472,7 @@
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
             background-color: white;
+            position: relative;
         }
 
         .extra-card:hover {
@@ -420,10 +529,58 @@
             cursor: pointer;
             margin-top: 12px;
             transition: background-color 0.2s;
+            position: relative;
+            overflow: hidden;
         }
 
         .add-to-cart-btn:hover {
             background-color: #4a74c7;
+        }
+
+        .add-to-cart-btn:active {
+            transform: translateY(2px);
+        }
+
+        /* New Features */
+        .category-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #e5e7eb;
+            color: #4b5563;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .project-date {
+            font-size: 12px;
+            color: #717171;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #1c3974;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 8px;
         }
 
         /* Empty State */
@@ -456,6 +613,7 @@
             background-color: white;
             padding: 40px 0;
             margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .footer-container {
@@ -477,9 +635,11 @@
             color: #1C1B1F;
             text-decoration: none;
             font-size: 14px;
+            transition: color 0.2s;
         }
 
         .footer-link:hover {
+            color: #1c3974;
             text-decoration: underline;
         }
 
@@ -515,7 +675,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            z-index: 100;
+            z-index: 1000;
             align-items: center;
             justify-content: center;
             padding: 20px;
@@ -530,6 +690,18 @@
             overflow-y: auto;
             position: relative;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .modal-header {
@@ -553,10 +725,17 @@
             cursor: pointer;
             color: #717171;
             transition: color 0.2s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .close-btn:hover {
             color: #1C1B1F;
+            background-color: rgba(0, 0, 0, 0.05);
         }
 
         .modal-body {
@@ -649,68 +828,7 @@
             margin-bottom: 20px;
         }
 
-        .modal-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .detail-item {
-            padding: 12px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-        }
-
-        .detail-label {
-            font-size: 14px;
-            color: #717171;
-            margin-bottom: 4px;
-        }
-
-        .detail-value {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1C1B1F;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 12px;
-            justify-content: flex-end;
-            padding-top: 20px;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .modal-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .modal-btn.primary {
-            background-color: #1c3974;
-            color: white;
-            border: none;
-        }
-
-        .modal-btn.primary:hover {
-            background-color: #4a74c7;
-        }
-
-        .modal-btn.secondary {
-            background-color: transparent;
-            color: #1C1B1F;
-            border: 1px solid #e5e5e5;
-        }
-
-        .modal-btn.secondary:hover {
-            background-color: #f8f9fa;
-        }
-
-        /* Row Layout Styles for Modal Details and Price Section */
+        /* Modal Details and Price Section in Row Layout */
         .modal-details-row {
             display: flex;
             flex-direction: column;
@@ -844,6 +962,8 @@
             text-align: center;
             width: 100%;
             margin-top: 8px;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
@@ -852,68 +972,88 @@
             box-shadow: 0 6px 16px rgba(28, 57, 116, 0.3);
         }
 
+        .btn:active {
+            transform: translateY(0);
+        }
+
         .btn i {
             font-size: 18px;
         }
 
-        /* New Features */
-        .category-tag {
-            display: inline-block;
-            padding: 4px 8px;
-            background-color: #e5e7eb;
-            color: #4b5563;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-right: 6px;
-            margin-bottom: 6px;
-        }
-
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .project-date {
-            font-size: 12px;
-            color: #717171;
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #1c3974;
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #1c3974;
             color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .extra-card {
-            position: relative;
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #4a74c7;
+            transform: translateY(-3px);
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 16px;
             }
 
             .tabs {
-                order: 3;
+                position: fixed;
+                top: 80px;
+                left: 0;
                 width: 100%;
-                justify-content: center;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 99;
             }
 
-            .auth-buttons {
-                order: 2;
+            .tabs.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
             }
 
             .cover-image {
                 height: 200px;
+            }
+
+            .cover-title {
+                font-size: 1.8rem;
+            }
+
+            .cover-subtitle {
+                font-size: 1rem;
             }
 
             .main-content {
@@ -1032,8 +1172,14 @@
                 </div>
             </div>
 
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <nav class="tabs">
-                <a href="index.html" class="tab ">Home</a>
+                <a href="index.html" class="tab">Home</a>
                 <a href="about.html" class="tab">About</a>
                 <a href="services.html" class="tab">Services</a>
                 <a href="project.html" class="tab active">Project's</a>
@@ -1046,6 +1192,12 @@
     <!-- Cover Image -->
     <div class="cover-image">
         <img src="./img/mnd-cover-image.webp" alt="Cover image">
+        <div class="cover-overlay">
+            <div class="cover-text">
+                <h1 class="cover-title">Our Portfolio</h1>
+                <p class="cover-subtitle">Explore our collection of innovative web projects and solutions</p>
+            </div>
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -1131,6 +1283,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to top button -->
+    <div class="back-to-top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </div>
+
     <!-- Modal -->
     <div class="modal" id="projectModal">
         <div class="modal-content">
@@ -1194,7 +1355,10 @@
                         </div>
 
                         <button class="btn" id="modalAddToCartBtn">
-                            <i class="fas fa-cart-plus"></i> Add to cart
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                                <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.7 15.3C4.3 15.7 4.6 16.3 5.1 16.3H17M17 13V16.3M9 19C9 19.6 8.6 20 8 20C7.4 20 7 19.6 7 19C7 18.4 7.4 18 8 18C8.6 18 9 18.4 9 19ZM17 19C17 19.6 16.6 20 16 20C15.4 20 15 19.6 15 19C15 18.4 15.4 18 16 18C16.6 18 17 18.4 17 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Add to cart
                         </button>
                     </div>
                 </div>
@@ -1206,7 +1370,7 @@
         // Project data with multiple images
         const projectData = {
             creative: {
-                title: "creative Website",
+                title: "Creative Website",
                 images: [
                     "./assets/gif/creative-hero.gif",
                 ],
@@ -1590,8 +1754,11 @@
                         </div>
                         <h3 class="extra-title">${project.title}</h3>
                         <p class="extra-description">${project.description}</p>
+                        <div class="category-tags">
+                            ${project.categories.map(cat => `<span class="category-tag">${cat}</span>`).join('')}
+                        </div>
                         <div class="extra-price">${project.price}</div>
-                        <button class="add-to-cart-btn" data-project="${projectId}">View</button>
+                        <button class="add-to-cart-btn" data-project="${projectId}">View Details</button>
                     </div>
                 `;
                 projectsGrid.appendChild(card);
@@ -1608,6 +1775,33 @@
 
         // Initialize event listeners
         function initializeEventListeners() {
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu functionality
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const tabs = document.querySelector('.tabs');
+            
+            mobileMenuBtn.addEventListener('click', function () {
+                this.classList.toggle('active');
+                tabs.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function () {
+                    mobileMenuBtn.classList.remove('active');
+                    tabs.classList.remove('active');
+                });
+            });
+
             // Modal functionality
             const modal = document.getElementById('projectModal');
             const modalTitle = document.getElementById('modalTitle');
@@ -1637,6 +1831,9 @@
             const quantityInput = document.getElementById('quantity');
             const priceInput = document.getElementById('price');
             const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+
+            // Back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
 
             // Slider state
             let currentSlide = 0;
@@ -1890,6 +2087,22 @@
                 closeModalFunc();
             });
 
+            // Back to top button functionality
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
             // Initialize price on page load
             updatePrice();
 
@@ -1915,6 +2128,118 @@
             )
                 return false;
         };
+        // Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new NoZoom();
+    preventZoomEverywhere();
+    
+    // Additional mobile-specific fixes
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        enableMobileZoomPrevention();
+    }
+});
+
+// Mobile-specific zoom prevention
+function enableMobileZoomPrevention() {
+    // Disable elastic scrolling (can sometimes cause zoom issues)
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    
+    // Force no zoom on load
+    setTimeout(() => {
+        document.body.style.zoom = "1";
+        document.documentElement.style.zoom = "1";
+    }, 100);
+
+    // Prevent pull-to-refresh (can cause zoom)
+    document.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // iOS specific fixes
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        enableIOSZoomPrevention();
+    }
+}
+
+// iOS-specific zoom prevention
+function enableIOSZoomPrevention() {
+    // iOS specific viewport fix
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.setAttribute('content', 
+            'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover'
+        );
+    }
+
+    // Prevent iOS text size adjustment
+    document.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Disable iOS double-tap to zoom
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastTouchEnd <= 500) {
+            e.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
+}
+
+// Nuclear option - completely disable any scaling
+function nuclearNoZoom() {
+    // Disable any transform scaling
+    const style = document.createElement('style');
+    style.textContent = `
+        * {
+            transform: none !important;
+            scale: none !important;
+            zoom: 1 !important;
+        }
+        
+        body {
+            zoom: 1 !important;
+            -webkit-text-size-adjust: 100% !important;
+            -moz-text-size-adjust: 100% !important;
+            -ms-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Continuously reset zoom
+    setInterval(() => {
+        document.body.style.zoom = "1";
+        if (window.visualViewport) {
+            window.visualViewport.scale = 1;
+        }
+    }, 500);
+}
+
+// Apply nuclear option for maximum prevention
+document.addEventListener('DOMContentLoaded', () => {
+    nuclearNoZoom();
+});
+
+// Fallback for older browsers
+window.onload = function() {
+    // Final viewport enforcement
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no';
+    }
+    
+    // Force initial scale
+    document.body.style.zoom = "1";
+};
+
+
     </script>
 </body>
 
