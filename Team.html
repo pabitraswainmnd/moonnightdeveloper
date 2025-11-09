@@ -4,9 +4,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>MND | Our Team</title>
-   
+    <title>Our Team - MND</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1C1B1F;
+            background-color: #fef2f2;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            padding: 12px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .creator-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #1c3974, #4a74c7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+            font-size: 18px;
+        }
+
+        .creator-name {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .creator-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .supporter-count {
+            font-size: 14px;
+            color: #717171;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 20px;
+        }
+
+        .tab {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px;
+            color: #1C1B1F;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .tab:hover {
+            color: #1c3974;
+        }
+
+        .tab.active {
+            color: #1c3974;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #1c3974;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .login-btn {
+            font-size: 14px;
+            color: #1C1B1F;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .login-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .signup-btn {
+            font-size: 14px;
+            background-color: #1c3974;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .signup-btn:hover {
+            background-color: #4a74c7;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+
+        .content-box {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #1c3974;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            text-align: center;
+            color: #717171;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Team Section */
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #f8f9fa;
+        }
+
+        .member-info {
+            padding: 25px;
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #1c3974;
+        }
+
+        .member-role {
+            font-size: 16px;
+            color: #4a74c7;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .member-bio {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: #f0f4ff;
+            color: #1c3974;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1c3974;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: #1c3974;
+            color: white;
+        }
+
+        /* Values Section */
+        .values-section {
+            margin-top: 60px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: #f8f9fa;
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1c3974;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .value-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1c3974;
+        }
+
+        .value-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1c3974, #4a74c7);
+            color: white;
+            padding: 50px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .cta-description {
+            font-size: 18px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1c3974;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-link {
+            color: #1C1B1F;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #1c3974;
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background-color: #e5e5e5;
+        }
+
+        .footer-cta {
+            text-align: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .tabs {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .auth-buttons {
+                order: 2;
+            }
+
+            .content-box {
+                padding: 24px 16px;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-divider {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,12 +475,12 @@
             </div>
 
             <nav class="tabs">
-                <a href="index.html" class="tab">Home</a>
-                <a href="about.html" class="tab">About</a>
-                <a href="services.html" class="tab">Services</a>
-                <a href="project.html" class="tab">Project's</a>
-                <a href="blog.html" class="tab">Blog</a>
-                <a href="Contact.html" class="tab">Contact</a>
+                <a href="index.html" class="tab" target="_blank">Home</a>
+                <a href="about.html" class="tab" target="_blank">About</a>
+                <a href="services.html" class="tab" target="_blank">Services</a>
+                <a href="project.html" class="tab" target="_blank">Project's</a>
+                <a href="blog.html" class="tab" target="_blank">Blog</a>
+                <a href="Contact.html" class="tab" target="_blank">Contact</a>
             </nav>
         </div>
     </header>
@@ -162,7 +615,7 @@
     </main>
 
     <!-- Footer -->
-   <footer class="footer">
+    c<footer class="footer">
         <div class="footer-container">
             <div class="footer-links">
                 <a href="mnd_landing.html" class="footer-link">Services</a>
@@ -178,8 +631,27 @@
             </div>
         </div>
     </footer>
+    <script>
+        // inspect block function
+        /// Disable right-click
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
 
-    <script src="./assets/main.js"></script>
+        function ctrlShiftKey(e, keyCode) {
+            return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+        }
+
+        document.onkeydown = (e) => {
+            // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+            if (
+                event.keyCode === 123 ||
+                ctrlShiftKey(e, 'I') ||
+                ctrlShiftKey(e, 'J') ||
+                ctrlShiftKey(e, 'C') ||
+                (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
+            )
+                return false;
+        };
+    </script>
 </body>
 
 </html>
