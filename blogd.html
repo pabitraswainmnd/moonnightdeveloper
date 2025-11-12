@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid vs Flexbox: When to Use Each - MND Blog</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1C1B1F;
+            background-color: #fef2f2;
+            font-size: 16px;
+        }
+
+        .content-box {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: #1c3974;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            text-align: center;
+            color: #717171;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Blog Details Styles */
+        .blog-details-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #1c3974;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .blog-details-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1c3974;
+            line-height: 1.3;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .blog-date, .blog-read-time, .blog-author {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-featured-image {
+            width: 80vh;
+            border-radius: 12px;
+            overflow: hidden;
+            align-items: center;
+            margin-bottom: 40px;
+            margin-left: 80vh;
+        }
+
+        .blog-featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: #1c3974;
+        }
+
+        .blog-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #1c3974;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+
+        .code-example {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1c3974;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            overflow-x: auto;
+        }
+
+        .code-example pre {
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .comparison-table th {
+            background-color: #f0f4ff;
+            color: #1c3974;
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .blog-tag {
+            background: #f0f0f0;
+            color: #666;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .blog-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+            padding-top: 30px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 15px;
+        }
+
+        .share-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f4ff;
+            color: #1c3974;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .share-button:hover {
+            background: #1c3974;
+            color: white;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1c3974;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .nav-button:hover {
+            background: #4a74c7;
+        }
+
+        .nav-button.prev {
+            background: #f0f4ff;
+            color: #1c3974;
+        }
+
+        .nav-button.prev:hover {
+            background: #e0e8ff;
+        }
+
+        /* Related Posts */
+        .related-posts {
+            margin-top: 60px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #1c3974;
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-card-category {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #1c3974;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .blog-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1c3974;
+            line-height: 1.3;
+        }
+
+        .blog-card-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .newsletter-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1c3974;
+        }
+
+        .newsletter-description {
+            color: #666;
+            margin-bottom: 25px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .newsletter-button {
+            background: #1c3974;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .newsletter-button:hover {
+            background: #4a74c7;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-link {
+            color: #1C1B1F;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #1c3974;
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background-color: #e5e5e5;
+        }
+
+        .footer-cta {
+            text-align: center;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .content-box {
+                padding: 24px 16px;
+            }
+
+            .blog-details-title {
+                font-size: 28px;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .blog-actions {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .navigation-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-divider {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-box">
+            <!-- Blog Details Header -->
+            <div class="blog-details-header">
+                <span class="blog-category">Tutorial</span>
+                <h1 class="blog-details-title">CSS Grid vs Flexbox: When to Use Each</h1>
+                <div class="blog-meta">
+                    <div class="blog-date">📅 March 10, 2025</div>
+                    <div class="blog-read-time">⏱️ 6 min read</div>
+                    <div class="blog-author">👤 By John Developer</div>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="blog-featured-image">
+                <img src="./img/pageimg/CSS Grid vs Flexbox.png" alt="CSS Grid vs Flexbox">
+            </div>
+
+            <!-- Blog Content -->
+            <div class="blog-content">
+                <p>In modern web development, CSS Grid and Flexbox are two powerful layout systems that have revolutionized how we design web interfaces. While they can sometimes seem interchangeable, each has its specific strengths and use cases.</p>
+
+                <h2>Understanding CSS Grid</h2>
+                <p>CSS Grid is a two-dimensional layout system, meaning it can handle both columns and rows simultaneously. It's designed for larger-scale layouts where you need precise control over both dimensions.</p>
+
+                <div class="code-example">
+                    <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 20px;
+}</code></pre>
+                </div>
+
+                <h2>Understanding Flexbox</h2>
+                <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns. It's perfect for distributing space along a single axis and aligning items within a container.</p>
+
+                <div class="code-example">
+                    <pre><code>.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+                </div>
+
+                <h2>When to Use CSS Grid</h2>
+                <p>CSS Grid excels in these scenarios:</p>
+                <ul>
+                    <li>Complex two-dimensional layouts</li>
+                    <li>Creating entire page layouts</li>
+                    <li>When you need precise control over both rows and columns</li>
+                    <li>Overlapping content elements</li>
+                </ul>
+
+                <h2>When to Use Flexbox</h2>
+                <p>Flexbox is ideal for:</p>
+                <ul>
+                    <li>One-dimensional layouts (either a row or a column)</li>
+                    <li>Distributing space within a container</li>
+                    <li>Aligning items within a container</li>
+                    <li>Navigation bars, form controls, and other small-scale components</li>
+                </ul>
+
+                <h2>Comparison Table</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>CSS Grid</th>
+                            <th>Flexbox</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dimensionality</td>
+                            <td>Two-dimensional (rows and columns)</td>
+                            <td>One-dimensional (rows OR columns)</td>
+                        </tr>
+                        <tr>
+                            <td>Content vs Layout</td>
+                            <td>Layout-first approach</td>
+                            <td>Content-first approach</td>
+                        </tr>
+                        <tr>
+                            <td>Browser Support</td>
+                            <td>Modern browsers (IE11 with prefixes)</td>
+                            <td>Excellent (including IE10+)</td>
+                        </tr>
+                        <tr>
+                            <td>Use Cases</td>
+                            <td>Overall page layout, complex grids</td>
+                            <td>Component alignment, small-scale layouts</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Practical Example: Combining Both</h2>
+                <p>In many modern layouts, you'll use both Grid and Flexbox together. For example, you might use Grid for the overall page structure and Flexbox for aligning items within each grid cell.</p>
+
+                <div class="code-example">
+                    <pre><code>.page-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}</code></pre>
+                </div>
+
+                <h2>Conclusion</h2>
+                <p>CSS Grid and Flexbox are not competing technologies but complementary ones. Grid is perfect for creating the overall structure of your page, while Flexbox excels at aligning and distributing items within smaller components. By understanding the strengths of each, you can create more efficient, maintainable, and responsive layouts.</p>
+
+                <!-- Tags -->
+                <div class="blog-tags">
+                    <span class="blog-tag">CSS</span>
+                    <span class="blog-tag">Layout</span>
+                    <span class="blog-tag">Web Design</span>
+                    <span class="blog-tag">Responsive Design</span>
+                    <span class="blog-tag">Frontend</span>
+                </div>
+
+                <!-- Actions -->
+                <div class="blog-actions">
+                    <div class="social-share">
+                        <div class="share-button">📱</div>
+                        <div class="share-button">🐦</div>
+                        <div class="share-button">💼</div>
+                        <div class="share-button">🔗</div>
+                    </div>
+                    <div class="navigation-buttons">
+                        <a href="#" class="nav-button prev">← Previous Post</a>
+                        <a href="#" class="nav-button">Next Post →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Posts -->
+            <div class="related-posts">
+                <h2 class="section-title">Related Articles</h2>
+                <div class="blog-grid">
+                    <!-- Related Post 1 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="./img/pageimg/Website Performance.png" alt="Website Performance">
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Performance</span>
+                            <h3 class="blog-card-title">10 Tips to Improve Your Website Loading Speed</h3>
+                            <p class="blog-card-excerpt">Practical techniques to optimize your website's performance and enhance user experience.</p>
+                            <div class="blog-card-meta">
+                                <div class="blog-date">📅 March 5, 2025</div>
+                                <div class="blog-read-time">⏱️ 10 min read</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Post 2 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="./img/pageimg/Mobile-First Design.jpg" alt="Mobile-First Design">
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Design</span>
+                            <h3 class="blog-card-title">Why Mobile-First Design is More Important Than Ever</h3>
+                            <p class="blog-card-excerpt">Understanding the shift to mobile-first design and how to implement it effectively.</p>
+                            <div class="blog-card-meta">
+                                <div class="blog-date">📅 February 28, 2025</div>
+                                <div class="blog-read-time">⏱️ 7 min read</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Related Post 3 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="./img/pageimg/JavaScript Frameworks.png" alt="JavaScript Frameworks">
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Development</span>
+                            <h3 class="blog-card-title">Choosing the Right JavaScript Framework for Your Project</h3>
+                            <p class="blog-card-excerpt">A comparison of React, Vue, and Angular to help you make an informed decision.</p>
+                            <div class="blog-card-meta">
+                                <div class="blog-date">📅 February 15, 2025</div>
+                                <div class="blog-read-time">⏱️ 11 min read</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <h3 class="newsletter-title">Stay Updated</h3>
+                <p class="newsletter-description">Subscribe to our newsletter to receive the latest articles, tutorials, and industry insights directly in your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </main>
+<script src="./assets/main.js"></script>
+    <script>
+        // Blog card click handlers
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const title = this.querySelector('.blog-card-title').textContent;
+                alert(`This would navigate to the full article: "${title}"`);
+            });
+        });
+
+        // Newsletter form submission
+        document.querySelector('.newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our latest updates soon.`);
+            this.reset();
+        });
+
+        // Share button handlers
+        document.querySelectorAll('.share-button').forEach(button => {
+            button.addEventListener('click', function () {
+                alert('This would share the article on social media');
+            });
+        });
+
+        // Navigation button handlers
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const direction = this.classList.contains('prev') ? 'Previous' : 'Next';
+                alert(`This would navigate to the ${direction} article`);
+            });
+        });
+    </script>
+</body>
+
+</html>
