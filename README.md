@@ -1,413 +1,226 @@
-<!--Banner-->
-![Kiran1689 Banner Image](./banner.png)
+Hi 
+# EVERYONE
 
-<!--Night Owl image-->
-<div>
-  <img align="right" width="40%" src="https://owlbertsio-resized.s3.amazonaws.com/Popper.psd.full.png">
-</div>
+# MND Development - **[LIVE DEMO](https://moonnightdeveloper.github.io/moonnightdeveloper/)**.
+#
 
-<!--Header Name-->
-# <img src="https://emojis.slackmojis.com/emojis/images/1531849430/4246/blob-sunglasses.gif?1531849430" width="30"/> ɪ'ᴍ ᴋɪʀᴀɴ! 
-*Digital Craftsman (Developer / Programmer)*
-<br /> 
+A modern, responsive contact page for MND Development with a fully mobile-responsive navbar and professional design.
 
-<!--Start Intro-->               
-<p align="left">I am a Full Stack Developer and Machine Learning Enthusiast with a huge love for Python, React.js, Node.js, Django, RDBMS, REST API and Data Visualization. </p>
+## 🚀 Features
 
-- ✨ Student of life :)
-- 🌱 I’m currently learning many things, I believe that everyday is a learning opportunity.
-- 💁‍♂️ Trusted member and Moderator at [DEV Community](https://dev.to)
-- 🏙 A lifetime insider and Mentor at [Exercism](https://exercism.org/profiles/Kiran1689).
-- ✍ I write technical blogs, You can visit my blog site at [DEV](https://dev.to/dev_kiran).
-- ❤ Contributing to Open Source.
-- 💻 Visit my [Portfolio](https://kiran1689.github.io) for more details about me.
-<!--End Intro-->
+- **Fully Responsive Design** - Works perfectly on all devices (desktop, tablet, mobile)
+- **Modern UI/UX** - Clean, professional design with smooth animations
+- **Mobile-First Navigation** - Hamburger menu for mobile devices with smooth transitions
+- **Contact Form** - Functional contact form with validation
+- **Multiple Contact Methods** - Email, phone, location, and live chat options
+- **Accessibility** - ARIA labels and keyboard navigation support
+- **Performance Optimized** - Clean, efficient code with minimal dependencies
 
-<!--Profile Count Badge-->
-<p align="left">
-  <img src="https://komarev.com/ghpvc/?username=Kiran1689&label=Profile%20views&color=770677&style=for-the-badge&logo=star" alt="Kiran1689" style="padding-right:20px;" />
-</p>
+## 📱 Responsive Breakpoints
+
+- **Desktop**: 1200px and above
+- **Tablet**: 768px - 1199px
+- **Mobile Large**: 576px - 767px
+- **Mobile Small**: 480px - 575px
+- **Mobile Extra Small**: Below 480px
+
+## 🎨 Design System
+
+### Color Palette
+- **Primary Color**: `#1c3974` (Deep Blue)
+- **Secondary Color**: `#4a74c7` (Light Blue)
+- **Accent Color**: `#f8f9fa` (Light Gray)
+- **Text Color**: `#1C1B1F` (Dark Gray)
+- **Light Text**: `#717171` (Medium Gray)
+- **White**: `#ffffff`
+
+### Typography
+- **Font Family**: Segoe UI, Tahoma, Geneva, Verdana, sans-serif
+- **Font Weights**: 400 (Regular), 500 (Medium), 600 (Semi-bold), 700 (Bold)
+
+## 🛠️ Technologies Used
+
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with CSS Grid and Flexbox
+- **JavaScript** - Interactive functionality
+- **Font Awesome** - Icons (v6.4.0)
+
+## 📁 Project Structure
+
+```
+mnd-contact-page/
+│
+├── index.html                 # Main HTML file
+├── README.md                  # Project documentation
+│
+├── assets/                    # Additional assets (if any)
+│   ├── images/               # Image files
+│   └── fonts/                # Custom fonts
+│
+└── pages/                    # Additional pages (if expanded)
+    ├── index.html            # Home page
+    ├── about.html            # About page
+    ├── services.html         # Services page
+    ├── projects.html         # Projects page
+    ├── blog.html             # Blog page
+    └── contact.html          # Contact page (current)
+```
+
+## 🚀 Installation & Setup
+
+1. **Clone or Download** the project files
+2. **Open** `index.html` in your web browser
+3. **For development**:
+   - Use a local server for best performance
+   - Ensure all file paths are correct
+
+## 📋 Usage
+
+### Basic Usage
+1. Open the `index.html` file in any modern web browser
+2. The page will automatically adapt to your screen size
+3. Use the navigation menu to explore different sections
+4. Fill out the contact form to send a message
+
+### Navigation
+- **Desktop**: Horizontal navigation menu
+- **Mobile**: Hamburger menu that transforms to X when active
+
+### Contact Form
+1. Fill in your full name
+2. Provide your email address
+3. Select a subject from the dropdown
+4. Write your message
+5. Click "Send Message" to submit
+
+## 🔧 Customization
+
+### Changing Colors
+Update the CSS custom properties in the `:root` selector:
+
+```css
+:root {
+    --primary-color: #your-color;
+    --secondary-color: #your-color;
+    /* ... other colors */
+}
+```
+
+### Modifying Content
+- Update company information in the contact section
+- Change navigation links in both desktop and mobile nav sections
+- Modify footer links and text
+
+### Adding New Pages
+1. Create new HTML files in the pages directory
+2. Update navigation links in all pages
+3. Ensure consistent styling across all pages
+
+## 🌐 Browser Compatibility
+
+- Chrome (Latest)
+- Firefox (Latest)
+- Safari (Latest)
+- Edge (Latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📱 Mobile Features
+
+- Touch-friendly interface
+- Optimized tap targets (minimum 44px)
+- Smooth scrolling
+- Responsive images and icons
+- Mobile-optimized form inputs
+
+## 🎯 Performance Features
+
+- Minimal HTTP requests
+- Optimized CSS and JavaScript
+- Efficient rendering with CSS Grid and Flexbox
+- Lazy loading for images (if added)
+- Clean, semantic HTML
+
+## 🔍 SEO Considerations
+
+- Semantic HTML structure
+- Proper heading hierarchy
+- Meta tags (add in head section)
+- Alt text for images
+- Mobile-friendly design
+
+## 📞 Contact Information
+
+**MND Development**
+- **Email**: hello@mnddevelopment.com
+- **Phone**: +91 7609050022
+- **Address**: Srinivasa Nagar, Ameerpet Hyderabad, Telangana - 500016
+- **Hours**: Monday-Friday, 9:00 AM - 6:00 PM
+
+## 🛠️ Development Notes
+
+### CSS Architecture
+- Mobile-first responsive design
+- CSS Custom Properties for theming
+- BEM-like naming convention
+- Modular component structure
+
+### JavaScript Features
+- Mobile navigation toggle
+- Form validation
+- Smooth animations
+- Accessibility enhancements
+
+### Accessibility Features
+- ARIA labels for interactive elements
+- Keyboard navigation support
+- Color contrast compliance
+- Semantic HTML structure
+
+## 📈 Future Enhancements
+
+- [ ] Backend integration for form submission
+- [ ] Live chat functionality
+- [ ] Dark mode toggle
+- [ ] Multi-language support
+- [ ] Advanced form validation
+- [ ] Interactive map integration
+- [ ] Social media links
+- [ ] Blog integration
+- [ ] E-commerce capabilities
+
+## 🐛 Known Issues
+
+- No known issues - all features tested and working
+- Form currently uses alert for submission confirmation (can be enhanced with backend)
+
+## 🤝 Contributing
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Font Awesome for icons
+- Modern CSS techniques and best practices
+- Mobile-first design principles
+
+## 📞 Support
+
+If you have any questions or need support, please contact:
+- **Email**: hello@mnddevelopment.com
+- **Phone**: +91 7609050022
 
 ---
 
-
-<!--Languages and Tools Section-->       
-<h2 align="center">Tᴇᴄʜ sᴛᴀᴄᴋ & Lᴀᴛᴇsᴛ ʙʟᴏɢs</h2> 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./Skills_Animation_Dark.gif">
-  <source media="(prefers-color-scheme: light)" srcset="./Skills_Animation_White.gif">
-  <img align="left" alt="GIF description" src="./Skills_Animation_White.gif">
-</picture>
-<br />
-
-<h3 align="left">Current Learning</h3>
-<ul align="left">
-  <li>Deepening my knowledge in Machine Learning and AI.</li>
-  <li>Exploring advanced React.js patterns and state management techniques.</li>
-  <li>Improving my skills in cloud computing with AWS and Azure.</li>
-</ul>
-  
-<h3 align="left">Latest Blog Posts</h3>
-<ul align="left">
-  <li><a href="https://dev.to/dev_kiran/storyblok-mcp-server-let-ai-agents-manage-your-content-3jaa">🔥Storyblok MCP Server: Let AI Agents Manage Your Content 🤖</a></li>
-  <li><a href="https://dev.to/dev_kiran/pulstack-deploy-your-static-site-to-s3-or-github-in-1-min-5cin">🔥Pulstack: Deploy your static site to S3 or GitHub in <1 min🙂</a></li>
-  <li><a href="https://dev.to/dev_kiran/i-tried-out-qodos-new-embed-model-qodo-embed-1-40h5">I Tried Out Qodo's New Embed Model Qodo-Embed-1🤯</a></li>
-</ul>
-<br />
-<br />
-<br />
-<br />
-
-
-<!--Trophies Section-->   
-<h2 align="center">🏆 Gɪᴛʜᴜʙ Tʀᴏᴘʜɪᴇs 🏆</h2>
-<p align="center">
-  <a href="https://github.com/Kiran1689">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=Kiran1689&no-bg=true&row=2&column=6&margin-w=20&margin-h=20&theme=monokai">
-      <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=Kiran1689&no-bg=true&row=2&column=6&margin-w=20&margin-h=20">
-      <img alt="GitHub Trophies" src="https://github-profile-trophy.vercel.app/?username=Kiran1689&no-bg=true&no-frame=true&row=2&column=6&margin-w=20&margin-h=20">
-    </picture>
-  </a>
-</p>
-<p align="center">
-  <a href="https://github.com/daytonaio/daytona">
-    <img
-      src="https://api.vaunt.dev/v1/github/entities/Kiran1689/achievements?format=svg&limit=6"
-      width="400"
-    />
-  </a>
-</p>
-<br />
-
-<!--Github stats Table--> 
-<h2 align="center">📊 Gɪᴛʜᴜʙ Sᴛᴀᴛs 📊</h2>
-
-<table width="100%">
-  <tr>
-    <td width="50%">
-      <h3 align="center"><strong>Gɪᴛʜᴜʙ Sᴛᴀᴛs</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689">
-          <img align="center" src="https://github-readme-stats.vercel.app/api?username=Kiran1689&count_private=true&show_icons=true&theme=nightowl&bg_color=0,000000,441350&title_color=c56a90&text_color=ffffff&rank_icon=github&hide=prs,issues,contribs&show=reviews,prs_merged,prs_merged_percentage" alt="GitHub Stats" />
-        </a>
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center"><strong>Sᴛʀᴇᴀᴋ Sᴛᴀᴛs</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689">
-          <img align="center" src="https://streak-stats.demolab.com?user=Kiran1689&theme=nightowl&background=0,000000,441350&fire=ffeb95&ring=ffeb95&sideNums=ffffff&sideLabels=ffffff&dates=c56a90&currStreakNum=ffffff" alt="Streak Stats" />
-        </a>
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h3 align="center"><strong>Lᴀᴛᴇsᴛ Pʀᴏᴊᴇᴄᴛ</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689/storyblok-mcp-server">
-          <img align="center" width="470" src="https://github-readme-stats.vercel.app/api/pin/?username=Kiran1689&repo=storyblok-mcp-server&theme=nightowl&show_owner=true&bg_color=0,000000,441350&title_color=c56a90&text_color=ffffff" alt="Awesome-Dev-Portfolios" />
-        </a>
-      </p>
-    </td>
-    <td width="50%">
-      <h3 align="center"><strong>Tᴏᴘ Cᴏɴᴛʀɪʙᴜᴛɪᴏɴs</strong></h3>
-      <p align="center">
-        <a href="https://github.com/Kiran1689">
-          <img align="center" src="https://github-contributor-stats.vercel.app/api?username=Kiran1689&limit=2&theme=nightowl&show_owner=true&combine_all_yearly_contributions=false&bg_color=0,000000,441350&title_color=c56a90&text_color=ffffff" alt="Top Repo" />
-        </a>
-      </p>
-    </td>
-  </tr>
-</table>
-<br />
-
-<!--Contribution Graph-->
-<h2 align="center">📈 Cᴏɴᴛʀɪʙᴜᴛɪᴏɴ Gʀᴀᴘʜ 📈</h2>
-<div align="center">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Kiran1689&bg_color=220a28&&color=ffffff&line=c56a90&point=ffeb95&area=false&hide_border=false" border-radius="15">
-</div>
-
----
-
-<!--Dynamic Quote card updates everyday at 12 PM--> 
-<h2 align="center">🌟 Tʜᴏᴜɢʜᴛ ᴏғ ᴛʜᴇ Dᴀʏ 🌟</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--STARTS_HERE_QUOTE_CARD-->
-<p align="center">
-    <img src="https://readme-daily-quotes.vercel.app/api?author=Robert%20Greene&quote=When%20it%20comes%20to%20mastering%20a%20skill%2C%20time%20is%20the%20magic%20ingredient.&theme=dark&bg_color=220a28&author_color=ffeb95&accent_color=c56a90">
-</p>
-<!--ENDS_HERE_QUOTE_CARD-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--Contact Section--> 
-
-<h2 align="center">🤝 Cᴏɴɴᴇᴄᴛ Wɪᴛʜ Mᴇ 🤝 </h2>
-<div align="center">
-  
-<a href="mailto:kirannaragund197@gmail.com" target="_blank">
-<img src="./gmail.png" width=50 height=50 alt="kirannaragund197@gmail.com" style="margin-bottom: 5px;" />
-</a>
-
-<a href="https://x.com/kiran__a__n" target="_blank">
-<img src="./twitter.png" width=50 height=50 alt="kiran__a__n" style="margin-bottom: 5px;" />
-</a>
-
-<a href="https://www.instagram.com/kiran_a_n" target="_blank">
-<img src="./instagram.png" width=50 height=50 alt="kiran_a_n" style="margin-bottom: 5px;" />
-</a>
-
-<a href="https://www.githubcom/Kiran1689" target="_blank">
-<img src="./github.png" width=50 height=50 alt="Kiran1689" style="margin-bottom: 5px;" />
-</a>
-
-<a href="https://www.linkedin.com/in/kiran-a-n/" target="_blank">
-<img src="./linkedin.png" width=50 height=50 alt="linkedin" style="margin-bottom: 5px;" />
-</a>
-
-<a href="https://dev.to/dev_kiran" target="_blank">
-<img src="./dev_to.png" width=50 height=50 alt="dev_kiran" style="margin-bottom: 5px;" />
-</a>
-</div>
-<br/>
-
-<!--Buy me a coffee-->
-<div align="center">
-<a href="https://www.buymeacoffee.com/Kiran1689" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 200px !important;" ></a>
-</div>
-
-
-<!--Footer--> 
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=65&section=footer"/>
-</p>
+**Last Updated**: March 2025  
+**Version**: 1.0.0  
+**Developer**: MND Development Team
+
+<!-- fully responsive in all devices like mobile phone tablet pc tablet pc desktop navbar only -->
