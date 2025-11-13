@@ -544,7 +544,7 @@ function setupPageLayout(currentPage = null) {
         const footerHTML = `
         <footer class="footer">
             <div class="footer-container">
-                <div class="footer-links">
+                <!--<div class="footer-links">
                     <a href="services.html" class="footer-link">Services</a>
                     <div class="footer-divider"></div>
                     <a href="team.html" class="footer-link">Our Team</a>
@@ -552,7 +552,7 @@ function setupPageLayout(currentPage = null) {
                     <a href="privacy.html" class="footer-link">Privacy Policy</a>
                     <div class="footer-divider"></div>
                     <a href="term.html" class="footer-link">Terms of Service</a>
-                </div>
+                </div>-->
                 <div class="footer-cta">
                     <h5>© Copyright 2025 by MND. All rights reserved!</h5>
                 </div>

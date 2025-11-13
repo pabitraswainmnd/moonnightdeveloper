@@ -228,6 +228,30 @@
             color: #555;
         }
 
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .view-btn {
+            background: #f0f4ff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: #1c3974;
+        }
+
+        .view-btn.active {
+            background: #1c3974;
+            color: white;
+        }
+
         /* Slideshow Styles */
         .team-slideshow {
             position: relative;
@@ -255,6 +279,25 @@
             width: 40%;
             background-size: cover;
             background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .slide-content {
@@ -322,6 +365,7 @@
         .social-link:hover {
             background: #1c3974;
             color: white;
+            transform: translateY(-2px);
         }
 
         /* Slideshow Controls */
@@ -344,11 +388,12 @@
             border-radius: 50%;
             background-color: #ddd;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .slideshow-dot.active {
             background-color: #1c3974;
+            transform: scale(1.2);
         }
 
         .slideshow-nav {
@@ -362,14 +407,15 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .slideshow-nav:hover {
             background: #4a74c7;
+            transform: scale(1.1);
         }
 
-        /* Team Grid (fallback) */
+        /* Team Grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -383,6 +429,8 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .team-member:hover {
@@ -399,6 +447,9 @@
 
         .member-info {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .member-name {
@@ -419,6 +470,7 @@
             color: #666;
             line-height: 1.6;
             margin-bottom: 15px;
+            flex-grow: 1;
         }
 
         .member-skills {
@@ -523,6 +575,7 @@
         .cta-button:hover {
             background: #f8f9fa;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         /* Footer */
@@ -682,40 +735,7 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <div class="creator-info">
-                <div class="logo">MND</div>
-                <div>
-                    <h1 class="creator-name"><a href="index.html">MND</a></h1>
-                    <p class="supporter-count">Development</p>
-                </div>
-            </div>
-
-            <button class="menu-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="tabs">
-                <a href="index.html" class="tab">Home</a>
-                <a href="about.html" class="tab">About</a>
-                <a href="services.html" class="tab">Services</a>
-                <a href="team.html" class="tab active">Team</a>
-                <a href="project.html" class="tab">Project's</a>
-                <a href="blog.html" class="tab">Blog</a>
-                <a href="contact.html" class="tab">Contact</a>
-            </nav>
-
-            <div class="auth-buttons">
-                <a href="#" class="login-btn">Log in</a>
-                <a href="#" class="signup-btn">Sign up</a>
-            </div>
-        </div>
-    </header>
-
+   
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-box">
@@ -728,58 +748,72 @@
                     design, and digital strategy, we collaborate to bring your vision to life.</p>
             </div>
 
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <button class="view-btn active" id="slideshow-view">Slideshow View</button>
+                <button class="view-btn" id="grid-view">Grid View</button>
+            </div>
+
             <!-- Team Slideshow -->
-            <div class="team-slideshow">
+            <div class="team-slideshow" id="slideshow-container">
                 <div class="slideshow-container">
                     <!-- Slide 1 -->
                     <div class="team-slide">
-                        <div class="slide-image" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Pabitra Swain">
+                        </div>
                         <div class="slide-content">
                             <h3 class="slide-name">Pabitra Swain</h3>
                             <p class="slide-role">Lead Frontend Developer</p>
-                            <p class="slide-bio">Pabitra specializes in creating responsive and interactive user interfaces with modern JavaScript frameworks.</p>
+                            <p class="slide-bio">Pabitra specializes in creating responsive and interactive user interfaces with modern JavaScript frameworks. With over 5 years of experience, he leads our frontend development team and ensures all projects meet the highest standards of quality and performance.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">HTML/CSS</span>
                                 <span class="skill-tag">JavaScript</span>
                                 <span class="skill-tag">React</span>
                                 <span class="skill-tag">UI/UX</span>
+                                <span class="skill-tag">TypeScript</span>
                             </div>
                             <div class="slide-social">
-                                <a href="#" class="social-link">in</a>
-                                <a href="#" class="social-link">gh</a>
-                                <a href="#" class="social-link">tw</a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                                <a href="#" class="social-link" aria-label="GitHub">gh</a>
+                                <a href="#" class="social-link" aria-label="Twitter">tw</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Slide 2 -->
                     <div class="team-slide">
-                        <div class="slide-image" style="background: linear-gradient(135deg, #f093fb, #f5576c);"></div>
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Muna Badaiya">
+                        </div>
                         <div class="slide-content">
                             <h3 class="slide-name">Muna Badaiya</h3>
                             <p class="slide-role">UI/UX Designer</p>
-                            <p class="slide-bio">Muna creates intuitive and visually appealing user experiences that balance aesthetics with functionality.</p>
+                            <p class="slide-bio">Muna creates intuitive and visually appealing user experiences that balance aesthetics with functionality. Her background in psychology and design allows her to create interfaces that are both beautiful and user-friendly.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">Figma</span>
                                 <span class="skill-tag">Adobe XD</span>
                                 <span class="skill-tag">Prototyping</span>
                                 <span class="skill-tag">User Research</span>
+                                <span class="skill-tag">Wireframing</span>
                             </div>
                             <div class="slide-social">
-                                <a href="#" class="social-link">in</a>
-                                <a href="#" class="social-link">bh</a>
-                                <a href="#" class="social-link">ig</a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                                <a href="#" class="social-link" aria-label="Behance">bh</a>
+                                <a href="#" class="social-link" aria-label="Instagram">ig</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Slide 3 -->
                     <div class="team-slide">
-                        <div class="slide-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Nirmal Kumar Sahu">
+                        </div>
                         <div class="slide-content">
                             <h3 class="slide-name">Nirmal Kumar Sahu</h3>
                             <p class="slide-role">Full Stack Developer</p>
-                            <p class="slide-bio">Nirmal builds robust backend systems and APIs that power our applications with efficiency and scalability.</p>
+                            <p class="slide-bio">Nirmal builds robust backend systems and APIs that power our applications with efficiency and scalability. His expertise in both frontend and backend technologies makes him a versatile member of our team.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">Spring Boot</span>
                                 <span class="skill-tag">Python</span>
@@ -788,30 +822,33 @@
                                 <span class="skill-tag">Microservice</span>
                             </div>
                             <div class="slide-social">
-                                <a href="#" class="social-link">in</a>
-                                <a href="#" class="social-link">gh</a>
-                                <a href="#" class="social-link">tw</a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                                <a href="#" class="social-link" aria-label="GitHub">gh</a>
+                                <a href="#" class="social-link" aria-label="Twitter">tw</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Slide 4 -->
                     <div class="team-slide">
-                        <div class="slide-image" style="background: linear-gradient(135deg, #43e97b, #38f9d7);"></div>
+                        <div class="slide-image">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="M. Satish Kumar">
+                        </div>
                         <div class="slide-content">
                             <h3 class="slide-name">M. Satish Kumar</h3>
                             <p class="slide-role">Full Stack Developer</p>
-                            <p class="slide-bio">Satish specializes in cloud infrastructure and full-stack development, ensuring our applications are scalable and secure.</p>
+                            <p class="slide-bio">Satish specializes in cloud infrastructure and full-stack development, ensuring our applications are scalable and secure. He has extensive experience in deploying applications to various cloud platforms.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">Node.js</span>
                                 <span class="skill-tag">Python</span>
                                 <span class="skill-tag">MongoDB</span>
                                 <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Docker</span>
                             </div>
                             <div class="slide-social">
-                                <a href="#" class="social-link">in</a>
-                                <a href="#" class="social-link">gh</a>
-                                <a href="#" class="social-link">tw</a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                                <a href="#" class="social-link" aria-label="GitHub">gh</a>
+                                <a href="#" class="social-link" aria-label="Twitter">tw</a>
                             </div>
                         </div>
                     </div>
@@ -825,6 +862,11 @@
                     </div>
                     <button class="slideshow-nav" id="next-slide">❯</button>
                 </div>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="team-grid" id="team-grid" style="display: none;">
+                <!-- Team members will be populated by JavaScript -->
             </div>
 
             <!-- Our Values Section -->
@@ -872,24 +914,6 @@
             </div>
         </div>
     </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-links">
-                <a href="services.html" class="footer-link">Services</a>
-                <div class="footer-divider"></div>
-                <a href="team.html" class="footer-link">Our Team</a>
-                <div class="footer-divider"></div>
-                <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                <div class="footer-divider"></div>
-                <a href="term.html" class="footer-link">Terms of Service</a>
-            </div>
-            <div class="footer-cta">
-                <h5>© Copyright 2025 by MND. All rights reserved!</h5>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Mobile menu toggle functionality
@@ -1042,6 +1066,90 @@
                     resetInterval();
                 }
             }
+
+            // View Toggle Functionality
+            const slideshowViewBtn = document.getElementById('slideshow-view');
+            const gridViewBtn = document.getElementById('grid-view');
+            const slideshowView = document.getElementById('slideshow-container');
+            const gridView = document.getElementById('team-grid');
+
+            // Populate team grid
+            function populateTeamGrid() {
+                const teamMembers = [
+                    {
+                        name: "Pabitra Swain",
+                        role: "Lead Frontend Developer",
+                        bio: "Pabitra specializes in creating responsive and interactive user interfaces with modern JavaScript frameworks. With over 5 years of experience, he leads our frontend development team.",
+                        skills: ["HTML/CSS", "JavaScript", "React", "UI/UX", "TypeScript"],
+                        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                    },
+                    {
+                        name: "Muna Badaiya",
+                        role: "UI/UX Designer",
+                        bio: "Muna creates intuitive and visually appealing user experiences that balance aesthetics with functionality. Her background in psychology and design allows her to create interfaces that are both beautiful and user-friendly.",
+                        skills: ["Figma", "Adobe XD", "Prototyping", "User Research", "Wireframing"],
+                        image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                    },
+                    {
+                        name: "Nirmal Kumar Sahu",
+                        role: "Full Stack Developer",
+                        bio: "Nirmal builds robust backend systems and APIs that power our applications with efficiency and scalability. His expertise in both frontend and backend technologies makes him a versatile member of our team.",
+                        skills: ["Spring Boot", "Python", "MongoDB", "API Design", "Microservice"],
+                        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+                    },
+                    {
+                        name: "M. Satish Kumar",
+                        role: "Full Stack Developer",
+                        bio: "Satish specializes in cloud infrastructure and full-stack development, ensuring our applications are scalable and secure. He has extensive experience in deploying applications to various cloud platforms.",
+                        skills: ["Node.js", "Python", "MongoDB", "AWS", "Docker"],
+                        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                    }
+                ];
+
+                gridView.innerHTML = '';
+
+                teamMembers.forEach(member => {
+                    const memberElement = document.createElement('div');
+                    memberElement.className = 'team-member';
+                    
+                    memberElement.innerHTML = `
+                        <img src="${member.image}" alt="${member.name}" class="member-image">
+                        <div class="member-info">
+                            <h3 class="member-name">${member.name}</h3>
+                            <p class="member-role">${member.role}</p>
+                            <p class="member-bio">${member.bio}</p>
+                            <div class="member-skills">
+                                ${member.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                            </div>
+                            <div class="member-social">
+                                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                                <a href="#" class="social-link" aria-label="GitHub">gh</a>
+                                <a href="#" class="social-link" aria-label="Twitter">tw</a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    gridView.appendChild(memberElement);
+                });
+            }
+
+            // Initialize team grid
+            populateTeamGrid();
+
+            // View toggle functionality
+            slideshowViewBtn.addEventListener('click', () => {
+                slideshowView.style.display = 'block';
+                gridView.style.display = 'none';
+                slideshowViewBtn.classList.add('active');
+                gridViewBtn.classList.remove('active');
+            });
+
+            gridViewBtn.addEventListener('click', () => {
+                slideshowView.style.display = 'none';
+                gridView.style.display = 'grid';
+                gridViewBtn.classList.add('active');
+                slideshowViewBtn.classList.remove('active');
+            });
         });
     </script>
 </body>
