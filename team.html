@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team - MND</title>
+    <title>MND - Our Team</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -18,6 +18,9 @@
             line-height: 1.6;
             color: #1C1B1F;
             background-color: #fef2f2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Header Styles */
@@ -26,7 +29,7 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 20;
+            z-index: 1000;
             padding: 12px 0;
         }
 
@@ -86,6 +89,7 @@
             text-decoration: none;
             position: relative;
             transition: color 0.2s;
+            white-space: nowrap;
         }
 
         .tab:hover {
@@ -145,11 +149,47 @@
             background-color: #4a74c7;
         }
 
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #1c3974;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Menu toggle animation */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
         /* Main Content */
         .main-content {
             max-width: 1500px;
             margin: 0 auto;
             padding: 40px 16px;
+            flex: 1;
         }
 
         .content-box {
@@ -412,6 +452,7 @@
             border-radius: 12px;
             text-align: center;
             transition: transform 0.3s;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
         }
 
         .value-card:hover {
@@ -529,20 +570,69 @@
         }
 
         /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .tabs {
+                gap: 15px;
+            }
+            
+            .tab {
+                font-size: 13px;
+                padding: 6px;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-container {
-                flex-direction: column;
+                flex-wrap: wrap;
                 gap: 16px;
             }
 
+            .creator-info {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
             .tabs {
-                order: 3;
+                display: none;
+                flex-direction: column;
                 width: 100%;
-                justify-content: center;
+                background: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 16px 0;
+                gap: 0;
+                z-index: 30;
+            }
+
+            .tabs.active {
+                display: flex;
+            }
+
+            .tab {
+                padding: 12px 20px;
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .tab:last-child {
+                border-bottom: none;
+            }
+
+            .tab.active::after {
+                display: none;
+            }
+
+            .tab.active {
+                background-color: #f0f4ff;
             }
 
             .auth-buttons {
-                order: 2;
+                display: none;
             }
 
             .content-box {
@@ -592,6 +682,40 @@
 </head>
 
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="creator-info">
+                <div class="logo">MND</div>
+                <div>
+                    <h1 class="creator-name"><a href="index.html">MND</a></h1>
+                    <p class="supporter-count">Development</p>
+                </div>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="tabs">
+                <a href="index.html" class="tab">Home</a>
+                <a href="about.html" class="tab">About</a>
+                <a href="services.html" class="tab">Services</a>
+                <a href="team.html" class="tab active">Team</a>
+                <a href="project.html" class="tab">Project's</a>
+                <a href="blog.html" class="tab">Blog</a>
+                <a href="contact.html" class="tab">Contact</a>
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="#" class="login-btn">Log in</a>
+                <a href="#" class="signup-btn">Sign up</a>
+            </div>
+        </div>
+    </header>
+
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-box">
@@ -744,14 +868,69 @@
                 <h2 class="cta-title">Ready to Work With Us?</h2>
                 <p class="cta-description">Let's collaborate on your next project. Our team is ready to bring your ideas
                     to life with creative solutions and technical expertise.</p>
-                <a href=" contact.html" class="cta-button">Get In Touch</a>
+                <a href="contact.html" class="cta-button">Get In Touch</a>
             </div>
         </div>
     </main>
-<script src="./assets/main.js"></script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="services.html" class="footer-link">Services</a>
+                <div class="footer-divider"></div>
+                <a href="team.html" class="footer-link">Our Team</a>
+                <div class="footer-divider"></div>
+                <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                <div class="footer-divider"></div>
+                <a href="term.html" class="footer-link">Terms of Service</a>
+            </div>
+            <div class="footer-cta">
+                <h5>© Copyright 2025 by MND. All rights reserved!</h5>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Team Slideshow Functionality
+        // Mobile menu toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const tabs = document.querySelector('.tabs');
+
+            if (menuToggle && tabs) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    tabs.classList.toggle('active');
+                    menuToggle.classList.toggle('active');
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.header-container')) {
+                        tabs.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+
+                // Close mobile menu when clicking on a tab
+                document.querySelectorAll('.tab').forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        tabs.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    });
+                });
+            }
+
+            // Handle login/signup buttons
+            document.querySelectorAll('.login-btn, .signup-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const isLogin = this.classList.contains('login-btn');
+                    alert(`This would open the ${isLogin ? 'login' : 'signup'} modal`);
+                });
+            });
+
+            // Team Slideshow Functionality
             const slideshowContainer = document.querySelector('.slideshow-container');
             const slides = document.querySelectorAll('.team-slide');
             const prevBtn = document.getElementById('prev-slide');
@@ -866,5 +1045,4 @@
         });
     </script>
 </body>
-
 </html>
