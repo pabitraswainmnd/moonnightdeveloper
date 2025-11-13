@@ -17,22 +17,10 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1C1B1F;
-            background-color: #ffffff;
+            background-color: #fef2f2;
             overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* Main content area */
-        .main-content {
-            flex: 1;
-            padding: 20px;
-            max-width: 1500px;
-            margin: 0 auto;
-            width: 100%;
-            overflow: visible;
-        }
 
         /* Hero Section */
         .hero {
@@ -44,7 +32,6 @@
             position: relative;
             overflow: hidden;
             padding: 20px;
-            margin-top: 0;
         }
 
         /* Animated background elements */
@@ -108,7 +95,10 @@
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: white;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: slideUp 1s ease-out;
         }
 
@@ -315,13 +305,15 @@
         }
 
         .content-box {
-            background-color: rgba(255, 255, 255, 0);
+            background-color: white;
             border-radius: 12px;
-            padding: 40px 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 40px;
             margin-bottom: 60px;
             position: relative;
             overflow: hidden;
         }
+
 
         .section-title {
             font-size: 32px;
@@ -719,7 +711,7 @@
         .cta-title {
             color: #ccd6f6;
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-weight: 700;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             animation: slideInDown 1s ease-out;
@@ -968,6 +960,51 @@
             transform: translateY(2px);
         }
 
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-link {
+            color: #1C1B1F;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #1c3974;
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background-color: #e5e5e5;
+        }
+
+        .footer-cta {
+            text-align: center;
+        }
+
         /* Back to top button */
         .back-to-top {
             position: fixed;
@@ -1001,12 +1038,38 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .tabs {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .tabs.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 18px;
             }
 
             .hero-buttons {
@@ -1015,7 +1078,7 @@
             }
 
             .content-box {
-                padding: 20px 15px;
+                padding: 24px 16px;
             }
 
             .section-title {
@@ -1031,6 +1094,15 @@
             .stats-section {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                gap: 12px;
+            }
+
+            .footer-divider {
+                display: none;
             }
 
             .cta-title {
@@ -1049,22 +1121,11 @@
             .code-line {
                 font-size: 12px;
             }
-
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
+                font-size: 28px;
             }
 
             .cta-section {
@@ -1075,14 +1136,13 @@
                 font-size: 1.8rem;
             }
 
-            .stats-section {
-                grid-template-columns: 1fr;
+            .footer-links {
+                flex-direction: row;
+                gap: 12px;
             }
 
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
+            .footer-divider {
+                display: none;
             }
         }
 
@@ -1132,7 +1192,7 @@
                 elevate your online presence.</p>
             <div class="hero-buttons">
                 <a href="services.html" class="btn-primary">Our Services</a>
-                <a href="contact.html" class="btn-secondary">Get In Touch</a>
+                <a href="Contact.html" class="btn-secondary">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -1159,7 +1219,7 @@
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="./img/pageimg/Website Maintenance.webp" alt="Website Maintenance">
+                        <img src="./img/pageimg/Website Maintenance.webp" alt="E-commerce Solutions">
                     </div>
                     <div class="service-info">
                         <h3 class="service-name">Website Maintenance</h3>
@@ -1212,6 +1272,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <!-- Projects Section -->
         <div class="content-box">
@@ -1309,6 +1371,7 @@
                     </div>
                 </div>
 
+
                 <div class="testimonial-card">
                     <p class="testimonial-text">"The team at MND is incredibly talented and professional. They
                         transformed our outdated website into a modern, responsive platform that perfectly represents
@@ -1345,9 +1408,11 @@
             <!-- CTA Content -->
             <h2 class="cta-title">Ready to Transform Your Online Presence?</h2>
             <p class="cta-description">Let's discuss your project and create something amazing together.</p>
-            <a href="contact.html" class="cta-btn">Start Your Project</a>
+            <a href="Contact.html" class="cta-btn">Start Your Project</a>
         </div>
     </main>
+
+
 
     <!-- Back to top button -->
     <div class="back-to-top">
@@ -1357,99 +1422,44 @@
         </svg>
     </div>
     <script src="./assets/main.js"></script>
-    <!-- Use a simplified version of main.js without aggressive zoom prevention -->
     <script>
-        // Simplified navbar functionality without zoom prevention
-        document.addEventListener('DOMContentLoaded', function() {
-            // Basic navbar setup
-            const navbarHTML = `
-                <header class="header" style="background-color: white; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); position: sticky; top: 0; z-index: 20; padding: 12px 0;">
-                    <div class="header-container" style="max-width: 1200px; margin: 0 auto; padding: 0 16px; display: flex; align-items: center; justify-content: space-between;">
-                        <div class="creator-info" style="display: flex; align-items: center; gap: 16px;">
-                            <div class="logo" style="width: 50px; height: 50px; border-radius: 8px; background: linear-gradient(135deg, #1c3974, #4a74c7); display: flex; align-items: center; justify-content: center; font-weight: 800; color: white; font-size: 18px;">MND</div>
-                            <div>
-                                <h1 class="creator-name" style="font-size: 20px; font-weight: 700;"><a href="index.html" style="color: inherit; text-decoration: none;">MND</a></h1>
-                                <p class="supporter-count" style="font-size: 14px; color: #717171;">Development</p>
-                            </div>
-                        </div>
-
-                        <button class="menu-toggle" aria-label="Toggle navigation" style="display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; background: transparent; border: none; cursor: pointer; padding: 0;">
-                            <span style="display: block; height: 3px; width: 100%; background-color: #1c3974; border-radius: 3px; transition: all 0.3s ease;"></span>
-                            <span style="display: block; height: 3px; width: 100%; background-color: #1c3974; border-radius: 3px; transition: all 0.3s ease;"></span>
-                            <span style="display: block; height: 3px; width: 100%; background-color: #1c3974; border-radius: 3px; transition: all 0.3s ease;"></span>
-                        </button>
-
-                        <nav class="tabs" style="display: flex; gap: 20px;">
-                            <a href="index.html" class="tab active" style="font-size: 14px; font-weight: 500; padding: 8px; color: #1C1B1F; text-decoration: none; position: relative; transition: color 0.2s; white-space: nowrap;">Home</a>
-                            <a href="about.html" class="tab" style="font-size: 14px; font-weight: 500; padding: 8px; color: #1C1B1F; text-decoration: none; position: relative; transition: color 0.2s; white-space: nowrap;">About</a>
-                            <a href="services.html" class="tab" style="font-size: 14px; font-weight: 500; padding: 8px; color: #1C1B1F; text-decoration: none; position: relative; transition: color 0.2s; white-space: nowrap;">Services</a>
-                            <a href="team.html" class="tab" style="font-size: 14px; font-weight: 500; padding: 8px; color: #1C1B1F; text-decoration: none; position: relative; transition: color 0.2s; white-space: nowrap;">Team</a>
-                            <a href="project.html" class="tab" style="font-size: 14px; font-weight: 500; padding: 8px; color: #1C1B1F; text-decoration: none; position: relative; transition: color 0.2s; white-space: nowrap;">Project</a>
-                            <a href="blog.html" class="tab" style="font-size: 14px; font-weight: 500; padding: 8px; color: #1C1B1F; text-decoration: none; position: relative; transition: color 0.2s; white-space: nowrap;">Blog</a>
-                            <a href="contact.html" class="tab" style="font-size: 14px; font-weight: 500; padding: 8px; color: #1C1B1F; text-decoration: none; position: relative; transition: color 0.2s; white-space: nowrap;">Contact</a>
-                        </nav>
-
-                        <div class="auth-buttons" style="display: flex; align-items: center; gap: 16px;">
-                            <a href="#" class="login-btn" style="font-size: 14px; color: #1C1B1F; text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s; padding: 8px 16px; border-radius: 4px;">Log in</a>
-                            <a href="#" class="signup-btn" style="font-size: 14px; background-color: #1c3974; color: white; text-decoration: none; padding: 8px 16px; border-radius: 4px; transition: background-color 0.2s;">Sign up</a>
-                        </div>
-                    </div>
-                </header>
-            `;
-            
-            // Add navbar to the top of the body
-            document.body.insertAdjacentHTML('afterbegin', navbarHTML);
-            
-            // Add footer
-            const footerHTML = `
-                <footer class="footer" style="background-color: #1c3974; color: white; padding: 40px 0 20px; margin-top: auto;">
-                    <div class="footer-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
-                        <div class="footer-links" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">
-                            <a href="services.html" class="footer-link" style="color: white; text-decoration: none; font-size: 12px; transition: opacity 0.2s;">Services</a>
-                            <div class="footer-divider" style="width: 1px; height: 16px; background-color: rgba(255, 255, 255, 0.3);"></div>
-                            <a href="team.html" class="footer-link" style="color: white; text-decoration: none; font-size: 12px; transition: opacity 0.2s;">Our Team</a>
-                            <div class="footer-divider" style="width: 1px; height: 16px; background-color: rgba(255, 255, 255, 0.3);"></div>
-                            <a href="privacy.html" class="footer-link" style="color: white; text-decoration: none; font-size: 12px; transition: opacity 0.2s;">Privacy Policy</a>
-                            <div class="footer-divider" style="width: 1px; height: 16px; background-color: rgba(255, 255, 255, 0.3);"></div>
-                            <a href="term.html" class="footer-link" style="color: white; text-decoration: none; font-size: 12px; transition: opacity 0.2s;">Terms of Service</a>
-                        </div>
-                        <div class="footer-cta">
-                            <h5 style="font-size: 12px; font-weight: 400; opacity: 0.8;">© Copyright 2025 by MND. All rights reserved!</h5>
-                        </div>
-                    </div>
-                </footer>
-            `;
-            
-            document.body.insertAdjacentHTML('beforeend', footerHTML);
-            
-            // Basic mobile menu functionality
-            const menuToggle = document.querySelector('.menu-toggle');
-            const tabs = document.querySelector('.tabs');
-            
-            if (menuToggle && tabs) {
-                // Show menu toggle on mobile
-                if (window.innerWidth <= 768) {
-                    menuToggle.style.display = 'flex';
-                    tabs.style.display = 'none';
-                    
-                    menuToggle.addEventListener('click', function() {
-                        tabs.style.display = tabs.style.display === 'flex' ? 'none' : 'flex';
-                    });
+        document.addEventListener('DOMContentLoaded', function () {
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
                 }
-                
-                // Update display on resize
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth <= 768) {
-                        menuToggle.style.display = 'flex';
-                        tabs.style.display = 'none';
-                    } else {
-                        menuToggle.style.display = 'none';
-                        tabs.style.display = 'flex';
-                    }
+            });
+
+            // Support widget functionality
+            const coffeeOptions = document.querySelectorAll('.coffee-option');
+            const supportButton = document.getElementById('supportButton');
+            let selectedAmount = 3;
+
+            // Coffee option selection
+            coffeeOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    // Remove active class from all options
+                    coffeeOptions.forEach(opt => opt.classList.remove('active'));
+
+                    // Add active class to clicked option
+                    this.classList.add('active');
+
+                    // Update selected amount and button text
+                    selectedAmount = parseInt(this.dataset.amount);
+                    supportButton.textContent = `Support $${selectedAmount}`;
                 });
-            }
-            
-            // Page functionality
+            });
+
+            // Support button click handler
+            supportButton.addEventListener('click', function () {
+                alert(`Thank you for your support of $${selectedAmount}! This would redirect to payment processing in a real implementation.`);
+            });
+
+            // Back to top button
             const backToTopBtn = document.querySelector('.back-to-top');
 
             window.addEventListener('scroll', function () {
@@ -1490,6 +1500,8 @@
                 observer.observe(card);
             });
         });
+
+
     </script>
 </body>
 
