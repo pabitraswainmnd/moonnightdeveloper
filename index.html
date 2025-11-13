@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, minimum-scale=1.0, user-scalable=yes">
     <title>MND - Web Development & Design</title>
     <style>
         /* Reset and Base Styles */
@@ -13,15 +13,25 @@
             box-sizing: border-box;
         }
 
-        /* body {
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1C1B1F;
-            padding: 10px 0px 10px 0px;
             background-color: #ffffff;
             overflow-x: hidden;
-        } */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            max-width: 1500px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
         /* Hero Section */
         .hero {
@@ -33,6 +43,7 @@
             position: relative;
             overflow: hidden;
             padding: 20px;
+            margin-top: 0;
         }
 
         /* Animated background elements */
@@ -96,10 +107,7 @@
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            /* background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%); */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
             animation: slideUp 1s ease-out;
         }
 
@@ -305,16 +313,14 @@
             }
         }
 
-        /* .content-box {
+        .content-box {
             background-color: rgba(255, 255, 255, 0);
             border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 40px;
+            padding: 40px 20px;
             margin-bottom: 60px;
             position: relative;
             overflow: hidden;
-        } */
-
+        }
 
         .section-title {
             font-size: 32px;
@@ -641,7 +647,7 @@
             background: linear-gradient(122deg, #3b56f3, #120b52);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            padding: 60px 40px 0px 0px;
+            padding: 60px 40px;
             text-align: center;
             width: 100%;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
@@ -961,51 +967,6 @@
             transform: translateY(2px);
         }
 
-        /* Footer */
-        .footer {
-            background-color: white;
-            padding: 40px 0;
-            margin-top: 40px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .footer-link {
-            color: #1C1B1F;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .footer-link:hover {
-            color: #1c3974;
-            text-decoration: underline;
-        }
-
-        .footer-divider {
-            width: 1px;
-            height: 16px;
-            background-color: #e5e5e5;
-        }
-
-        .footer-cta {
-            text-align: center;
-        }
-
         /* Back to top button */
         .back-to-top {
             position: fixed;
@@ -1039,38 +1000,12 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .tabs {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: 99;
-            }
-
-            .tabs.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
             .hero-title {
-                font-size: 36px;
+                font-size: 2.5rem;
             }
 
             .hero-subtitle {
-                font-size: 18px;
+                font-size: 1.1rem;
             }
 
             .hero-buttons {
@@ -1079,7 +1014,7 @@
             }
 
             .content-box {
-                padding: 24px 16px;
+                padding: 20px 15px;
             }
 
             .section-title {
@@ -1095,15 +1030,6 @@
             .stats-section {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 20px;
-            }
-
-            .footer-links {
-                flex-direction: row;
-                gap: 12px;
-            }
-
-            .footer-divider {
-                display: none;
             }
 
             .cta-title {
@@ -1122,11 +1048,22 @@
             .code-line {
                 font-size: 12px;
             }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 28px;
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
             }
 
             .cta-section {
@@ -1137,13 +1074,14 @@
                 font-size: 1.8rem;
             }
 
-            .footer-links {
-                flex-direction: row;
-                gap: 12px;
+            .stats-section {
+                grid-template-columns: 1fr;
             }
 
-            .footer-divider {
-                display: none;
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
 
@@ -1193,7 +1131,7 @@
                 elevate your online presence.</p>
             <div class="hero-buttons">
                 <a href="services.html" class="btn-primary">Our Services</a>
-                <a href="Contact.html" class="btn-secondary">Get In Touch</a>
+                <a href="contact.html" class="btn-secondary">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -1220,7 +1158,7 @@
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="./img/pageimg/Website Maintenance.webp" alt="E-commerce Solutions">
+                        <img src="./img/pageimg/Website Maintenance.webp" alt="Website Maintenance">
                     </div>
                     <div class="service-info">
                         <h3 class="service-name">Website Maintenance</h3>
@@ -1273,8 +1211,6 @@
                 </div>
             </div>
         </div>
-
-
 
         <!-- Projects Section -->
         <div class="content-box">
@@ -1372,7 +1308,6 @@
                     </div>
                 </div>
 
-
                 <div class="testimonial-card">
                     <p class="testimonial-text">"The team at MND is incredibly talented and professional. They
                         transformed our outdated website into a modern, responsive platform that perfectly represents
@@ -1409,11 +1344,9 @@
             <!-- CTA Content -->
             <h2 class="cta-title">Ready to Transform Your Online Presence?</h2>
             <p class="cta-description">Let's discuss your project and create something amazing together.</p>
-            <a href="Contact.html" class="cta-btn">Start Your Project</a>
+            <a href="contact.html" class="cta-btn">Start Your Project</a>
         </div>
     </main>
-
-
 
     <!-- Back to top button -->
     <div class="back-to-top">
@@ -1425,84 +1358,77 @@
     <script src="./assets/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Header scroll effect
-            const header = document.querySelector('.header');
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+            // Wait for main.js to initialize navbar
+            setTimeout(function() {
+                // Support widget functionality
+                const coffeeOptions = document.querySelectorAll('.coffee-option');
+                const supportButton = document.getElementById('supportButton');
+                let selectedAmount = 3;
+
+                // Coffee option selection
+                if (coffeeOptions.length > 0) {
+                    coffeeOptions.forEach(option => {
+                        option.addEventListener('click', function () {
+                            // Remove active class from all options
+                            coffeeOptions.forEach(opt => opt.classList.remove('active'));
+
+                            // Add active class to clicked option
+                            this.classList.add('active');
+
+                            // Update selected amount and button text
+                            selectedAmount = parseInt(this.dataset.amount);
+                            supportButton.textContent = `Support $${selectedAmount}`;
+                        });
+                    });
+
+                    // Support button click handler
+                    supportButton.addEventListener('click', function () {
+                        alert(`Thank you for your support of $${selectedAmount}! This would redirect to payment processing in a real implementation.`);
+                    });
                 }
-            });
 
-            // Support widget functionality
-            const coffeeOptions = document.querySelectorAll('.coffee-option');
-            const supportButton = document.getElementById('supportButton');
-            let selectedAmount = 3;
+                // Back to top button
+                const backToTopBtn = document.querySelector('.back-to-top');
 
-            // Coffee option selection
-            coffeeOptions.forEach(option => {
-                option.addEventListener('click', function () {
-                    // Remove active class from all options
-                    coffeeOptions.forEach(opt => opt.classList.remove('active'));
-
-                    // Add active class to clicked option
-                    this.classList.add('active');
-
-                    // Update selected amount and button text
-                    selectedAmount = parseInt(this.dataset.amount);
-                    supportButton.textContent = `Support $${selectedAmount}`;
-                });
-            });
-
-            // Support button click handler
-            supportButton.addEventListener('click', function () {
-                alert(`Thank you for your support of $${selectedAmount}! This would redirect to payment processing in a real implementation.`);
-            });
-
-            // Back to top button
-            const backToTopBtn = document.querySelector('.back-to-top');
-
-            window.addEventListener('scroll', function () {
-                if (window.scrollY > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-
-            backToTopBtn.addEventListener('click', function () {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Add subtle animations to cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
                     }
                 });
-            }, observerOptions);
 
-            // Observe service cards, project cards, and testimonial cards
-            document.querySelectorAll('.service-card, .project-card, .testimonial-card, .stat-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(card);
-            });
+                backToTopBtn.addEventListener('click', function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Add subtle animations to cards on scroll
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe service cards, project cards, and testimonial cards
+                document.querySelectorAll('.service-card, .project-card, .testimonial-card, .stat-card').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(card);
+                });
+            }, 100);
         });
-
-
     </script>
 </body>
 
