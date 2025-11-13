@@ -27,13 +27,6 @@ body {
     max-width: 1500px;
     margin: 0 auto;
     width: 100%;
-    animation: fadeIn 0.5s ease-in;
-}
-
-/* Loading animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Blog specific styles */
@@ -43,12 +36,6 @@ body {
     padding: 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.blog-container:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .blog-title {
@@ -76,12 +63,6 @@ body {
     top: 0;
     z-index: 20;
     padding: 12px 0;
-    transition: all 0.3s ease;
-}
-
-.header.scrolled {
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
-    padding: 8px 0;
 }
 
 .header-container {
@@ -110,12 +91,6 @@ body {
     font-weight: 800;
     color: white;
     font-size: 18px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.logo:hover {
-    transform: scale(1.05);
 }
 
 .creator-name {
@@ -126,11 +101,6 @@ body {
 .creator-name a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.creator-name a:hover {
-    color: #1c3974;
 }
 
 .supporter-count {
@@ -152,18 +122,14 @@ body {
     position: relative;
     transition: color 0.2s;
     white-space: nowrap;
-    border-radius: 4px;
-    transition: all 0.3s ease;
 }
 
 .tab:hover {
     color: #1c3974;
-    background-color: rgba(28, 57, 116, 0.05);
 }
 
 .tab.active {
     color: #1c3974;
-    font-weight: 600;
 }
 
 .tab.active::after {
@@ -174,7 +140,6 @@ body {
     width: 100%;
     height: 2px;
     background-color: #1c3974;
-    border-radius: 2px;
 }
 
 .header-actions {
@@ -209,12 +174,11 @@ body {
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 4px;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s;
 }
 
 .signup-btn:hover {
     background-color: #4a74c7;
-    transform: translateY(-1px);
 }
 
 /* Footer Styles */
@@ -245,14 +209,11 @@ body {
     color: white;
     text-decoration: none;
     font-size: 12px;
-    transition: all 0.3s ease;
-    padding: 5px 10px;
-    border-radius: 3px;
+    transition: opacity 0.2s;
 }
 
 .footer-link:hover {
     opacity: 0.8;
-    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer-divider {
@@ -278,11 +239,6 @@ body {
     border: none;
     cursor: pointer;
     padding: 0;
-    transition: transform 0.3s ease;
-}
-
-.menu-toggle:hover {
-    transform: scale(1.1);
 }
 
 .menu-toggle span {
@@ -305,131 +261,6 @@ body {
 
 .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Back to Top Button */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: #1c3974;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background: #4a74c7;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Loading Spinner */
-.loading-spinner {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.loading-spinner.active {
-    display: flex;
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #1c3974;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Toast Notifications */
-.toast {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #1c3974;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1001;
-    transform: translateX(400px);
-    transition: transform 0.3s ease;
-    max-width: 300px;
-}
-
-.toast.show {
-    transform: translateX(0);
-}
-
-.toast.success {
-    background: #10b981;
-}
-
-.toast.error {
-    background: #ef4444;
-}
-
-.toast.warning {
-    background: #f59e0b;
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #0f172a;
-        color: #e2e8f0;
-    }
-    
-    .blog-container {
-        background: #1e293b;
-        color: #e2e8f0;
-    }
-    
-    .header {
-        background-color: #1e293b;
-        border-bottom: 1px solid #334155;
-    }
-    
-    .tab {
-        color: #e2e8f0;
-    }
-    
-    .tab:hover {
-        color: #60a5fa;
-    }
 }
 
 /* Responsive Styles */
@@ -473,7 +304,6 @@ body {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 16px 0;
         gap: 0;
-        border-radius: 0 0 8px 8px;
     }
 
     .tabs.active {
@@ -523,13 +353,6 @@ body {
     .footer-divider {
         display: none;
     }
-    
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -545,18 +368,15 @@ body {
 }
 `;
 
-// Enhanced page detection with URL parameters support
+// Function to detect current page
 function getCurrentPage() {
     const path = window.location.pathname;
     const page = path.split('/').pop() || 'index.html';
-    const urlParams = new URLSearchParams(window.location.search);
-    const pageParam = urlParams.get('page');
 
     // Map file names to page keys
     const pageMap = {
         'index.html': 'home',
         'index': 'home',
-        '': 'home',
         'about.html': 'about',
         'about': 'about',
         'services.html': 'services',
@@ -571,11 +391,12 @@ function getCurrentPage() {
         'contact': 'contact'
     };
 
-    return pageParam || pageMap[page] || 'home';
+    return pageMap[page] || 'home';
 }
 
-// Enhanced Navbar HTML Structure
+// Navbar HTML Structure
 function createNavbarHTML(currentPage = null) {
+    // If no current page provided, detect it automatically
     if (!currentPage) {
         currentPage = getCurrentPage();
     }
@@ -600,7 +421,7 @@ function createNavbarHTML(currentPage = null) {
     <header class="header">
         <div class="header-container">
             <div class="creator-info">
-                <div class="logo" onclick="window.location.href='index.html'">MND</div>
+                <div class="logo">MND</div>
                 <div>
                     <h1 class="creator-name"><a href="index.html">MND</a></h1>
                     <p class="supporter-count">Development</p>
@@ -626,48 +447,7 @@ function createNavbarHTML(currentPage = null) {
     `;
 }
 
-// Toast notification system
-function showToast(message, type = 'info', duration = 3000) {
-    const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
-    toast.textContent = message;
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-        toast.classList.add('show');
-    }, 100);
-
-    setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => {
-            document.body.removeChild(toast);
-        }, 300);
-    }, duration);
-}
-
-// Loading spinner management
-function showLoading() {
-    let spinner = document.querySelector('.loading-spinner');
-    if (!spinner) {
-        spinner = document.createElement('div');
-        spinner.className = 'loading-spinner';
-        spinner.innerHTML = `
-            <div class="spinner"></div>
-            <p style="margin-top: 15px; color: #1c3974;">Loading...</p>
-        `;
-        document.body.appendChild(spinner);
-    }
-    spinner.classList.add('active');
-}
-
-function hideLoading() {
-    const spinner = document.querySelector('.loading-spinner');
-    if (spinner) {
-        spinner.classList.remove('active');
-    }
-}
-
-// Enhanced Navbar Functionality
+// Navbar Functionality
 function initializeNavbar() {
     // Add styles to document
     const styleSheet = document.createElement('style');
@@ -702,66 +482,20 @@ function initializeNavbar() {
         });
     }
 
-    // Enhanced login/signup buttons with loading states
+    // Handle login/signup buttons
     document.querySelectorAll('.login-btn, .signup-btn').forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
             const isLogin = this.classList.contains('login-btn');
-            
-            showLoading();
-            setTimeout(() => {
-                hideLoading();
-                showToast(
-                    `${isLogin ? 'Login' : 'Signup'} functionality coming soon!`, 
-                    'info', 
-                    2000
-                );
-            }, 1000);
+            alert(`This would open the ${isLogin ? 'login' : 'signup'} modal`);
         });
     });
 
     // Update active tab based on current page
     updateActiveTab();
-
-    // Add scroll effect to header
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Initialize back to top button
-    initializeBackToTop();
 }
 
-// Back to top functionality
-function initializeBackToTop() {
-    const backToTop = document.createElement('button');
-    backToTop.className = 'back-to-top';
-    backToTop.innerHTML = '↑';
-    backToTop.setAttribute('aria-label', 'Back to top');
-    document.body.appendChild(backToTop);
-
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-    });
-}
-
-// Enhanced Function to update active tab
+// Function to update active tab
 function updateActiveTab() {
     const currentPage = getCurrentPage();
     const tabs = document.querySelectorAll('.tab');
@@ -778,75 +512,61 @@ function updateActiveTab() {
     });
 }
 
-// Enhanced layout setup with performance improvements
+// Complete layout setup
 function setupPageLayout(currentPage = null) {
-    // Show loading spinner during setup
-    showLoading();
+    // Check if navbar already exists
+    if (!document.querySelector('.header')) {
+        // Add navbar
+        const navbarHTML = createNavbarHTML(currentPage);
+        document.body.insertAdjacentHTML('afterbegin', navbarHTML);
+    }
 
-    setTimeout(() => {
-        // Check if navbar already exists
-        if (!document.querySelector('.header')) {
-            // Add navbar
-            const navbarHTML = createNavbarHTML(currentPage);
-            document.body.insertAdjacentHTML('afterbegin', navbarHTML);
-        }
+    // Create main content area if it doesn't exist
+    if (!document.querySelector('.main-content')) {
+        const mainContent = document.createElement('main');
+        mainContent.className = 'main-content';
 
-        // Create main content area if it doesn't exist
-        if (!document.querySelector('.main-content')) {
-            const mainContent = document.createElement('main');
-            mainContent.className = 'main-content';
+        // Move existing body content into main content area
+        const bodyChildren = Array.from(document.body.children);
+        bodyChildren.forEach(child => {
+            if (!child.classList.contains('header') && !child.classList.contains('footer')) {
+                mainContent.appendChild(child);
+            }
+        });
+        document.body.appendChild(mainContent);
+    }
 
-            // Move existing body content into main content area
-            const bodyChildren = Array.from(document.body.children);
-            bodyChildren.forEach(child => {
-                if (!child.classList.contains('header') && !child.classList.contains('footer')) {
-                    mainContent.appendChild(child);
-                }
-            });
-            document.body.appendChild(mainContent);
-        }
-
-        // Add footer if it doesn't exist
-        if (!document.querySelector('.footer')) {
-            const footerHTML = `
-            <footer class="footer">
-                <div class="footer-container">
-                    <div class="footer-links">
-                        <a href="services.html" class="footer-link">Services</a>
-                        <div class="footer-divider"></div>
-                        <a href="team.html" class="footer-link">Our Team</a>
-                        <div class="footer-divider"></div>
-                        <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                        <div class="footer-divider"></div>
-                        <a href="term.html" class="footer-link">Terms of Service</a>
-                    </div>
-                    <div class="footer-cta">
-                        <h5>© Copyright ${new Date().getFullYear()} by MND. All rights reserved!</h5>
-                    </div>
+    // Add footer if it doesn't exist
+    if (!document.querySelector('.footer')) {
+        const footerHTML = `
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-links">
+                    <a href="services.html" class="footer-link">Services</a>
+                    <div class="footer-divider"></div>
+                    <a href="team.html" class="footer-link">Our Team</a>
+                    <div class="footer-divider"></div>
+                    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                    <div class="footer-divider"></div>
+                    <a href="term.html" class="footer-link">Terms of Service</a>
                 </div>
-            </footer>
-            `;
-            document.body.insertAdjacentHTML('beforeend', footerHTML);
-        }
+                <div class="footer-cta">
+                    <h5>© Copyright 2025 by MND. All rights reserved!</h5>
+                </div>
+            </div>
+        </footer>
+        `;
+        document.body.insertAdjacentHTML('beforeend', footerHTML);
+    }
 
-        // Initialize functionality
-        initializeNavbar();
-        
-        // Hide loading spinner
-        hideLoading();
-        
-        // Show welcome message
-        setTimeout(() => {
-            showToast('Welcome to MND Development!', 'success', 2000);
-        }, 500);
-    }, 500);
+    // Initialize functionality
+    initializeNavbar();
 }
 
-// Enhanced Security Features
+// Security Features - Modified to be less intrusive
 document.addEventListener('contextmenu', (e) => {
     // Allow right-click but prevent default
     e.preventDefault();
-    showToast('Right-click is disabled for security', 'warning', 2000);
 });
 
 function ctrlShiftKey(e, keyCode) {
@@ -862,12 +582,11 @@ document.onkeydown = (e) => {
         ctrlShiftKey(e, 'C') ||
         (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
     ) {
-        showToast('This action is not allowed', 'error', 2000);
         return false;
     }
 };
 
-// Enhanced Zoom prevention functionality
+// Zoom prevention functionality
 class NoZoom {
     constructor() {
         this.init();
@@ -900,7 +619,6 @@ class NoZoom {
             const now = (new Date()).getTime();
             if (now - lastTouchEnd <= 300) {
                 event.preventDefault();
-                showToast('Zoom is disabled', 'info', 1000);
             }
             lastTouchEnd = now;
         }, false);
@@ -945,7 +663,90 @@ function preventZoomEverywhere() {
     document.head.appendChild(antiZoomStyle);
 }
 
-// Enhanced Blog content setup
+// Mobile-specific zoom prevention
+function enableMobileZoomPrevention() {
+    // Disable elastic scrolling (can sometimes cause zoom issues)
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    // Force no zoom on load
+    setTimeout(() => {
+        document.body.style.zoom = "1";
+        document.documentElement.style.zoom = "1";
+    }, 100);
+
+    // Prevent pull-to-refresh (can cause zoom)
+    document.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // iOS specific fixes
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        enableIOSZoomPrevention();
+    }
+}
+
+// iOS-specific zoom prevention
+function enableIOSZoomPrevention() {
+    // iOS specific viewport fix
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.setAttribute('content',
+            'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover'
+        );
+    }
+
+    // Prevent iOS text size adjustment
+    document.addEventListener('touchstart', (e) => {
+        if (e.touches.length > 1) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Disable iOS double-tap to zoom
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastTouchEnd <= 500) {
+            e.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, { passive: false });
+}
+
+// Nuclear option - completely disable any scaling
+function nuclearNoZoom() {
+    // Disable any transform scaling
+    const style = document.createElement('style');
+    style.textContent = `
+        * {
+            transform: none !important;
+            scale: none !important;
+            zoom: 1 !important;
+        }
+
+        body {
+            zoom: 1 !important;
+            -webkit-text-size-adjust: 100% !important;
+            -moz-text-size-adjust: 100% !important;
+            -ms-text-size-adjust: 100% !important;
+            text-size-adjust: 100% !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Continuously reset zoom
+    setInterval(() => {
+        document.body.style.zoom = "1";
+        if (window.visualViewport) {
+            window.visualViewport.scale = 1;
+        }
+    }, 500);
+}
+
+// Blog content setup (if needed)
 function setupBlogContent() {
     const blogContainer = document.querySelector('.blog-container');
     if (blogContainer && !blogContainer.innerHTML.trim()) {
@@ -954,25 +755,12 @@ function setupBlogContent() {
             <div class="blog-content">
                 <p>This is where blog content would appear.</p>
                 <p>You can add your blog posts, articles, and other content here.</p>
-                <p>Check back soon for updates!</p>
             </div>
         `;
     }
 }
 
-// Performance monitoring
-function monitorPerformance() {
-    window.addEventListener('load', () => {
-        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-        console.log(`Page loaded in ${loadTime}ms`);
-        
-        if (loadTime > 3000) {
-            showToast('Loading complete!', 'success', 2000);
-        }
-    });
-}
-
-// Enhanced Main initialization
+// Main initialization
 document.addEventListener('DOMContentLoaded', function () {
     // Setup page layout with navbar and footer
     setupPageLayout();
@@ -989,16 +777,15 @@ document.addEventListener('DOMContentLoaded', function () {
         enableMobileZoomPrevention();
     }
 
-    // Initialize performance monitoring
-    monitorPerformance();
+    // Apply nuclear option for maximum prevention (optional)
+    // nuclearNoZoom();
 
     // Debug: Log current page for verification
     console.log('MND Web Development - Page loaded successfully');
     console.log('Current page detected:', getCurrentPage());
-    console.log('User Agent:', navigator.userAgent);
 });
 
-// Enhanced fallback for older browsers
+// Fallback for older browsers
 window.onload = function () {
     // Final viewport enforcement
     const viewport = document.querySelector('meta[name="viewport"]');
@@ -1008,32 +795,11 @@ window.onload = function () {
 
     // Force initial scale
     document.body.style.zoom = "1";
-    
-    // Remove loading spinner if still present
-    hideLoading();
 };
 
-// Export enhanced functions for global access
+// Export functions for global access (if needed)
 window.MND = {
     getCurrentPage,
     setupPageLayout,
-    initializeNavbar,
-    showToast,
-    showLoading,
-    hideLoading
+    initializeNavbar
 };
-
-// Add error handling for better user experience
-window.addEventListener('error', function(e) {
-    console.error('Error occurred:', e.error);
-    showToast('An error occurred. Please refresh the page.', 'error', 4000);
-});
-
-// Add offline detection
-window.addEventListener('offline', function() {
-    showToast('You are currently offline', 'warning', 5000);
-});
-
-window.addEventListener('online', function() {
-    showToast('Connection restored', 'success', 3000);
-});
