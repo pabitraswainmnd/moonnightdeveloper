@@ -4,14 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MND - Services</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+    <title>Services - MND</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -26,6 +19,8 @@
             color: #1C1B1F;
             background-color: #fef2f2;
         }
+
+
 
         .content-box {
             background-color: white;
@@ -82,6 +77,13 @@
             font-size: 18px;
             line-height: 1.7;
             color: #555;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .service-card {
@@ -206,6 +208,13 @@
             margin-top: 60px;
         }
 
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
         .process-step {
             text-align: center;
             padding: 30px 20px;
@@ -215,7 +224,6 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            height: 100%;
         }
 
         .process-step::before {
@@ -496,6 +504,13 @@
             margin-top: 60px;
         }
 
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
         .testimonial-card {
             background: white;
             border-radius: 12px;
@@ -503,7 +518,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             border-left: 4px solid #1c3974;
             transition: transform 0.3s ease;
-            height: 100%;
         }
 
         .testimonial-card:hover {
@@ -562,6 +576,11 @@
         /* FAQ Section */
         .faq-section {
             margin-top: 60px;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 40px auto 0;
         }
 
         .faq-item {
@@ -692,12 +711,50 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .tabs {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .tabs.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
             .content-box {
                 padding: 24px 16px;
             }
 
             .page-title {
                 font-size: 28px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
             }
 
             .service-pricing {
@@ -745,354 +802,320 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Services Page Content -->
-        <div class="container py-5">
-            <div class="content-box" id="services-content">
-                <h1 class="page-title">Our Services</h1>
-                <p class="page-subtitle">Comprehensive web development solutions tailored to your business needs</p>
+        <div class="content-box" id="services-content">
+            <h1 class="page-title">Our Services</h1>
+            <p class="page-subtitle">Comprehensive web development solutions tailored to your business needs</p>
 
-                <div class="services-intro">
-                    <p>At MND Development, we offer a full range of web development services to help businesses establish
-                        and grow their online presence. From custom website development to e-commerce solutions, we've got
-                        you covered. Our team of experienced developers and designers work closely with you to deliver
-                        solutions that drive results.</p>
-                </div>
+            <div class="services-intro">
+                <p>At MND Development, we offer a full range of web development services to help businesses establish
+                    and grow their online presence. From custom website development to e-commerce solutions, we've got
+                    you covered. Our team of experienced developers and designers work closely with you to deliver
+                    solutions that drive results.</p>
+            </div>
 
-                <!-- Services Grid -->
-                <div class="row g-4">
-                    <!-- Service 1 -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <img src="./img/pageimg/Custom Website Development.webp" alt="Custom Website Development">
-                            </div>
-                            <div class="service-info">
-                                <h3 class="service-name">Custom Website Development</h3>
-                                <p class="service-description">Fully customized websites built from scratch to match your brand
-                                    identity and business requirements.</p>
-                                <ul class="service-features">
-                                    <li>Responsive Design</li>
-                                    <li>SEO Optimization</li>
-                                    <li>Fast Loading Speed</li>
-                                    <li>Cross-browser Compatibility</li>
-                                    <li>Content Management System</li>
-                                </ul>
-                                <div class="service-pricing">
-                                    <div class="price">$1,500+</div>
-                                    <button class="service-button">Get Quote</button>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/Custom Website Development.webp" alt="Custom Website Development">
                     </div>
-
-                    <!-- Service 2 -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <img src="./img/pageimg/E-commerce Solutions.webp" alt="E-commerce Solutions">
-                            </div>
-                            <div class="service-info">
-                                <h3 class="service-name">E-commerce Solutions</h3>
-                                <p class="service-description">Complete online store setup with payment integration, inventory
-                                    management, and secure checkout.</p>
-                                <ul class="service-features">
-                                    <li>Payment Gateway Integration</li>
-                                    <li>Product Management</li>
-                                    <li>Order Tracking</li>
-                                    <li>Security & SSL</li>
-                                    <li>Mobile Shopping Optimization</li>
-                                </ul>
-                                <div class="service-pricing">
-                                    <div class="price">$2,500+</div>
-                                    <button class="service-button">Get Quote</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <img src="./img/pageimg/Web Application Development.png" alt="Web Application Development">
-                            </div>
-                            <div class="service-info">
-                                <h3 class="service-name">Web Application Development</h3>
-                                <p class="service-description">Dynamic web applications with advanced functionality, user
-                                    authentication, and database integration.</p>
-                                <ul class="service-features">
-                                    <li>User Authentication</li>
-                                    <li>Database Integration</li>
-                                    <li>API Development</li>
-                                    <li>Real-time Features</li>
-                                    <li>Scalable Architecture</li>
-                                </ul>
-                                <div class="service-pricing">
-                                    <div class="price">$3,500+</div>
-                                    <button class="service-button">Get Quote</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <img src="./img/pageimg/UIUX Design2.avif" alt="UI/UX Design">
-                            </div>
-                            <div class="service-info">
-                                <h3 class="service-name">UI/UX Design</h3>
-                                <p class="service-description">User-centered design that creates intuitive, engaging experiences
-                                    for your website visitors.</p>
-                                <ul class="service-features">
-                                    <li>Wireframing & Prototyping</li>
-                                    <li>User Research</li>
-                                    <li>Visual Design</li>
-                                    <li>Usability Testing</li>
-                                    <li>Design System Creation</li>
-                                </ul>
-                                <div class="service-pricing">
-                                    <div class="price">$1,200+</div>
-                                    <button class="service-button">Get Quote</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 5 -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <img src="./img/pageimg/Website Maintenance.webp" alt="Website Maintenance">
-                            </div>
-                            <div class="service-info">
-                                <h3 class="service-name">Website Maintenance</h3>
-                                <p class="service-description">Ongoing support and maintenance to keep your website secure,
-                                    updated, and performing optimally.</p>
-                                <ul class="service-features">
-                                    <li>Security Updates</li>
-                                    <li>Performance Optimization</li>
-                                    <li>Content Updates</li>
-                                    <li>Backup & Recovery</li>
-                                    <li>24/7 Monitoring</li>
-                                </ul>
-                                <div class="service-pricing">
-                                    <div class="price">$99/month</div>
-                                    <button class="service-button">Get Started</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <img src="./img/projectimg06.jpg" alt="Website Templates">
-                            </div>
-                            <div class="service-info">
-                                <h3 class="service-name">Website Templates</h3>
-                                <p class="service-description">Premium, customizable website templates for various industries
-                                    and use cases.</p>
-                                <ul class="service-features">
-                                    <li>Fully Responsive</li>
-                                    <li>Easy Customization</li>
-                                    <li>Modern Design</li>
-                                    <li>Documentation Included</li>
-                                    <li>Lifetime Updates</li>
-                                </ul>
-                                <div class="service-pricing">
-                                    <div class="price">$25-$150</div>
-                                    <button class="service-button">Browse Templates</button>
-                                </div>
-                            </div>
+                    <div class="service-info">
+                        <h3 class="service-name">Custom Website Development</h3>
+                        <p class="service-description">Fully customized websites built from scratch to match your brand
+                            identity and business requirements.</p>
+                        <ul class="service-features">
+                            <li>Responsive Design</li>
+                            <li>SEO Optimization</li>
+                            <li>Fast Loading Speed</li>
+                            <li>Cross-browser Compatibility</li>
+                            <li>Content Management System</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price">$1,500+</div>
+                            <button class="service-button">Get Quote</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Process Section -->
-                <div class="process-section">
-                    <h2 class="page-title">Our Process</h2>
-                    <p class="page-subtitle">How we work with clients to deliver exceptional results</p>
-
-                    <div class="row g-4 mt-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">1</div>
-                                <h3 class="step-title">Discovery</h3>
-                                <p class="step-description">We start by understanding your business, goals, and requirements
-                                    through detailed discussions.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">2</div>
-                                <h3 class="step-title">Planning</h3>
-                                <p class="step-description">We create a detailed project plan with timelines, milestones, and
-                                    deliverables.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">3</div>
-                                <h3 class="step-title">Design</h3>
-                                <p class="step-description">Our designers create mockups and prototypes for your review and
-                                    feedback.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">4</div>
-                                <h3 class="step-title">Development</h3>
-                                <p class="step-description">We build your website or application using the latest technologies
-                                    and best practices.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">5</div>
-                                <h3 class="step-title">Testing</h3>
-                                <p class="step-description">Rigorous testing ensures everything works perfectly across all
-                                    devices and browsers.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="process-step">
-                                <div class="step-number">6</div>
-                                <h3 class="step-title">Launch</h3>
-                                <p class="step-description">We deploy your project and provide training and ongoing support as
-                                    needed.</p>
-                            </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/E-commerce Solutions.webp" alt="E-commerce Solutions">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">E-commerce Solutions</h3>
+                        <p class="service-description">Complete online store setup with payment integration, inventory
+                            management, and secure checkout.</p>
+                        <ul class="service-features">
+                            <li>Payment Gateway Integration</li>
+                            <li>Product Management</li>
+                            <li>Order Tracking</li>
+                            <li>Security & SSL</li>
+                            <li>Mobile Shopping Optimization</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price">$2,500+</div>
+                            <button class="service-button">Get Quote</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Testimonials Section -->
-                <div class="testimonials-section">
-                    <h2 class="page-title">Client Testimonials</h2>
-                    <p class="page-subtitle">What our clients say about working with us</p>
-
-                    <div class="row g-4 mt-4">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="testimonial-card">
-                                <p class="testimonial-text">"MND Development transformed our online presence with a stunning
-                                    website that perfectly captures our brand. The team was professional, responsive, and
-                                    delivered beyond our expectations."</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">JS</div>
-                                    <div class="author-info">
-                                        <h4>John Smith</h4>
-                                        <p>CEO, TechSolutions Inc.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="testimonial-card">
-                                <p class="testimonial-text">"The e-commerce solution MND built for us has significantly
-                                    increased our online sales. Their attention to detail and understanding of our business
-                                    needs was impressive."</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">SJ</div>
-                                    <div class="author-info">
-                                        <h4>Sarah Johnson</h4>
-                                        <p>Owner, Boutique Fashion</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="testimonial-card">
-                                <p class="testimonial-text">"Working with MND was a game-changer for our startup. They delivered
-                                    a robust web application that has scaled beautifully as we've grown."</p>
-                                <div class="testimonial-author">
-                                    <div class="author-avatar">MD</div>
-                                    <div class="author-info">
-                                        <h4>Michael Davis</h4>
-                                        <p>Founder, InnovateTech</p>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/Web Application Development.png" alt="Web Application Development">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">Web Application Development</h3>
+                        <p class="service-description">Dynamic web applications with advanced functionality, user
+                            authentication, and database integration.</p>
+                        <ul class="service-features">
+                            <li>User Authentication</li>
+                            <li>Database Integration</li>
+                            <li>API Development</li>
+                            <li>Real-time Features</li>
+                            <li>Scalable Architecture</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price">$3,500+</div>
+                            <button class="service-button">Get Quote</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- FAQ Section -->
-                <div class="faq-section">
-                    <h2 class="page-title">Frequently Asked Questions</h2>
-                    <p class="page-subtitle">Common questions about our services and process</p>
-
-                    <div class="row justify-content-center mt-4">
-                        <div class="col-lg-8">
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    How long does a typical website project take?
-                                    <span class="faq-toggle">+</span>
-                                </div>
-                                <div class="faq-answer">
-                                    The timeline varies based on project complexity. A simple brochure website typically takes
-                                    2-4 weeks, while e-commerce sites or web applications can take 6-12 weeks. We provide a
-                                    detailed timeline during the planning phase.
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    Do you offer ongoing support after launch?
-                                    <span class="faq-toggle">+</span>
-                                </div>
-                                <div class="faq-answer">
-                                    Yes, we offer various maintenance plans to keep your website secure, updated, and performing
-                                    optimally. Our plans include security updates, performance optimization, content updates,
-                                    and 24/7 monitoring.
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    Can you work with our existing design or branding?
-                                    <span class="faq-toggle">+</span>
-                                </div>
-                                <div class="faq-answer">
-                                    Absolutely! We can work with your existing brand guidelines, designs, or style guides to
-                                    ensure consistency across your digital presence. If needed, we can also help refine or
-                                    enhance your existing branding.
-                                </div>
-                            </div>
-
-                            <div class="faq-item">
-                                <div class="faq-question">
-                                    What technologies do you work with?
-                                    <span class="faq-toggle">+</span>
-                                </div>
-                                <div class="faq-answer">
-                                    We work with a wide range of technologies including HTML5, CSS3, JavaScript, React, Vue.js,
-                                    Node.js, PHP, WordPress, and various databases. We choose the best technology stack for each
-                                    project based on its specific requirements.
-                                </div>
-                            </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/UIUX Design2.avif" alt="UI/UX Design">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">UI/UX Design</h3>
+                        <p class="service-description">User-centered design that creates intuitive, engaging experiences
+                            for your website visitors.</p>
+                        <ul class="service-features">
+                            <li>Wireframing & Prototyping</li>
+                            <li>User Research</li>
+                            <li>Visual Design</li>
+                            <li>Usability Testing</li>
+                            <li>Design System Creation</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price">$1,200+</div>
+                            <button class="service-button">Get Quote</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- CTA Section -->
-                <div class="cta-section mt-5">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-
-                    <h2 class="cta-title">Ready to Start Your Project?</h2>
-                    <p class="cta-description">Get in touch with us today to discuss your project requirements and receive a
-                        custom quote.</p>
-                    <a href="Contact.html" class="cta-button">Get Started</a>
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/Website Maintenance.webp" alt="Website Maintenance">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">Website Maintenance</h3>
+                        <p class="service-description">Ongoing support and maintenance to keep your website secure,
+                            updated, and performing optimally.</p>
+                        <ul class="service-features">
+                            <li>Security Updates</li>
+                            <li>Performance Optimization</li>
+                            <li>Content Updates</li>
+                            <li>Backup & Recovery</li>
+                            <li>24/7 Monitoring</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price">$99/month</div>
+                            <button class="service-button">Get Started</button>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/projectimg06.jpg" alt="Website Templates">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">Website Templates</h3>
+                        <p class="service-description">Premium, customizable website templates for various industries
+                            and use cases.</p>
+                        <ul class="service-features">
+                            <li>Fully Responsive</li>
+                            <li>Easy Customization</li>
+                            <li>Modern Design</li>
+                            <li>Documentation Included</li>
+                            <li>Lifetime Updates</li>
+                        </ul>
+                        <div class="service-pricing">
+                            <div class="price">$25-$150</div>
+                            <button class="service-button">Browse Templates</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div class="process-section">
+                <h2 class="page-title">Our Process</h2>
+                <p class="page-subtitle">How we work with clients to deliver exceptional results</p>
+
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Discovery</h3>
+                        <p class="step-description">We start by understanding your business, goals, and requirements
+                            through detailed discussions.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Planning</h3>
+                        <p class="step-description">We create a detailed project plan with timelines, milestones, and
+                            deliverables.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Design</h3>
+                        <p class="step-description">Our designers create mockups and prototypes for your review and
+                            feedback.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Development</h3>
+                        <p class="step-description">We build your website or application using the latest technologies
+                            and best practices.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">Testing</h3>
+                        <p class="step-description">Rigorous testing ensures everything works perfectly across all
+                            devices and browsers.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <h3 class="step-title">Launch</h3>
+                        <p class="step-description">We deploy your project and provide training and ongoing support as
+                            needed.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="testimonials-section">
+                <h2 class="page-title">Client Testimonials</h2>
+                <p class="page-subtitle">What our clients say about working with us</p>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"MND Development transformed our online presence with a stunning
+                            website that perfectly captures our brand. The team was professional, responsive, and
+                            delivered beyond our expectations."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-info">
+                                <h4>John Smith</h4>
+                                <p>CEO, TechSolutions Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The e-commerce solution MND built for us has significantly
+                            increased our online sales. Their attention to detail and understanding of our business
+                            needs was impressive."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SJ</div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Owner, Boutique Fashion</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Working with MND was a game-changer for our startup. They delivered
+                            a robust web application that has scaled beautifully as we've grown."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MD</div>
+                            <div class="author-info">
+                                <h4>Michael Davis</h4>
+                                <p>Founder, InnovateTech</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 class="page-title">Frequently Asked Questions</h2>
+                <p class="page-subtitle">Common questions about our services and process</p>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long does a typical website project take?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            The timeline varies based on project complexity. A simple brochure website typically takes
+                            2-4 weeks, while e-commerce sites or web applications can take 6-12 weeks. We provide a
+                            detailed timeline during the planning phase.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do you offer ongoing support after launch?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, we offer various maintenance plans to keep your website secure, updated, and performing
+                            optimally. Our plans include security updates, performance optimization, content updates,
+                            and 24/7 monitoring.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can you work with our existing design or branding?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Absolutely! We can work with your existing brand guidelines, designs, or style guides to
+                            ensure consistency across your digital presence. If needed, we can also help refine or
+                            enhance your existing branding.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What technologies do you work with?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            We work with a wide range of technologies including HTML5, CSS3, JavaScript, React, Vue.js,
+                            Node.js, PHP, WordPress, and various databases. We choose the best technology stack for each
+                            project based on its specific requirements.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+
+                <h2 class="cta-title">Ready to Start Your Project?</h2>
+                <p class="cta-description">Get in touch with us today to discuss your project requirements and receive a
+                    custom quote.</p>
+                <a href="Contact.html" class="cta-button">Get Started</a>
             </div>
         </div>
     </main>
@@ -1104,12 +1127,21 @@
                 stroke-linejoin="round" />
         </svg>
     </div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+
+
             // Service button click handlers
             document.querySelectorAll('.service-button').forEach(button => {
                 button.addEventListener('click', function () {
@@ -1154,6 +1186,7 @@
                 });
             });
         });
+
     </script>
 </body>
 

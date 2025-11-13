@@ -4,11 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MND - Home</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <title>MND - Web Development & Design</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -17,36 +13,14 @@
             box-sizing: border-box;
         }
 
-        /* body {
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #ffffff;
+            color: #1C1B1F;
             background-color: #fef2f2;
             overflow-x: hidden;
-        } */
-
-        /* Bootstrap Custom Overrides */
-        .btn-primary {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
-            border: none !important;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
         }
 
-        .btn-outline-primary {
-            border-color: #475569 !important;
-            color: #cbd5e1 !important;
-        }
-
-        .btn-outline-primary:hover {
-            background: rgba(255, 255, 255, 0.05) !important;
-            border-color: #6366f1 !important;
-            color: #fff !important;
-        }
-
-        .card {
-            border: none !important;
-            transition: all 0.3s ease;
-        }
 
         /* Hero Section */
         .hero {
@@ -145,8 +119,8 @@
             animation: slideUp 1s ease-out 0.4s both;
         }
 
-        .btn-custom-primary,
-        .btn-custom-secondary {
+        .btn-primary,
+        .btn-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -158,28 +132,26 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border: none;
         }
 
-        .btn-custom-primary {
+        .btn-primary {
             background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
         }
 
-        .btn-custom-primary:hover {
+        .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
-            color: white;
         }
 
-        .btn-custom-secondary {
+        .btn-secondary {
             background: transparent;
             color: #cbd5e1;
             border: 2px solid #475569;
         }
 
-        .btn-custom-secondary:hover {
+        .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.05);
             border-color: #6366f1;
             color: #fff;
@@ -187,7 +159,7 @@
         }
 
         /* Button pulse animation */
-        .btn-custom-primary::after {
+        .btn-primary::after {
             content: '';
             position: absolute;
             top: 0;
@@ -336,7 +308,7 @@
             background-color: white;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 0 10vh 0 10vh;
+            padding: 40px;
             margin-bottom: 60px;
             position: relative;
             overflow: hidden;
@@ -375,10 +347,15 @@
             margin-right: auto;
         }
 
-        /* Enhanced Cards with Bootstrap */
-        .service-card,
-        .project-card,
-        .testimonial-card {
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
@@ -386,12 +363,9 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
-            height: 100%;
         }
 
-        .service-card:hover,
-        .project-card:hover,
-        .testimonial-card:hover {
+        .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
@@ -450,6 +424,28 @@
         .service-link:hover {
             color: #4a74c7;
             gap: 12px;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+           box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
         .project-image {
@@ -535,19 +531,26 @@
         }
 
         /* Stats Section */
-        .stats-section .stat-card {
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
             text-align: center;
             padding: 30px 20px;
             background: #f8f9fa;
             border-radius: 12px;
             transition: transform 0.3s;
             box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.766) 0px 0px 0px 1px;
-            height: 100%;
         }
 
-        .stats-section .stat-card:hover {
+        .stat-card:hover {
             transform: translateY(-5px);
         }
+
 
         .stat-number {
             font-size: 36px;
@@ -563,12 +566,18 @@
         }
 
         /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
         .testimonial-card {
             background: #f8f9fa;
             padding: 30px;
             border-radius: 12px;
             position: relative;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
             transition: transform 0.3s ease;
         }
 
@@ -742,7 +751,6 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
             letter-spacing: 1.5px;
-            color: #64ffda;
         }
 
         .cta-btn:active {
@@ -952,6 +960,51 @@
             transform: translateY(2px);
         }
 
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-link {
+            color: #1C1B1F;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #1c3974;
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background-color: #e5e5e5;
+        }
+
+        .footer-cta {
+            text-align: center;
+        }
+
         /* Back to top button */
         .back-to-top {
             position: fixed;
@@ -971,7 +1024,6 @@
             transition: all 0.3s ease;
             z-index: 99;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            border: none;
         }
 
         .back-to-top.visible {
@@ -986,6 +1038,32 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .tabs {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 99;
+            }
+
+            .tabs.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
             .hero-title {
                 font-size: 36px;
             }
@@ -1005,6 +1083,26 @@
 
             .section-title {
                 font-size: 28px;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                gap: 12px;
+            }
+
+            .footer-divider {
+                display: none;
             }
 
             .cta-title {
@@ -1037,7 +1135,13 @@
             .cta-title {
                 font-size: 1.8rem;
             }
-            .auth-buttons{
+
+            .footer-links {
+                flex-direction: row;
+                gap: 12px;
+            }
+
+            .footer-divider {
                 display: none;
             }
         }
@@ -1046,11 +1150,22 @@
             body {
                 font-size: 16px;
             }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (min-width: 1025px) {
             body {
                 font-size: 18px;
+            }
+        }
+
+        /* Specific example for tablets in landscape orientation */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .stats-section {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
     </style>
@@ -1076,8 +1191,8 @@
             <p class="hero-subtitle">We create stunning, responsive websites and web applications that drive results and
                 elevate your online presence.</p>
             <div class="hero-buttons">
-                <a href="services.html" class="btn-custom-primary">Our Services</a>
-                <a href="Contact.html" class="btn-custom-secondary">Get In Touch</a>
+                <a href="services.html" class="btn-primary">Our Services</a>
+                <a href="Contact.html" class="btn-secondary">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -1089,214 +1204,183 @@
             <h2 class="section-title">Our Services</h2>
             <p class="section-subtitle">Comprehensive web development solutions tailored to your business needs</p>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="./img/pageimg/Custom Website Development.webp" alt="Custom Website Development" class="img-fluid">
-                        </div>
-                        <div class="service-info">
-                            <h3 class="service-name">Custom Website Development</h3>
-                            <p class="service-description">Fully customized websites built from scratch to match your brand
-                                identity and business requirements.</p>
-                            <a href="services.html" class="service-link">Learn more <i class="bi bi-arrow-right"></i></a>
-                        </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/Custom Website Development.webp" alt="Custom Website Development">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">Custom Website Development</h3>
+                        <p class="service-description">Fully customized websites built from scratch to match your brand
+                            identity and business requirements.</p>
+                        <a href="services.html" class="service-link">Learn more →</a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="./img/pageimg/Website Maintenance.webp" alt="Website Maintenance" class="img-fluid">
-                        </div>
-                        <div class="service-info">
-                            <h3 class="service-name">Website Maintenance</h3>
-                            <p class="service-description">Complete online store setup with payment integration, inventory
-                                management, and secure checkout.</p>
-                            <a href="services.html" class="service-link">Learn more <i class="bi bi-arrow-right"></i></a>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/Website Maintenance.webp" alt="E-commerce Solutions">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">Website Maintenance</h3>
+                        <p class="service-description">Complete online store setup with payment integration, inventory
+                            management, and secure checkout.</p>
+                        <a href="services.html" class="service-link">Learn more →</a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="./img/pageimg/E-commerce Solutions.webp" alt="E-commerce Solutions" class="img-fluid">
-                        </div>
-                        <div class="service-info">
-                            <h3 class="service-name">E-commerce Solutions</h3>
-                            <p class="service-description">Complete online store setup with payment integration, inventory
-                                management, and secure checkout.</p>
-                            <a href="services.html" class="service-link">Learn more <i class="bi bi-arrow-right"></i></a>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/E-commerce Solutions.webp" alt="E-commerce Solutions">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">E-commerce Solutions</h3>
+                        <p class="service-description">Complete online store setup with payment integration, inventory
+                            management, and secure checkout.</p>
+                        <a href="services.html" class="service-link">Learn more →</a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <img src="./img/pageimg/Web Application Development.png" alt="Web Application Development" class="img-fluid">
-                        </div>
-                        <div class="service-info">
-                            <h3 class="service-name">Web Application Development</h3>
-                            <p class="service-description">Dynamic web applications with advanced functionality, user
-                                authentication, and database integration.</p>
-                            <a href="services.html" class="service-link">Learn more <i class="bi bi-arrow-right"></i></a>
-                        </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <img src="./img/pageimg/Web Application Development.png" alt="Web Application Development">
+                    </div>
+                    <div class="service-info">
+                        <h3 class="service-name">Web Application Development</h3>
+                        <p class="service-description">Dynamic web applications with advanced functionality, user
+                            authentication, and database integration.</p>
+                        <a href="services.html" class="service-link">Learn more →</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Stats Section with Bootstrap Grid -->
-            <div class="row stats-section g-4 mt-5">
-                <div class="col-md-6 col-lg-3 p-3">
-                    <div class="stat-card">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projects Completed</div>
                 </div>
-                <div class="col-md-6 col-lg-3 p-3">
-                    <div class="stat-card">
-                        <div class="stat-number">4+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-                <div class="col-md-6 col-lg-3 p-3">
-                    <div class="stat-card">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Client Satisfaction</div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
                 </div>
-                <div class="col-md-6 col-lg-3 p-3">
-                    <div class="stat-card">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Team Members</div>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Team Members</div>
                 </div>
             </div>
         </div>
+
+
 
         <!-- Projects Section -->
         <div class="content-box">
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">A showcase of our recent work and successful client projects</p>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="./img/projectimg07.png" alt="Personal Portfolio Website" class="img-fluid">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./img/projectimg07.png" alt="Personal Portfolio Website">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">Responsive</span>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Personal Portfolio Website</h3>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Bootstrap</span>
-                                <span class="tech-tag">Responsive</span>
-                            </div>
-                            <a href="project.html" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
-                        </div>
+                        <a href="project.html" class="project-link">View Project →</a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="./img/E-commerce Website2.jpg" alt="E-commerce Store" class="img-fluid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./img/E-commerce Website2.jpg" alt="E-commerce Store">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Fashion E-commerce Store</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Fashion E-commerce Store</h3>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                            </div>
-                            <a href="project.html" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
-                        </div>
+                        <a href="project.html" class="project-link">View Project →</a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="./img/projectimg14.JPG" alt="Digital Learning" class="img-fluid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./img/projectimg14.JPG" alt="Digital Learning">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Digital Learning is Online</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Digital Learning is Online</h3>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML/CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Bootstrap</span>
-                            </div>
-                            <a href="project.html" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
-                        </div>
+                        <a href="project.html" class="project-link">View Project →</a>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="./img/Tours & Travel Website.jpg" alt="Travel Booking Platform" class="img-fluid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./img/Tours & Travel Website.jpg" alt="Travel Booking Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Travel Booking Platform</h3>
+                        <div class="project-tech">
+                             <span class="tech-tag">HTML/CSS/SASS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Bootstrap</span>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Travel Booking Platform</h3>
-                            <div class="project-tech">
-                                <span class="tech-tag">HTML/CSS/SASS</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">Bootstrap</span>
-                            </div>
-                            <a href="project.html" class="project-link">View Project <i class="bi bi-arrow-right"></i></a>
-                        </div>
+                        <a href="project.html" class="project-link">View Project →</a>
                     </div>
                 </div>
             </div>
-
-            <!-- Testimonials Section -->
-            <h2 class="section-title mt-5">What Our Clients Say</h2>
+            <h2 class="section-title">What Our Clients Say</h2>
             <p class="section-subtitle">Hear from businesses that have transformed their online presence with MND</p>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4 p-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"MND Development delivered exactly what we needed - a beautiful,
-                            functional website that has significantly increased our online conversions. Their attention to
-                            detail and communication throughout the project was exceptional."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">SJ</div>
-                            <div class="author-info">
-                                <h4>Sarah Johnson</h4>
-                                <p>CEO, Wellness Studio</p>
-                            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"MND Development delivered exactly what we needed - a beautiful,
+                        functional website that has significantly increased our online conversions. Their attention to
+                        detail and communication throughout the project was exceptional."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO, Wellness Studio</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 p-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Working with MND was a game-changer for our business. They understood
-                            our vision and created an e-commerce platform that's both user-friendly and powerful. Our sales
-                            have increased by 40% since launch."</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">MC</div>
-                            <div class="author-info">
-                                <h4>Michael Chen</h4>
-                                <p>Founder, Fashion Brand</p>
-                            </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Working with MND was a game-changer for our business. They understood
+                        our vision and created an e-commerce platform that's both user-friendly and powerful. Our sales
+                        have increased by 40% since launch."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MC</div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Founder, Fashion Brand</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 p-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"The team at MND is incredibly talented and professional. They
-                            transformed our outdated website into a modern, responsive platform that perfectly represents
-                            our brand. Highly recommended!"</p>
-                        <div class="testimonial-author">
-                            <div class="author-avatar">AR</div>
-                            <div class="author-info">
-                                <h4>Alex Rodriguez</h4>
-                                <p>Marketing Director, Tech Company</p>
-                            </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The team at MND is incredibly talented and professional. They
+                        transformed our outdated website into a modern, responsive platform that perfectly represents
+                        our brand. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AR</div>
+                        <div class="author-info">
+                            <h4>Alex Rodriguez</h4>
+                            <p>Marketing Director, Tech Company</p>
                         </div>
                     </div>
                 </div>
@@ -1328,42 +1412,52 @@
         </div>
     </main>
 
-    <!-- Back to top button -->
-    <button class="back-to-top">
-        <i class="bi bi-chevron-up"></i>
-    </button>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Back to top button -->
+    <div class="back-to-top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14L12 9L17 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </div>
     <script src="./assets/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
             // Support widget functionality
             const coffeeOptions = document.querySelectorAll('.coffee-option');
-            const supportButton = document.querySelector('.support-button');
+            const supportButton = document.getElementById('supportButton');
             let selectedAmount = 3;
 
             // Coffee option selection
-            if (coffeeOptions.length > 0 && supportButton) {
-                coffeeOptions.forEach(option => {
-                    option.addEventListener('click', function () {
-                        // Remove active class from all options
-                        coffeeOptions.forEach(opt => opt.classList.remove('active'));
+            coffeeOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    // Remove active class from all options
+                    coffeeOptions.forEach(opt => opt.classList.remove('active'));
 
-                        // Add active class to clicked option
-                        this.classList.add('active');
+                    // Add active class to clicked option
+                    this.classList.add('active');
 
-                        // Update selected amount and button text
-                        selectedAmount = parseInt(this.dataset.amount);
-                        supportButton.textContent = `Support $${selectedAmount}`;
-                    });
+                    // Update selected amount and button text
+                    selectedAmount = parseInt(this.dataset.amount);
+                    supportButton.textContent = `Support $${selectedAmount}`;
                 });
+            });
 
-                // Support button click handler
-                supportButton.addEventListener('click', function () {
-                    alert(`Thank you for your support of $${selectedAmount}! This would redirect to payment processing in a real implementation.`);
-                });
-            }
+            // Support button click handler
+            supportButton.addEventListener('click', function () {
+                alert(`Thank you for your support of $${selectedAmount}! This would redirect to payment processing in a real implementation.`);
+            });
 
             // Back to top button
             const backToTopBtn = document.querySelector('.back-to-top');
@@ -1406,6 +1500,8 @@
                 observer.observe(card);
             });
         });
+
+
     </script>
 </body>
 

@@ -4,33 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MND - Projects</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- Font Awesome -->
+    <title>MND - Web Development Projects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        /* Custom Styles */
-        :root {
-            --primary-color: #1c3974;
-            --secondary-color: #4a74c7;
-            --light-bg: #fef2f2;
-            --text-dark: #1C1B1F;
-            --text-light: #717171;
-            --border-color: #e5e5e5;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
         body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
+            color: #1C1B1F;
+            background-color: #fef2f2;
         }
 
         /* Header Styles */
@@ -43,11 +31,26 @@
             padding: 12px 0;
         }
 
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .creator-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
         .logo {
             width: 50px;
             height: 50px;
             border-radius: 8px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #1c3974, #4a74c7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -68,25 +71,30 @@
 
         .supporter-count {
             font-size: 14px;
-            color: var(--text-light);
+            color: #717171;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 20px;
         }
 
         .tab {
             font-size: 14px;
             font-weight: 500;
             padding: 8px;
-            color: var(--text-dark);
+            color: #1C1B1F;
             text-decoration: none;
             position: relative;
             transition: color 0.2s;
         }
 
         .tab:hover {
-            color: var(--primary-color);
+            color: #1c3974;
         }
 
         .tab.active {
-            color: var(--primary-color);
+            color: #1c3974;
         }
 
         .tab.active::after {
@@ -96,7 +104,46 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--primary-color);
+            background-color: #1c3974;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .login-btn {
+            font-size: 14px;
+            color: #1C1B1F;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .login-btn:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .signup-btn {
+            font-size: 14px;
+            background-color: #1c3974;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .signup-btn:hover {
+            background-color: #4a74c7;
         }
 
         .menu-btn {
@@ -134,6 +181,14 @@
         }
 
         /* Main Content */
+        .main-content {
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 16px;
+            position: relative;
+            margin-top: -80px;
+        }
+
         .content-box {
             background-color: white;
             border-radius: 12px;
@@ -153,20 +208,29 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 24px;
-            color: var(--primary-color);
+            color: #1c3974;
         }
 
         /* Search and Filter Section */
+        .search-filter-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 32px;
+            align-items: center;
+            justify-content: center;
+        }
+
         .search-container {
             position: relative;
             flex: 1;
-            max-width: 500px;
+            max-width: 400px;
         }
 
         .search-input {
             width: 100%;
             padding: 12px 16px 12px 44px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             border-radius: 24px;
             font-size: 16px;
             transition: all 0.3s;
@@ -175,7 +239,7 @@
 
         .search-input:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: #1c3974;
             box-shadow: 0 0 0 2px rgba(28, 57, 116, 0.2);
             background-color: white;
         }
@@ -185,13 +249,19 @@
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-light);
+            color: #717171;
+        }
+
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .filter-btn {
             padding: 10px 16px;
             background-color: white;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 500;
@@ -204,32 +274,32 @@
         }
 
         .filter-btn.active {
-            background-color: var(--primary-color);
+            background-color: #1c3974;
             color: white;
-            border-color: var(--primary-color);
+            border-color: #1c3974;
         }
 
         .clear-filters {
             padding: 10px 16px;
             background-color: transparent;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
-            color: var(--text-light);
+            color: #717171;
         }
 
         .clear-filters:hover {
             background-color: #f8f9fa;
-            color: var(--text-dark);
+            color: #1C1B1F;
         }
 
         .results-info {
             text-align: center;
             margin-bottom: 16px;
-            color: var(--text-light);
+            color: #717171;
             font-size: 14px;
         }
 
@@ -239,7 +309,7 @@
             justify-content: center;
             gap: 24px;
             margin-bottom: 24px;
-            color: var(--text-light);
+            color: #717171;
             font-size: 14px;
         }
 
@@ -259,7 +329,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background-color: var(--primary-color);
+            background-color: #1c3974;
             color: white;
             border: none;
             border-radius: 24px;
@@ -272,25 +342,30 @@
         }
 
         .follow-btn:hover {
-            background-color: var(--secondary-color);
+            background-color: #4a74c7;
         }
 
         .follow-text {
             text-align: center;
             font-size: 14px;
-            color: var(--text-light);
+            color: #717171;
             margin-bottom: 32px;
         }
 
-        /* Project Cards */
+        /* Extras Grid */
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
         .extra-card {
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             border-radius: 12px;
             overflow: hidden;
             transition: transform 0.2s, box-shadow 0.2s;
             background-color: white;
             position: relative;
-            height: 100%;
         }
 
         .extra-card:hover {
@@ -321,7 +396,7 @@
 
         .extra-description {
             font-size: 14px;
-            color: var(--text-light);
+            color: #717171;
             margin-bottom: 12px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -332,12 +407,12 @@
         .extra-price {
             font-size: 18px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1c3974;
         }
 
         .add-to-cart-btn {
             width: 100%;
-            background-color: var(--primary-color);
+            background-color: #1c3974;
             color: white;
             border: none;
             border-radius: 8px;
@@ -350,7 +425,7 @@
         }
 
         .add-to-cart-btn:hover {
-            background-color: var(--secondary-color);
+            background-color: #4a74c7;
         }
 
         /* Empty State */
@@ -363,7 +438,7 @@
         .empty-icon {
             font-size: 48px;
             margin-bottom: 16px;
-            color: var(--border-color);
+            color: #e5e5e5;
         }
 
         .empty-title {
@@ -373,7 +448,7 @@
         }
 
         .empty-description {
-            color: var(--text-light);
+            color: #717171;
             max-width: 400px;
             margin: 0 auto;
         }
@@ -385,8 +460,23 @@
             margin-top: 40px;
         }
 
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
         .footer-link {
-            color: var(--text-dark);
+            color: #1C1B1F;
             text-decoration: none;
             font-size: 14px;
         }
@@ -398,11 +488,15 @@
         .footer-divider {
             width: 1px;
             height: 16px;
-            background-color: var(--border-color);
+            background-color: #e5e5e5;
+        }
+
+        .footer-cta {
+            text-align: center;
         }
 
         .footer-cta-link {
-            color: var(--primary-color);
+            color: #1c3974;
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
@@ -445,13 +539,13 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 24px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e5e5e5;
         }
 
         .modal-title {
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1c3974;
         }
 
         .close-btn {
@@ -459,12 +553,12 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
-            color: var(--text-light);
+            color: #717171;
             transition: color 0.2s;
         }
 
         .close-btn:hover {
-            color: var(--text-dark);
+            color: #1C1B1F;
         }
 
         .modal-body {
@@ -553,13 +647,13 @@
         .modal-description {
             font-size: 16px;
             line-height: 1.6;
-            color: var(--text-dark);
+            color: #1C1B1F;
             margin-bottom: 20px;
         }
 
         .modal-details {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 4fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 16px;
             margin-bottom: 24px;
         }
@@ -572,14 +666,14 @@
 
         .detail-label {
             font-size: 14px;
-            color: var(--text-light);
+            color: #717171;
             margin-bottom: 4px;
         }
 
         .detail-value {
             font-size: 16px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #1C1B1F;
         }
 
         .modal-actions {
@@ -587,7 +681,7 @@
             gap: 12px;
             justify-content: flex-end;
             padding-top: 20px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid #e5e5e5;
         }
 
         .modal-btn {
@@ -599,19 +693,19 @@
         }
 
         .modal-btn.primary {
-            background-color: var(--primary-color);
+            background-color: #1c3974;
             color: white;
             border: none;
         }
 
         .modal-btn.primary:hover {
-            background-color: var(--secondary-color);
+            background-color: #4a74c7;
         }
 
         .modal-btn.secondary {
             background-color: transparent;
-            color: var(--text-dark);
-            border: 1px solid var(--border-color);
+            color: #1C1B1F;
+            border: 1px solid #e5e5e5;
         }
 
         .modal-btn.secondary:hover {
@@ -633,7 +727,7 @@
             padding: 20px;
             background: #f8f9fa;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
         }
 
         .detail-item {
@@ -655,7 +749,7 @@
 
         .detail-label {
             font-size: 12px;
-            color: var(--text-light);
+            color: #717171;
             margin-bottom: 6px;
             font-weight: 500;
             text-transform: uppercase;
@@ -665,7 +759,7 @@
         .detail-value {
             font-size: 16px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: #1C1B1F;
         }
 
         .price-section-row {
@@ -675,19 +769,19 @@
             padding: 24px;
             background: white;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .price-display {
             text-align: center;
             padding-bottom: 16px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e5e5e5;
         }
 
         .price-label {
             font-size: 14px;
-            color: var(--text-light);
+            color: #717171;
             margin-bottom: 8px;
             font-weight: 500;
         }
@@ -695,7 +789,7 @@
         .price {
             font-size: 32px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1c3974;
             line-height: 1.2;
         }
 
@@ -715,7 +809,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--text-dark);
+            color: #1C1B1F;
             font-size: 14px;
         }
 
@@ -730,7 +824,7 @@
         }
 
         .input-group input:focus {
-            border-color: var(--primary-color);
+            border-color: #1c3974;
             outline: none;
             box-shadow: 0 0 0 2px rgba(28, 57, 116, 0.2);
         }
@@ -740,7 +834,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: var(--primary-color);
+            background: #1c3974;
             color: white;
             padding: 16px 24px;
             border: none;
@@ -755,7 +849,7 @@
         }
 
         .btn:hover {
-            background: var(--secondary-color);
+            background: #4a74c7;
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(28, 57, 116, 0.3);
         }
@@ -784,14 +878,14 @@
 
         .project-date {
             font-size: 12px;
-            color: var(--text-light);
+            color: #717171;
         }
 
         .featured-badge {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: var(--primary-color);
+            background-color: #1c3974;
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
@@ -842,7 +936,7 @@
         .sort-btn {
             padding: 8px 16px;
             background-color: white;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             border-radius: 20px;
             font-size: 14px;
             font-weight: 500;
@@ -855,187 +949,42 @@
         }
 
         .sort-btn.active {
-            background-color: var(--primary-color);
+            background-color: #1c3974;
             color: white;
-            border-color: var(--primary-color);
-        }
-
-        /* Enhanced Filter Section */
-        .filter-section {
-            background-color: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 24px;
-        }
-
-        .filter-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .filter-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .filter-toggle {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .filter-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
-        }
-
-        .filter-category {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .filter-category:hover {
-            background-color: #f0f4ff;
-            border-color: var(--primary-color);
-        }
-
-        .filter-category.active {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .filter-category input {
-            margin: 0;
-        }
-
-        /* Project Card Enhancements */
-        .card-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(28, 57, 116, 0.9);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin-bottom: 8px;
-        }
-
-        .tech-tag {
-            background-color: #e0f2fe;
-            color: #0369a1;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 500;
-        }
-
-        /* Loading Animation */
-        .loading-spinner {
-            display: none;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(28, 57, 116, 0.1);
-            border-left-color: var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Filter Select Button Styles */
-        .filter-select-btn {
-            width: 100%;
-            padding: 12px 16px;
-            background-color: white;
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            color: var(--text-dark);
-        }
-
-        .filter-select-btn:hover {
-            background-color: #f8f9fa;
-            border-color: var(--primary-color);
-        }
-
-        .filter-select-btn:after {
-            margin-left: auto;
-        }
-
-        .dropdown-menu {
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 8px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .dropdown-item {
-            padding: 8px 12px;
-            border-radius: 6px;
-            margin-bottom: 2px;
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-
-        .dropdown-item:hover {
-            background-color: #f0f4ff;
-            color: var(--primary-color);
-        }
-
-        .dropdown-item.active {
-            background-color: var(--primary-color);
-            color: white;
+            border-color: #1c3974;
         }
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+
+            .tabs {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .auth-buttons {
+                order: 2;
+            }
+
             .cover-image {
                 height: 200px;
             }
 
+            .main-content {
+                margin-top: -40px;
+            }
+
             .content-box {
                 padding: 24px 16px;
+            }
+
+            .extras-grid {
+                grid-template-columns: 1fr;
             }
 
             .modal-content {
@@ -1058,6 +1007,15 @@
                 width: 35px;
                 height: 35px;
                 font-size: 16px;
+            }
+
+            .search-filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-container {
+                max-width: 100%;
             }
 
             .modal-details-row {
@@ -1107,10 +1065,6 @@
             .sort-options {
                 flex-wrap: wrap;
             }
-
-            .filter-categories {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            }
         }
 
         @media (max-width: 480px) {
@@ -1125,10 +1079,6 @@
             .modal-details-row {
                 gap: 16px;
             }
-
-            .filter-categories {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -1141,92 +1091,77 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container py-2">
-            <div class="content-box">
-                <h1 class="page-title">MND Working Projects</h1>
+        <div class="content-box">
+            <h1 class="page-title">MND Working Projects</h1>
 
-                <div class="shop-stats">
-                    <div class="rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span>(5.0)</span>
-                    </div>
-                    <div class="project-count">19 Projects</div>
+            <div class="shop-stats">
+                <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span>(5.0)</span>
+                </div>
+                <div class="project-count">19 Projects</div>
+            </div>
+
+            <button class="follow-btn">
+                <i class="fas fa-bell"></i> Follow MND
+            </button>
+            <p class="follow-text">Follow MND and get notified of new shop items.</p>
+
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-container">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"
+                            fill="currentColor" />
+                    </svg>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search projects...">
                 </div>
 
-                
-                <!-- Search and Filter Section -->
-                <div class="row g-4 mb-4">
-                    <div class="col-md-6">
-                        <div class="search-container">
-                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"
-                                    fill="currentColor" />
-                            </svg>
-                            <input type="text" class="search-input" id="searchInput" placeholder="Search projects...">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="dropdown">
-                            <button class="filter-select-btn dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-filter me-2"></i>Filter by Category
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="filterDropdown">
-                                <li><a class="dropdown-item filter-option active" href="#" data-filter="all">All Projects</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="html-css">HTML/CSS/JavaScript</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="ecommerce">E-commerce</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="fitness">Fitness</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="shop">Shop</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="applanding">App Landing</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="service">Service</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="education">Education</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="portfolio">Portfolio</a></li>
-                                <li><a class="dropdown-item filter-option" href="#" data-filter="hospital">Hospital</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="d-flex flex-wrap gap-2 justify-content-md-end">
-                            <button class="clear-filters" id="clearFilters">Clear All Filters</button>
-                        </div>
-                    </div>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="html-css">HTML/CSS/JavaScript</button>
+                    <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                    <button class="filter-btn" data-filter="fitness">Fitness</button>
+                    <button class="filter-btn" data-filter="shop">Shop</button>
+                    <button class="filter-btn" data-filter="applanding">App Landing</button>
+                    <button class="filter-btn" data-filter="service">Service</button>
+                    <button class="filter-btn" data-filter="education">Education</button>
+                    <button class="filter-btn" data-filter="portfolio">Portfolio</button>
+                    <button class="filter-btn" data-filter="hospital">Hospital</button>
+                    <button class="clear-filters" id="clearFilters">Clear Filters</button>
                 </div>
+            </div>
 
-                <!-- Sort Options -->
-                <!-- <div class="sort-options">
-                    <button class="sort-btn active" data-sort="featured">Featured</button>
-                    <button class="sort-btn" data-sort="newest">Newest</button>
-                    <button class="sort-btn" data-sort="price-low">Price: Low to High</button>
-                    <button class="sort-btn" data-sort="price-high">Price: High to Low</button>
-                    <button class="sort-btn" data-sort="name">Name: A-Z</button>
-                </div> -->
+            <!-- Sort Options -->
+            <div class="sort-options">
+                <button class="sort-btn active" data-sort="featured">Featured</button>
+                <button class="sort-btn" data-sort="newest">Newest</button>
+                <button class="sort-btn" data-sort="price-low">Price: Low to High</button>
+                <button class="sort-btn" data-sort="price-high">Price: High to Low</button>
+            </div>
 
-                <div class="results-info" id="resultsInfo">Showing all 20+ projects</div>
+            <div class="results-info" id="resultsInfo">Showing all 19 projects</div>
 
-                <!-- Loading Spinner -->
-                <div class="loading-spinner" id="loadingSpinner">
-                    <div class="spinner"></div>
-                </div>
+            <!-- Extras Grid -->
+            <div class="extras-grid" id="projectsGrid">
+                <!-- Project cards will be populated by JavaScript -->
+            </div>
 
-                <!-- Projects Grid -->
-                <div class="row g-4" id="projectsGrid">
-                    <!-- Project cards will be populated by JavaScript -->
-                </div>
-
-                <!-- Empty State -->
-                <div class="empty-state" id="emptyState">
-                    <div class="empty-icon">🔍</div>
-                    <h3 class="empty-title">No projects found</h3>
-                    <p class="empty-description">Try adjusting your search or filter to find what you're looking for.</p>
-                </div>
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">🔍</div>
+                <h3 class="empty-title">No projects found</h3>
+                <p class="empty-description">Try adjusting your search or filter to find what you're looking for.</p>
             </div>
         </div>
     </main>
+
 
     <!-- Cart Notification -->
     <div class="cart-notification" id="cartNotification">
@@ -1305,8 +1240,6 @@
         </div>
     </div>
 <script src="./assets/main.js"></script>
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Project data with multiple images
         const projectData = {
@@ -1662,11 +1595,10 @@
             Object.keys(projectData).forEach(projectId => {
                 const project = projectData[projectId];
                 const card = document.createElement('div');
-                card.className = 'col-lg-4 col-md-6';
+                card.className = 'extra-card';
                 card.setAttribute('data-categories', project.categories.join(' '));
                 card.setAttribute('data-date', project.date);
                 card.setAttribute('data-price', parseFloat(project.price.replace('₹', '')));
-                card.setAttribute('data-title', project.title.toLowerCase());
 
                 // Format date
                 const date = new Date(project.date);
@@ -1676,28 +1608,17 @@
                     day: 'numeric'
                 });
 
-                // Create tech tags
-                const techTags = project.tech.split('/').map(tech => 
-                    `<span class="tech-tag">${tech.trim()}</span>`
-                ).join('');
-
                 card.innerHTML = `
-                    <div class="extra-card">
-                        ${project.featured ? '<div class="featured-badge">Featured</div>' : ''}
-                        <div class="card-badge">${project.type}</div>
-                        <img src="${project.images[0]}" alt="${project.title}" class="extra-image">
-                        <div class="extra-content">
-                            <div class="project-meta">
-                                <div class="project-date">${formattedDate}</div>
-                            </div>
-                            <div class="tech-stack">
-                                ${techTags}
-                            </div>
-                            <h3 class="extra-title">${project.title}</h3>
-                            <p class="extra-description">${project.description}</p>
-                            <div class="extra-price">${project.price}</div>
-                            <button class="add-to-cart-btn" data-project="${projectId}">View Details</button>
+                    ${project.featured ? '<div class="featured-badge">Featured</div>' : ''}
+                    <img src="${project.images[0]}" alt="${project.title}" class="extra-image">
+                    <div class="extra-content">
+                        <div class="project-meta">
+                            <div class="project-date">${formattedDate}</div>
                         </div>
+                        <h3 class="extra-title">${project.title}</h3>
+                        <p class="extra-description">${project.description}</p>
+                        <div class="extra-price">${project.price}</div>
+                        <button class="add-to-cart-btn" data-project="${projectId}">View</button>
                     </div>
                 `;
                 projectsGrid.appendChild(card);
@@ -1732,16 +1653,11 @@
 
             // Search and Filter elements
             const searchInput = document.getElementById('searchInput');
-            const filterCategories = document.querySelectorAll('.filter-category input');
+            const filterButtons = document.querySelectorAll('.filter-btn');
             const clearFiltersBtn = document.getElementById('clearFilters');
             const projectsGrid = document.getElementById('projectsGrid');
             const emptyState = document.getElementById('emptyState');
             const resultsInfo = document.getElementById('resultsInfo');
-            const toggleFiltersBtn = document.getElementById('toggleFilters');
-            const filterCategoriesContainer = document.getElementById('filterCategories');
-
-            // Filter dropdown elements
-            const filterDropdownItems = document.querySelectorAll('.filter-option');
 
             // Sort elements
             const sortButtons = document.querySelectorAll('.sort-btn');
@@ -1755,19 +1671,15 @@
             // Cart notification
             const cartNotification = document.getElementById('cartNotification');
 
-            // Loading spinner
-            const loadingSpinner = document.getElementById('loadingSpinner');
-
             // Slider state
             let currentSlide = 0;
             let slideInterval;
             const slideDuration = 4000; // 4 seconds
 
             // Search and Filter state
-            let currentFilters = ['all'];
+            let currentFilter = 'all';
             let currentSearch = '';
             let currentSort = 'featured';
-            let filtersVisible = true;
 
             // Function to open modal with project data
             window.openModal = function (projectId) {
@@ -1921,55 +1833,48 @@
 
             // Search and Filter functionality
             function filterProjects() {
-                loadingSpinner.style.display = 'flex';
-                
-                // Simulate loading for better UX
-                setTimeout(() => {
-                    const projectCards = document.querySelectorAll('.col-lg-4');
-                    let visibleCount = 0;
+                const projectCards = document.querySelectorAll('.extra-card');
+                let visibleCount = 0;
 
-                    projectCards.forEach(card => {
-                        const title = card.querySelector('.extra-title').textContent.toLowerCase();
-                        const description = card.querySelector('.extra-description').textContent.toLowerCase();
-                        const categories = card.getAttribute('data-categories');
+                projectCards.forEach(card => {
+                    const title = card.querySelector('.extra-title').textContent.toLowerCase();
+                    const description = card.querySelector('.extra-description').textContent.toLowerCase();
+                    const categories = card.getAttribute('data-categories');
 
-                        const matchesSearch = currentSearch === '' ||
-                            title.includes(currentSearch) ||
-                            description.includes(currentSearch);
+                    const matchesSearch = currentSearch === '' ||
+                        title.includes(currentSearch) ||
+                        description.includes(currentSearch);
 
-                        const matchesFilter = currentFilters.includes('all') ||
-                            currentFilters.some(filter => categories.includes(filter));
+                    const matchesFilter = currentFilter === 'all' ||
+                        categories.includes(currentFilter);
 
-                        if (matchesSearch && matchesFilter) {
-                            card.style.display = 'block';
-                            visibleCount++;
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-
-                    // Sort projects
-                    sortProjects();
-
-                    // Update results info
-                    resultsInfo.textContent = `Showing ${visibleCount} of ${projectCards.length} projects`;
-
-                    // Show empty state if no projects match
-                    if (visibleCount === 0) {
-                        emptyState.style.display = 'block';
-                        projectsGrid.style.display = 'none';
+                    if (matchesSearch && matchesFilter) {
+                        card.style.display = 'block';
+                        visibleCount++;
                     } else {
-                        emptyState.style.display = 'none';
-                        projectsGrid.style.display = 'flex';
+                        card.style.display = 'none';
                     }
-                    
-                    loadingSpinner.style.display = 'none';
-                }, 300);
+                });
+
+                // Sort projects
+                sortProjects();
+
+                // Update results info
+                resultsInfo.textContent = `Showing ${visibleCount} of ${projectCards.length} projects`;
+
+                // Show empty state if no projects match
+                if (visibleCount === 0) {
+                    emptyState.style.display = 'block';
+                    projectsGrid.style.display = 'none';
+                } else {
+                    emptyState.style.display = 'none';
+                    projectsGrid.style.display = 'grid';
+                }
             }
 
             // Sort projects
             function sortProjects() {
-                const projectCards = Array.from(document.querySelectorAll('.col-lg-4'));
+                const projectCards = Array.from(document.querySelectorAll('.extra-card'));
                 const container = document.getElementById('projectsGrid');
 
                 projectCards.sort((a, b) => {
@@ -1980,10 +1885,6 @@
                             return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
                         case 'price-high':
                             return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
-                        case 'name':
-                            const aTitle = a.getAttribute('data-title');
-                            const bTitle = b.getAttribute('data-title');
-                            return aTitle.localeCompare(bTitle);
                         case 'featured':
                         default:
                             const aFeatured = a.querySelector('.featured-badge') !== null;
@@ -2004,104 +1905,15 @@
                 filterProjects();
             });
 
-            // Filter category event listeners
-            filterCategories.forEach(checkbox => {
-                checkbox.addEventListener('change', function () {
-                    const value = this.value;
-                    
-                    if (value === 'all') {
-                        // If "All" is selected, uncheck all other filters
-                        if (this.checked) {
-                            filterCategories.forEach(cb => {
-                                if (cb.value !== 'all') {
-                                    cb.checked = false;
-                                    cb.parentElement.classList.remove('active');
-                                }
-                            });
-                            currentFilters = ['all'];
-                        }
-                    } else {
-                        // If a specific filter is selected, uncheck "All"
-                        if (this.checked) {
-                            const allCheckbox = document.querySelector('input[value="all"]');
-                            allCheckbox.checked = false;
-                            allCheckbox.parentElement.classList.remove('active');
-                            
-                            // Add to current filters
-                            if (!currentFilters.includes(value)) {
-                                currentFilters.push(value);
-                            }
-                        } else {
-                            // Remove from current filters
-                            currentFilters = currentFilters.filter(filter => filter !== value);
-                            
-                            // If no filters selected, select "All"
-                            if (currentFilters.length === 0) {
-                                const allCheckbox = document.querySelector('input[value="all"]');
-                                allCheckbox.checked = true;
-                                allCheckbox.parentElement.classList.add('active');
-                                currentFilters = ['all'];
-                            }
-                        }
-                    }
-                    
-                    // Update UI
-                    filterCategories.forEach(cb => {
-                        cb.parentElement.classList.toggle('active', cb.checked);
-                    });
-                    
-                    // Update dropdown to match
-                    filterDropdownItems.forEach(item => {
-                        if (item.getAttribute('data-filter') === value) {
-                            if (this.checked) {
-                                filterDropdownItems.forEach(i => i.classList.remove('active'));
-                                item.classList.add('active');
-                                document.querySelector('.filter-select-btn').innerHTML = 
-                                    `<i class="fas fa-filter me-2"></i>${item.textContent}`;
-                            }
-                        }
-                    });
-                    
-                    filterProjects();
-                });
-            });
-
-            // Filter dropdown functionality
-            filterDropdownItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Update active state
-                    filterDropdownItems.forEach(i => i.classList.remove('active'));
+            // Filter button event listeners
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Update active filter button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    // Update filter button text
-                    const filterText = this.textContent;
-                    document.querySelector('.filter-select-btn').innerHTML = 
-                        `<i class="fas fa-filter me-2"></i>${filterText}`;
-                    
-                    // Get the filter value
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    // Update current filters
-                    if (filterValue === 'all') {
-                        currentFilters = ['all'];
-                    } else {
-                        currentFilters = [filterValue];
-                    }
-                    
-                    // Update the checkbox filters to match
-                    filterCategories.forEach(cb => {
-                        if (cb.value === filterValue) {
-                            cb.checked = true;
-                            cb.parentElement.classList.add('active');
-                        } else {
-                            cb.checked = false;
-                            cb.parentElement.classList.remove('active');
-                        }
-                    });
-                    
-                    // Apply the filter
+
+                    // Update current filter
+                    currentFilter = this.getAttribute('data-filter');
                     filterProjects();
                 });
             });
@@ -2119,39 +1931,15 @@
                 });
             });
 
-            // Toggle filters visibility
-            toggleFiltersBtn.addEventListener('click', function () {
-                filtersVisible = !filtersVisible;
-                
-                if (filtersVisible) {
-                    filterCategoriesContainer.style.display = 'grid';
-                    toggleFiltersBtn.innerHTML = '<span>Hide Filters</span> <i class="fas fa-chevron-up"></i>';
-                } else {
-                    filterCategoriesContainer.style.display = 'none';
-                    toggleFiltersBtn.innerHTML = '<span>Show Filters</span> <i class="fas fa-chevron-down"></i>';
-                }
-            });
-
             // Clear filters button
             clearFiltersBtn.addEventListener('click', function () {
                 searchInput.value = '';
                 currentSearch = '';
 
-                // Reset all filters to "All"
-                filterCategories.forEach(cb => {
-                    cb.checked = cb.value === 'all';
-                    cb.parentElement.classList.toggle('active', cb.value === 'all');
-                });
-                
-                currentFilters = ['all'];
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                currentFilter = 'all';
 
-                // Reset dropdown to "All"
-                filterDropdownItems.forEach(item => item.classList.remove('active'));
-                document.querySelector('.filter-option[data-filter="all"]').classList.add('active');
-                document.querySelector('.filter-select-btn').innerHTML = 
-                    `<i class="fas fa-filter me-2"></i>All Projects`;
-
-                // Reset sort to featured
                 sortButtons.forEach(btn => btn.classList.remove('active'));
                 document.querySelector('.sort-btn[data-sort="featured"]').classList.add('active');
                 currentSort = 'featured';

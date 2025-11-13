@@ -1,13 +1,7 @@
-// main.js - Global Navbar Styles and Functionality with Bootstrap Integration
+// main.js - Global Navbar Styles and Functionality
 
-// Bootstrap CDN and additional styles
-const bootstrapAndStyles = `
-<!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-<style>
+// Navbar Styles
+const navbarStyles = `
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -19,56 +13,11 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: #1C1B1F;
-    background-color: #ffe3e3ff !important;
+    background-color: #fef2f2;
     font-size: 16px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-/* Bootstrap Overrides for Custom Design */
-.navbar-brand {
-    font-weight: 700 !important;
-    font-size: 1.5rem !important;
-    color: #dfe7f6ff !important;
-}
-
-.navbar-nav .nav-link {
-    font-weight: 500;
-    transition: all 0.3s ease;
-    color: #1C1B1F !important;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #1c3974 !important;
-}
-
-.navbar-nav .nav-link.active {
-    color: #1c3974 !important;
-    font-weight: 600;
-}
-
-.btn-primary {
-    background-color: #1c3974 !important;
-    border-color: #1c3974 !important;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #4a74c7 !important;
-    border-color: #4a74c7 !important;
-    transform: translateY(-1px);
-}
-
-.btn-outline-primary {
-    color: #1c3974 !important;
-    border-color: #1c3974 !important;
-}
-
-.btn-outline-primary:hover {
-    background-color: #1c3974 !important;
-    border-color: #1c3974 !important;
-    color: white !important;
 }
 
 /* Main content area */
@@ -103,7 +52,7 @@ body {
 }
 
 .blog-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     color: #1c3974;
     margin-bottom: 20px;
     text-align: center;
@@ -119,18 +68,18 @@ body {
     margin-bottom: 20px;
 }
 
-/* Custom Header Styles */
-.custom-header {
-    background-color: white !important;
+/* Header Styles */
+.header {
+    background-color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1020;
+    z-index: 20;
     padding: 12px 0;
     transition: all 0.3s ease;
 }
 
-.custom-header.scrolled {
+.header.scrolled {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
     padding: 8px 0;
 }
@@ -139,6 +88,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .creator-info {
@@ -160,19 +112,15 @@ body {
     font-size: 18px;
     transition: transform 0.3s ease;
     cursor: pointer;
-    text-decoration: none;
 }
 
 .logo:hover {
     transform: scale(1.05);
-    color: white;
-    text-decoration: none;
 }
 
 .creator-name {
     font-size: 20px;
     font-weight: 700;
-    margin: 0;
 }
 
 .creator-name a {
@@ -183,23 +131,19 @@ body {
 
 .creator-name a:hover {
     color: #1c3974;
-    text-decoration: none;
 }
 
 .supporter-count {
     font-size: 14px;
     color: #717171;
-    margin: 0;
 }
 
-/* Custom Tabs for Desktop */
-.custom-tabs {
+.tabs {
     display: flex;
     gap: 20px;
-    align-items: center;
 }
 
-.custom-tab {
+.tab {
     font-size: 14px;
     font-weight: 500;
     padding: 8px;
@@ -212,18 +156,17 @@ body {
     transition: all 0.3s ease;
 }
 
-.custom-tab:hover {
+.tab:hover {
     color: #1c3974;
     background-color: rgba(28, 57, 116, 0.05);
-    text-decoration: none;
 }
 
-.custom-tab.active {
+.tab.active {
     color: #1c3974;
     font-weight: 600;
 }
 
-.custom-tab.active::after {
+.tab.active::after {
     content: '';
     position: absolute;
     bottom: -8px;
@@ -234,8 +177,48 @@ body {
     border-radius: 2px;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.login-btn {
+    font-size: 14px;
+    color: #1C1B1F;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.login-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.signup-btn {
+    font-size: 14px;
+    background-color: #1c3974;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #4a74c7;
+    transform: translateY(-1px);
+}
+
 /* Footer Styles */
-.custom-footer {
+.footer {
     background-color: #1c3974;
     color: white;
     padding: 40px 0 20px;
@@ -246,6 +229,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    text-align: center;
 }
 
 .footer-links {
@@ -269,8 +253,6 @@ body {
 .footer-link:hover {
     opacity: 0.8;
     background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    text-decoration: none;
 }
 
 .footer-divider {
@@ -283,7 +265,46 @@ body {
     font-size: 12px;
     font-weight: 400;
     opacity: 0.8;
-    margin: 0;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #1c3974;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Menu toggle animation */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Back to Top Button */
@@ -354,46 +375,35 @@ body {
 }
 
 /* Toast Notifications */
-.toast-container {
+.toast {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1090;
-}
-
-.custom-toast {
     background: #1c3974;
     color: white;
-    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    max-width: 300px;
 }
 
-.custom-toast.success {
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast.success {
     background: #10b981;
 }
 
-.custom-toast.error {
+.toast.error {
     background: #ef4444;
 }
 
-.custom-toast.warning {
+.toast.warning {
     background: #f59e0b;
-}
-
-.custom-toast.info {
-    background: #3b82f6;
-}
-
-/* Enhanced Bootstrap Cards */
-.enhanced-card {
-    transition: all 0.3s ease;
-    border: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.enhanced-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Dark Mode Support */
@@ -408,31 +418,90 @@ body {
         color: #e2e8f0;
     }
     
-    .custom-header {
+    .header {
         background-color: #1e293b;
         border-bottom: 1px solid #334155;
     }
     
-    .custom-tab {
+    .tab {
         color: #e2e8f0;
     }
     
-    .custom-tab:hover {
+    .tab:hover {
         color: #60a5fa;
-    }
-    
-    .enhanced-card {
-        background-color: #1e293b;
-        color: #e2e8f0;
     }
 }
 
 /* Responsive Styles */
+@media (max-width: 1024px) {
+    .tabs {
+        gap: 15px;
+    }
+    
+    .tab {
+        font-size: 13px;
+        padding: 6px;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         font-size: 14px;
     }
     
+    .header-container {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .creator-info {
+        flex: 1;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .tabs {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 16px 0;
+        gap: 0;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .tabs.active {
+        display: flex;
+    }
+
+    .tab {
+        padding: 12px 20px;
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .tab:last-child {
+        border-bottom: none;
+    }
+
+    .tab.active::after {
+        display: none;
+    }
+
+    .tab.active {
+        background-color: #f0f4ff;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+
     .main-content {
         padding: 20px 15px;
     }
@@ -443,7 +512,7 @@ body {
     }
 
     .blog-title {
-        font-size: 0.5rem;
+        font-size: 2rem;
     }
 
     .footer-links {
@@ -461,73 +530,19 @@ body {
         width: 45px;
         height: 45px;
     }
-    
-    .custom-tabs {
-        display: none;
-    }
-    
-    .navbar-nav {
-        text-align: center;
-    }
-    
-    /* REMOVE AUTH BUTTONS ON MOBILE */
-    .auth-buttons {
-        display: none !important;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
     }
 }
 
-@media (min-width: 769px) {
-    .navbar-toggler {
-        display: none;
-    }
-    
-    /* Show auth buttons only on desktop */
-    .auth-buttons {
-        display: flex;
-        gap: 10px;
-        align-items: center;
+@media (min-width: 1025px) {
+    body {
+        font-size: 18px;
     }
 }
-
-/* Bootstrap Navbar Customization */
-.navbar-custom {
-    padding: 0.5rem 0;
-}
-
-.navbar-nav .nav-item {
-    margin: 0 5px;
-}
-
-/* Utility Classes */
-.gradient-bg {
-    background: linear-gradient(135deg, #1c3974, #4a74c7);
-}
-
-.text-primary-custom {
-    color: #1c3974 !important;
-}
-
-.bg-primary-custom {
-    background-color: #1c3974 !important;
-}
-
-/* Fix for navbar toggler alignment */
-.navbar-toggler {
-    border: none;
-    padding: 4px 8px;
-}
-
-.navbar-toggler:focus {
-    box-shadow: none;
-}
-
-/* Ensure proper spacing for auth buttons */
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-</style>
 `;
 
 // Enhanced page detection with URL parameters support
@@ -553,14 +568,13 @@ function getCurrentPage() {
         'blog.html': 'blog',
         'blog': 'blog',
         'contact.html': 'contact',
-        'contact': 'contact',
-        'Contact.html': 'contact'
+        'contact': 'contact'
     };
 
     return pageParam || pageMap[page] || 'home';
 }
 
-// Bootstrap-enhanced Navbar HTML Structure
+// Enhanced Navbar HTML Structure
 function createNavbarHTML(currentPage = null) {
     if (!currentPage) {
         currentPage = getCurrentPage();
@@ -571,113 +585,64 @@ function createNavbarHTML(currentPage = null) {
         'about': { name: 'About', url: 'about.html' },
         'services': { name: 'Services', url: 'services.html' },
         'team': { name: 'Team', url: 'team.html' },
-        'project': { name: 'Projects', url: 'project.html' },
+        'project': { name: 'Project', url: 'project.html' },
         'blog': { name: 'Blog', url: 'blog.html' },
         'contact': { name: 'Contact', url: 'contact.html' }
     };
 
-    let navItemsHTML = '';
+    let tabsHTML = '';
     for (const [key, value] of Object.entries(pages)) {
         const isActive = key === currentPage ? 'active' : '';
-        navItemsHTML += `
-            <li class="nav-item">
-                <a class="nav-link ${isActive}" href="${value.url}">${value.name}</a>
-            </li>`;
+        tabsHTML += `<a href="${value.url}" class="tab ${isActive}">${value.name}</a>`;
     }
 
     return `
-    <!-- Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light custom-header">
-        <div class="container header-container">
-            <!-- Brand/Logo -->
+    <header class="header">
+        <div class="header-container">
             <div class="creator-info">
-                <a href="index.html" class="logo">MND</a>
+                <div class="logo" onclick="window.location.href='index.html'">MND</div>
                 <div>
-                    <a href="index.html" class="creator-name navbar-brand">MND</a>
+                    <h1 class="creator-name"><a href="index.html">MND</a></h1>
                     <p class="supporter-count">Development</p>
                 </div>
             </div>
 
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
 
-            <!-- Navigation Items -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    ${navItemsHTML}
-                </ul>
-                
-                <!-- Auth Buttons - Hidden on Mobile -->
-                <!-- <div class="auth-buttons d-none d-lg-flex">
-                    <button class="btn btn-outline-primary me-2" onclick="MND.handleAuth('login')">Log in</button>
-                    <button class="btn btn-primary" onclick="MND.handleAuth('signup')">Sign up</button>
-                </div>-->
+            <nav class="tabs">
+                ${tabsHTML}
+            </nav>
+
+            <div class="auth-buttons">
+                <a href="#" class="login-btn">Log in</a>
+                <a href="#" class="signup-btn">Sign up</a>
             </div>
         </div>
-    </nav>
+    </header>
     `;
 }
 
-// Toast notification system using Bootstrap Toasts
+// Toast notification system
 function showToast(message, type = 'info', duration = 3000) {
-    // Create toast container if it doesn't exist
-    let toastContainer = document.querySelector('.toast-container');
-    if (!toastContainer) {
-        toastContainer = document.createElement('div');
-        toastContainer.className = 'toast-container';
-        document.body.appendChild(toastContainer);
-    }
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = message;
+    document.body.appendChild(toast);
 
-    const toastId = 'toast-' + Date.now();
-    const toastHTML = `
-        <div id="${toastId}" class="toast custom-toast ${type}" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <i class="bi bi-${getToastIcon(type)} me-2"></i>
-                <strong class="me-auto">MND Development</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                ${message}
-            </div>
-        </div>
-    `;
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
 
-    toastContainer.insertAdjacentHTML('beforeend', toastHTML);
-    
-    const toastElement = document.getElementById(toastId);
-    
-    // Check if Bootstrap is available
-    if (typeof bootstrap !== 'undefined') {
-        const toast = new bootstrap.Toast(toastElement, { delay: duration });
-        toast.show();
-
-        // Remove toast from DOM after it's hidden
-        toastElement.addEventListener('hidden.bs.toast', () => {
-            if (toastElement && toastElement.parentNode) {
-                toastElement.parentNode.removeChild(toastElement);
-            }
-        });
-    } else {
-        // Fallback if Bootstrap is not available
-        toastElement.style.display = 'block';
+    setTimeout(() => {
+        toast.classList.remove('show');
         setTimeout(() => {
-            if (toastElement && toastElement.parentNode) {
-                toastElement.parentNode.removeChild(toastElement);
-            }
-        }, duration);
-    }
-}
-
-function getToastIcon(type) {
-    const icons = {
-        'success': 'check-circle-fill',
-        'error': 'exclamation-circle-fill',
-        'warning': 'exclamation-triangle-fill',
-        'info': 'info-circle-fill'
-    };
-    return icons[type] || 'info-circle-fill';
+            document.body.removeChild(toast);
+        }, 300);
+    }, duration);
 }
 
 // Loading spinner management
@@ -688,7 +653,7 @@ function showLoading() {
         spinner.className = 'loading-spinner';
         spinner.innerHTML = `
             <div class="spinner"></div>
-            <p class="mt-3 text-primary-custom">Loading...</p>
+            <p style="margin-top: 15px; color: #1c3974;">Loading...</p>
         `;
         document.body.appendChild(spinner);
     }
@@ -702,68 +667,83 @@ function hideLoading() {
     }
 }
 
-// Auth handler function
-function handleAuth(type) {
-    showLoading();
-    setTimeout(() => {
-        hideLoading();
-        showToast(
-            `${type === 'login' ? 'Login' : 'Signup'} functionality coming soon!`, 
-            'info', 
-            2000
-        );
-    }, 1000);
-}
-
 // Enhanced Navbar Functionality
 function initializeNavbar() {
-    // Add Bootstrap and custom styles to document
-    const styleSheet = document.createElement('div');
-    styleSheet.innerHTML = bootstrapAndStyles;
+    // Add styles to document
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = navbarStyles;
     document.head.appendChild(styleSheet);
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const tabs = document.querySelector('.tabs');
+
+    if (menuToggle && tabs) {
+        menuToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            tabs.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.header-container')) {
+                tabs.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a tab
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                tabs.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+
+    // Enhanced login/signup buttons with loading states
+    document.querySelectorAll('.login-btn, .signup-btn').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            const isLogin = this.classList.contains('login-btn');
+            
+            showLoading();
+            setTimeout(() => {
+                hideLoading();
+                showToast(
+                    `${isLogin ? 'Login' : 'Signup'} functionality coming soon!`, 
+                    'info', 
+                    2000
+                );
+            }, 1000);
+        });
+    });
+
+    // Update active tab based on current page
+    updateActiveTab();
 
     // Add scroll effect to header
     window.addEventListener('scroll', function() {
-        const header = document.querySelector('.custom-header');
-        if (header && window.scrollY > 50) {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
-        } else if (header) {
+        } else {
             header.classList.remove('scrolled');
         }
     });
 
     // Initialize back to top button
     initializeBackToTop();
-
-    // Close mobile menu when clicking on a nav link
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('nav-link')) {
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                // Use Bootstrap's collapse method if available
-                if (typeof bootstrap !== 'undefined') {
-                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                    bsCollapse.hide();
-                } else {
-                    // Fallback if Bootstrap not available
-                    navbarCollapse.classList.remove('show');
-                }
-            }
-        }
-    });
 }
 
 // Back to top functionality
 function initializeBackToTop() {
-    let backToTop = document.querySelector('.back-to-top');
-    if (!backToTop) {
-        backToTop = document.createElement('button');
-        backToTop.className = 'back-to-top';
-        backToTop.innerHTML = '<i class="bi bi-chevron-up"></i>';
-        backToTop.setAttribute('aria-label', 'Back to top');
-        backToTop.setAttribute('type', 'button');
-        document.body.appendChild(backToTop);
-    }
+    const backToTop = document.createElement('button');
+    backToTop.className = 'back-to-top';
+    backToTop.innerHTML = '↑';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(backToTop);
 
     backToTop.addEventListener('click', () => {
         window.scrollTo({
@@ -781,121 +761,90 @@ function initializeBackToTop() {
     });
 }
 
-// Enhanced layout setup with Bootstrap components
+// Enhanced Function to update active tab
+function updateActiveTab() {
+    const currentPage = getCurrentPage();
+    const tabs = document.querySelectorAll('.tab');
+
+    tabs.forEach(tab => {
+        tab.classList.remove('active');
+        const href = tab.getAttribute('href');
+        if (href) {
+            const tabPage = href.replace('.html', '').replace('index', 'home');
+            if (tabPage === currentPage || (currentPage === 'home' && tabPage === 'home')) {
+                tab.classList.add('active');
+            }
+        }
+    });
+}
+
+// Enhanced layout setup with performance improvements
 function setupPageLayout(currentPage = null) {
     // Show loading spinner during setup
     showLoading();
 
     setTimeout(() => {
-        try {
-            // Check if navbar already exists
-            if (!document.querySelector('.custom-header')) {
-                // Add navbar
-                const navbarHTML = createNavbarHTML(currentPage);
-                document.body.insertAdjacentHTML('afterbegin', navbarHTML);
-            }
-
-            // Create main content area if it doesn't exist
-            if (!document.querySelector('.main-content')) {
-                const mainContent = document.createElement('main');
-                mainContent.className = 'main-content';
-
-                // Move existing body content into main content area
-                const bodyChildren = Array.from(document.body.children);
-                bodyChildren.forEach(child => {
-                    if (!child.classList.contains('custom-header') && !child.classList.contains('custom-footer') && !child.classList.contains('back-to-top')) {
-                        mainContent.appendChild(child);
-                    }
-                });
-                document.body.appendChild(mainContent);
-            }
-
-            // Add footer if it doesn't exist
-            if (!document.querySelector('.custom-footer')) {
-                const footerHTML = `
-                <footer class="custom-footer">
-                    <div class="footer-container">
-                        <!--<div class="footer-links">
-                            <a href="services.html" class="footer-link">Services</a>
-                            <div class="footer-divider"></div>
-                            <a href="team.html" class="footer-link">Our Team</a>
-                            <div class="footer-divider"></div>
-                            <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                            <div class="footer-divider"></div>
-                            <a href="term.html" class="footer-link">Terms of Service</a>
-                        </div>-->
-                        <div class="footer-cta text-center">
-                            <h5>© Copyright ${new Date().getFullYear()} by MND. All rights reserved!</h5>
-                        </div>
-                    </div>
-                </footer>
-                `;
-                document.body.insertAdjacentHTML('beforeend', footerHTML);
-            }
-
-            // Initialize functionality
-            initializeNavbar();
-            
-            // Hide loading spinner
-            hideLoading();
-            
-            // Show welcome message
-            setTimeout(() => {
-                showToast('Welcome to MND Development!', 'success', 2000);
-            }, 500);
-        } catch (error) {
-            console.error('Error setting up page layout:', error);
-            hideLoading();
+        // Check if navbar already exists
+        if (!document.querySelector('.header')) {
+            // Add navbar
+            const navbarHTML = createNavbarHTML(currentPage);
+            document.body.insertAdjacentHTML('afterbegin', navbarHTML);
         }
-    }, 500);
-}
 
-// Enhanced Blog content setup with Bootstrap components
-function setupBlogContent() {
-    const blogContainer = document.querySelector('.blog-container');
-    if (blogContainer && !blogContainer.innerHTML.trim()) {
-        blogContainer.innerHTML = `
-            <div class="container">
-                <h1 class="blog-title text-center mb-5">Welcome to Our Blog</h1>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card enhanced-card h-100">
-                            <img src="https://via.placeholder.com/300x200/1c3974/ffffff?text=Web+Dev" class="card-img-top" alt="Web Development">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Web Development Trends</h5>
-                                <p class="card-text flex-grow-1">Latest trends and technologies in modern web development.</p>
-                                <a href="#" class="btn btn-primary mt-auto">Read More</a>
-                            </div>
-                        </div>
+        // Create main content area if it doesn't exist
+        if (!document.querySelector('.main-content')) {
+            const mainContent = document.createElement('main');
+            mainContent.className = 'main-content';
+
+            // Move existing body content into main content area
+            const bodyChildren = Array.from(document.body.children);
+            bodyChildren.forEach(child => {
+                if (!child.classList.contains('header') && !child.classList.contains('footer')) {
+                    mainContent.appendChild(child);
+                }
+            });
+            document.body.appendChild(mainContent);
+        }
+
+        // Add footer if it doesn't exist
+        if (!document.querySelector('.footer')) {
+            const footerHTML = `
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-links">
+                        <a href="services.html" class="footer-link">Services</a>
+                        <div class="footer-divider"></div>
+                        <a href="team.html" class="footer-link">Our Team</a>
+                        <div class="footer-divider"></div>
+                        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                        <div class="footer-divider"></div>
+                        <a href="term.html" class="footer-link">Terms of Service</a>
                     </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card enhanced-card h-100">
-                            <img src="https://via.placeholder.com/300x200/4a74c7/ffffff?text=UI+UX" class="card-img-top" alt="UI/UX Design">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">UI/UX Best Practices</h5>
-                                <p class="card-text flex-grow-1">Essential principles for creating great user experiences.</p>
-                                <a href="#" class="btn btn-primary mt-auto">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card enhanced-card h-100">
-                            <img src="https://via.placeholder.com/300x200/1c3974/ffffff?text=Mobile+App" class="card-img-top" alt="Mobile Development">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">Mobile First Approach</h5>
-                                <p class="card-text flex-grow-1">Why mobile-first design is crucial in today's landscape.</p>
-                                <a href="#" class="btn btn-primary mt-auto">Read More</a>
-                            </div>
-                        </div>
+                    <div class="footer-cta">
+                        <h5>© Copyright ${new Date().getFullYear()} by MND. All rights reserved!</h5>
                     </div>
                 </div>
-            </div>
-        `;
-    }
+            </footer>
+            `;
+            document.body.insertAdjacentHTML('beforeend', footerHTML);
+        }
+
+        // Initialize functionality
+        initializeNavbar();
+        
+        // Hide loading spinner
+        hideLoading();
+        
+        // Show welcome message
+        setTimeout(() => {
+            showToast('Welcome to MND Development!', 'success', 2000);
+        }, 500);
+    }, 500);
 }
 
 // Enhanced Security Features
 document.addEventListener('contextmenu', (e) => {
+    // Allow right-click but prevent default
     e.preventDefault();
     showToast('Right-click is disabled for security', 'warning', 2000);
 });
@@ -904,64 +853,165 @@ function ctrlShiftKey(e, keyCode) {
     return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
 }
 
-document.addEventListener('keydown', (e) => {
+document.onkeydown = (e) => {
+    // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
     if (
-        e.keyCode === 123 ||
+        event.keyCode === 123 ||
         ctrlShiftKey(e, 'I') ||
         ctrlShiftKey(e, 'J') ||
         ctrlShiftKey(e, 'C') ||
         (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
     ) {
         showToast('This action is not allowed', 'error', 2000);
-        e.preventDefault();
         return false;
     }
-});
+};
+
+// Enhanced Zoom prevention functionality
+class NoZoom {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.disableZoom();
+        this.preventZoomGestures();
+    }
+
+    disableZoom() {
+        // Set viewport to prevent zooming
+        const viewport = document.querySelector('meta[name="viewport"]');
+        if (viewport) {
+            viewport.setAttribute('content', 
+                'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'
+            );
+        } else {
+            const meta = document.createElement('meta');
+            meta.name = 'viewport';
+            meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no';
+            document.head.appendChild(meta);
+        }
+    }
+
+    preventZoomGestures() {
+        // Prevent double-tap zoom
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+                showToast('Zoom is disabled', 'info', 1000);
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Prevent pinch zoom
+        document.addEventListener('touchmove', function (event) {
+            if (event.scale !== 1) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+    }
+}
+
+// Initialize zoom prevention
+function preventZoomEverywhere() {
+    // Disable zoom via meta viewport
+    const viewportMeta = document.querySelector('meta[name="viewport"]');
+    if (viewportMeta) {
+        viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no';
+    }
+
+    // Disable zoom via CSS
+    const antiZoomStyle = document.createElement('style');
+    antiZoomStyle.textContent = `
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        input, textarea {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+    `;
+    document.head.appendChild(antiZoomStyle);
+}
+
+// Enhanced Blog content setup
+function setupBlogContent() {
+    const blogContainer = document.querySelector('.blog-container');
+    if (blogContainer && !blogContainer.innerHTML.trim()) {
+        blogContainer.innerHTML = `
+            <h1 class="blog-title">Welcome to Our Blog</h1>
+            <div class="blog-content">
+                <p>This is where blog content would appear.</p>
+                <p>You can add your blog posts, articles, and other content here.</p>
+                <p>Check back soon for updates!</p>
+            </div>
+        `;
+    }
+}
+
+// Performance monitoring
+function monitorPerformance() {
+    window.addEventListener('load', () => {
+        const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+        console.log(`Page loaded in ${loadTime}ms`);
+        
+        if (loadTime > 3000) {
+            showToast('Loading complete!', 'success', 2000);
+        }
+    });
+}
 
 // Enhanced Main initialization
 document.addEventListener('DOMContentLoaded', function () {
-    // Check if Bootstrap is already loaded
-    if (typeof bootstrap === 'undefined') {
-        // Load Bootstrap JS dynamically
-        const bootstrapScript = document.createElement('script');
-        bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js';
-        bootstrapScript.integrity = 'sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL';
-        bootstrapScript.crossOrigin = 'anonymous';
-        
-        bootstrapScript.onload = function() {
-            // Setup page layout with navbar and footer after Bootstrap loads
-            setupPageLayout();
-            setupBlogContent();
-            
-            // Show welcome message
-            setTimeout(() => {
-                showToast('Welcome to MND Development!', 'success', 2000);
-            }, 1000);
-        };
-        
-        bootstrapScript.onerror = function() {
-            // Fallback if Bootstrap fails to load
-            console.warn('Bootstrap failed to load, using fallback setup');
-            setupPageLayout();
-            setupBlogContent();
-        };
-        
-        document.head.appendChild(bootstrapScript);
-    } else {
-        // Bootstrap already loaded
-        setupPageLayout();
-        setupBlogContent();
+    // Setup page layout with navbar and footer
+    setupPageLayout();
+    
+    // Setup blog content if needed
+    setupBlogContent();
+
+    // Initialize security features
+    new NoZoom();
+    preventZoomEverywhere();
+
+    // Additional mobile-specific fixes
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        enableMobileZoomPrevention();
     }
+
+    // Initialize performance monitoring
+    monitorPerformance();
+
+    // Debug: Log current page for verification
+    console.log('MND Web Development - Page loaded successfully');
+    console.log('Current page detected:', getCurrentPage());
+    console.log('User Agent:', navigator.userAgent);
 });
 
 // Enhanced fallback for older browsers
-window.addEventListener('load', function () {
+window.onload = function () {
+    // Final viewport enforcement
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no';
+    }
+
+    // Force initial scale
+    document.body.style.zoom = "1";
+    
     // Remove loading spinner if still present
     hideLoading();
-    
-    // Ensure back to top button is initialized
-    initializeBackToTop();
-});
+};
 
 // Export enhanced functions for global access
 window.MND = {
@@ -970,9 +1020,7 @@ window.MND = {
     initializeNavbar,
     showToast,
     showLoading,
-    hideLoading,
-    handleAuth,
-    initializeBackToTop
+    hideLoading
 };
 
 // Add error handling for better user experience
@@ -989,51 +1037,3 @@ window.addEventListener('offline', function() {
 window.addEventListener('online', function() {
     showToast('Connection restored', 'success', 3000);
 });
-
-// Initialize tooltips when Bootstrap is loaded
-function initializeBootstrapComponents() {
-    // Check if Bootstrap is available
-    if (typeof bootstrap !== 'undefined') {
-        // Initialize tooltips
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
-        
-        // Initialize popovers
-        const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-        const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl);
-        });
-    }
-}
-
-// Call this after a delay to ensure Bootstrap is loaded
-setTimeout(() => {
-    initializeBootstrapComponents();
-}, 1000);
-
-// Prevent zoom on mobile devices
-function preventZoom() {
-    // Add viewport meta tag if not present
-    let viewport = document.querySelector('meta[name="viewport"]');
-    if (!viewport) {
-        viewport = document.createElement('meta');
-        viewport.name = 'viewport';
-        viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
-        document.head.appendChild(viewport);
-    }
-    
-    // Prevent double-tap zoom
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-        const now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, false);
-}
-
-// Initialize zoom prevention
-preventZoom();

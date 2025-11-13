@@ -4,115 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MND - Contact Us</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+    <title>Contact Us - MND</title>
     <style>
-        /* Custom Styles */
-        :root {
-            --primary-color: #1c3974;
-            --secondary-color: #4a74c7;
-            --light-bg: #fef2f2;
-            --text-dark: #1C1B1F;
-            --text-light: #717171;
-            --border-color: #e5e5e5;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
+
         body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.5;
+            color: #1C1B1F;
+            background-color: #fef2f2;
+            font-size: 16px;
         }
-        
+
         .page-header {
+            text-align: center;
             margin-bottom: 48px;
         }
-        
+
         .page-title {
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 16px;
-            color: var(--primary-color);
+            color: #1c3974;
         }
-        
+
         .page-subtitle {
             font-size: 18px;
-            color: var(--text-light);
+            color: #717171;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
-        .card-custom {
+
+        /* Contact Layout */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
             background-color: white;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border: none;
             padding: 40px;
-            height: 100%;
         }
-        
-        .form-title, .info-title {
+
+        .form-title {
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 8px;
-            color: var(--primary-color);
+            color: #1c3974;
         }
-        
-        .form-subtitle, .info-subtitle {
-            color: var(--text-light);
+
+        .form-subtitle {
+            color: #717171;
             margin-bottom: 32px;
         }
-        
-        .form-control, .form-select {
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1C1B1F;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
             padding: 12px 16px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             border-radius: 8px;
             font-size: 16px;
             transition: all 0.3s;
             background-color: #f8f9fa;
         }
-        
-        .form-control:focus, .form-select:focus {
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
             outline: none;
-            border-color: var(--primary-color);
+            border-color: #1c3974;
             box-shadow: 0 0 0 2px rgba(28, 57, 116, 0.2);
             background-color: white;
         }
-        
-        .form-label {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-dark);
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
         }
-        
-        .btn-primary-custom {
-            background-color: var(--primary-color);
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #1c3974;
             color: white;
             border: none;
             border-radius: 8px;
             padding: 14px;
             font-weight: 600;
             font-size: 16px;
+            cursor: pointer;
             transition: background-color 0.2s;
-            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        
-        .btn-primary-custom:hover {
-            background-color: var(--secondary-color);
+
+        .submit-btn:hover {
+            background-color: #4a74c7;
         }
-        
+
+        /* Contact Info */
+        .contact-info-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            height: fit-content;
+        }
+
+        .info-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1c3974;
+        }
+
+        .info-subtitle {
+            color: #717171;
+            margin-bottom: 32px;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
         .contact-method {
             display: flex;
             gap: 16px;
             align-items: flex-start;
-            margin-bottom: 24px;
         }
-        
+
         .method-icon {
             width: 48px;
             height: 48px;
@@ -121,49 +174,63 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-color);
+            color: #1c3974;
             flex-shrink: 0;
         }
-        
+
         .method-content h3 {
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 4px;
-            color: var(--text-dark);
+            color: #1C1B1F;
         }
-        
+
         .method-content p {
-            color: var(--text-light);
+            color: #717171;
             margin-bottom: 4px;
         }
-        
+
         .method-link {
-            color: var(--primary-color);
+            color: #1c3974;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
         }
-        
+
         .method-link:hover {
-            color: var(--secondary-color);
+            color: #4a74c7;
             text-decoration: underline;
         }
-        
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
         .section-title {
             font-size: 28px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 40px;
-            color: var(--primary-color);
+            color: #1c3974;
         }
-        
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
         .faq-item {
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 16px;
         }
-        
+
         .faq-question {
             padding: 20px;
             background-color: #f8f9fa;
@@ -174,32 +241,41 @@
             align-items: center;
             transition: background-color 0.2s;
         }
-        
+
         .faq-question:hover {
             background-color: #e9ecef;
         }
-        
+
         .faq-answer {
             padding: 0 20px;
             max-height: 0;
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .faq-item.active .faq-answer {
             padding: 20px;
             max-height: 500px;
         }
-        
+
         .faq-toggle {
-            color: var(--primary-color);
+            color: #1c3974;
             transition: transform 0.3s;
         }
-        
+
         .faq-item.active .faq-toggle {
             transform: rotate(180deg);
         }
-        
+
+        /* Map Section */
+        .map-section {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
         .map-placeholder {
             height: 300px;
             width: auto;
@@ -209,17 +285,64 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--text-light);
-            border: 2px dashed var(--border-color);
+            color: #717171;
+            border: 2px dashed #e5e5e5;
             overflow: hidden;
         }
-        
+
+        .map-icon {
+            font-size: 48px;
+            margin: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-link {
+            color: #1C1B1F;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background-color: #e5e5e5;
+        }
+
+        .footer-cta {
+            text-align: center;
+        }
+
         /* Floating Contact Button Styles */
         .floating-contact-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #1c3974, #4a74c7);
             color: white;
             padding: 16px 20px;
             border-radius: 50px;
@@ -235,28 +358,30 @@
             border: none;
             animation: pulse 2s infinite;
         }
-        
+
         .floating-contact-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(28, 57, 116, 0.4);
         }
-        
+
         .floating-contact-btn:active {
             transform: translateY(-1px);
         }
-        
+
         @keyframes pulse {
             0% {
                 box-shadow: 0 8px 25px rgba(28, 57, 116, 0.3);
             }
+
             50% {
                 box-shadow: 0 8px 25px rgba(28, 57, 116, 0.6);
             }
+
             100% {
                 box-shadow: 0 8px 25px rgba(28, 57, 116, 0.3);
             }
         }
-        
+
         /* Contact Modal Styles */
         .contact-modal {
             display: none;
@@ -267,7 +392,7 @@
             height: 100%;
             z-index: 1001;
         }
-        
+
         .modal-overlay {
             position: absolute;
             top: 0;
@@ -277,7 +402,7 @@
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(5px);
         }
-        
+
         .modal-content {
             position: absolute;
             top: 50%;
@@ -292,35 +417,36 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             animation: modalSlideIn 0.3s ease;
         }
-        
+
         @keyframes modalSlideIn {
             from {
                 opacity: 0;
                 transform: translate(-50%, -40%);
             }
+
             to {
                 opacity: 1;
                 transform: translate(-50%, -50%);
             }
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 24px;
-            border-bottom: 1px solid var(--border-color);
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-bottom: 1px solid #e5e5e5;
+            background: linear-gradient(135deg, #1c3974, #4a74c7);
             color: white;
             border-radius: 16px 16px 0 0;
         }
-        
+
         .modal-header h3 {
             margin: 0;
             font-size: 20px;
             font-weight: 700;
         }
-        
+
         .close-modal {
             background: none;
             border: none;
@@ -336,15 +462,15 @@
             border-radius: 50%;
             transition: background-color 0.2s;
         }
-        
+
         .close-modal:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-        
+
         .contact-options {
             padding: 24px;
         }
-        
+
         .contact-option {
             display: flex;
             align-items: flex-start;
@@ -353,47 +479,47 @@
             margin-bottom: 16px;
             background: #f8f9fa;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
             transition: all 0.3s ease;
         }
-        
+
         .contact-option:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-color);
+            border-color: #1c3974;
         }
-        
+
         .option-icon {
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #1c3974, #4a74c7);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             flex-shrink: 0;
         }
-        
+
         .option-content {
             flex: 1;
         }
-        
+
         .option-content h4 {
             margin: 0 0 8px 0;
             font-size: 18px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1c3974;
         }
-        
+
         .option-content p {
             margin: 0 0 12px 0;
             color: #666;
             font-size: 14px;
         }
-        
+
         .option-btn {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, #1c3974, #4a74c7);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -403,51 +529,51 @@
             transition: all 0.3s ease;
             font-size: 14px;
         }
-        
+
         .option-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(28, 57, 116, 0.3);
         }
-        
+
         .contact-info-section {
             margin-top: 24px;
             padding: 20px;
             background: #f8f9fa;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
+            border: 1px solid #e5e5e5;
         }
-        
+
         .contact-info-section h4 {
             margin: 0 0 16px 0;
             font-size: 18px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: #1c3974;
         }
-        
+
         .contact-details {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-        
+
         .contact-detail {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             padding: 8px 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #e5e5e5;
         }
-        
+
         .contact-detail:last-child {
             border-bottom: none;
         }
-        
+
         .contact-detail strong {
-            color: var(--primary-color);
+            color: #1c3974;
             min-width: 80px;
             font-size: 14px;
         }
-        
+
         .contact-detail span {
             color: #666;
             text-align: right;
@@ -455,51 +581,157 @@
             flex: 1;
             margin-left: 16px;
         }
-        
-        /* Responsive adjustments */
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .tabs {
+                gap: 15px;
+            }
+
+            .tab {
+                font-size: 13px;
+                padding: 6px;
+            }
+        }
+
         @media (max-width: 768px) {
-            .card-custom {
+            body {
+                font-size: 14px;
+            }
+
+            .creator-info {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .tabs {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 16px 0;
+                gap: 0;
+            }
+
+            .tabs.active {
+                display: flex;
+            }
+
+            .tab {
+                padding: 12px 20px;
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .tab:last-child {
+                border-bottom: none;
+            }
+
+            .tab.active::after {
+                display: none;
+            }
+
+            .tab.active {
+                background-color: #f0f4ff;
+            }
+
+            .auth-buttons {
+                display: none;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .contact-form-container,
+            .contact-info-container,
+            .faq-section,
+            .map-section {
                 padding: 24px;
             }
-            
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
             .page-title {
                 font-size: 28px;
             }
-            
+
             .section-title {
                 font-size: 24px;
             }
-            
+
             .floating-contact-btn {
                 bottom: 20px;
                 right: 20px;
                 padding: 14px 18px;
                 font-size: 14px;
             }
-            
+
             .floating-contact-btn span {
                 display: none;
             }
-            
+
             .modal-content {
                 width: 95%;
                 margin: 20px;
             }
-            
+
             .contact-option {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .contact-detail {
                 flex-direction: column;
                 gap: 4px;
                 text-align: center;
             }
-            
+
             .contact-detail span {
                 text-align: center;
                 margin-left: 0;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                font-size: 16px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-contact-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px;
+            }
+
+            .modal-content {
+                border-radius: 12px;
+            }
+
+            .modal-header {
+                padding: 20px;
+            }
+
+            .contact-options {
+                padding: 20px;
             }
         }
     </style>
@@ -507,130 +739,170 @@
 
 <body>
     <!-- Main Content -->
-    <main class="main-content container py-5">
+    <main class="main-content">
         <!-- Page Header -->
-        <div class="page-header text-center">
+        <div class="page-header">
             <h1 class="page-title">Get In Touch</h1>
-            <p class="page-subtitle mx-auto" style="max-width: 600px;">
-                Have questions about our templates or need support? We're here to help. Reach out
-                to us through any of the methods below.
-            </p>
+            <p class="page-subtitle">Have questions about our templates or need support? We're here to help. Reach out
+                to us through any of the methods below.</p>
         </div>
 
         <!-- Contact Layout -->
-        <div class="row g-4 mb-5">
+        <div class="contact-layout">
             <!-- Contact Form -->
-            <div class="col-lg-6">
-                <div class="card-custom">
-                    <h2 class="form-title">Send us a message</h2>
-                    <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+            <div class="contact-form-container">
+                <h2 class="form-title">Send us a message</h2>
+                <p class="form-subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
 
-                    <form id="contactForm">
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" id="firstName" class="form-control" placeholder="Enter your first name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" id="lastName" class="form-control" placeholder="Enter your last name" required>
-                            </div>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-input" placeholder="Enter your first name"
+                                required>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-input" placeholder="Enter your last name"
+                                required>
                         </div>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">Subject</label>
-                            <select id="subject" class="form-select" required>
-                                <option value="" disabled selected>Select a subject</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="support">Technical Support</option>
-                                <option value="custom">Custom Project Request</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter your email address"
+                            required>
+                    </div>
 
-                        <div class="mb-4">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-control" placeholder="Tell us how we can help you..." rows="5" required></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" class="form-select" required>
+                            <option value="" disabled selected>Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="custom">Custom Project Request</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
 
-                        <button type="submit" class="btn btn-primary-custom">
-                            <i class="bi bi-send me-2"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-textarea" placeholder="Tell us how we can help you..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Send Message
+                    </button>
+                </form>
             </div>
 
             <!-- Contact Information -->
-            <div class="col-lg-6">
-                <div class="card-custom">
-                    <h2 class="info-title">Contact Information</h2>
-                    <p class="info-subtitle">Choose your preferred method to reach out to us.</p>
+            <div class="contact-info-container">
+                <h2 class="info-title">Contact Information</h2>
+                <p class="info-subtitle">Choose your preferred method to reach out to us.</p>
 
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="bi bi-envelope fs-5"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Email Us</h3>
-                                <p>Send us an email anytime</p>
-                                <a href="mailto:hello@mnddevelopment.com" class="method-link">hello@mnddevelopment.com</a>
-                            </div>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="method-content">
+                            <h3>Email Us</h3>
+                            <p>Send us an email anytime</p>
+                            <a href="mailto:hello@mnddevelopment.com" class="method-link">hello@mnddevelopment.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22 16.92V19.92C22 20.52 21.53 20.99 20.96 21.03C20.46 21.07 19.97 21.1 19.5 21.1C10.39 21.1 3 13.71 3 4.6C3 4.13 3.03 3.64 3.07 3.14C3.11 2.57 3.58 2.1 4.18 2.1H7.18C7.74 2.1 8.22 2.52 8.27 3.07C8.3 3.46 8.33 3.83 8.37 4.18C8.51 5.48 8.88 6.73 9.45 7.89C9.59 8.18 9.56 8.52 9.37 8.78L8.07 10.48C9.41 13.17 11.83 15.59 14.52 16.93L16.22 15.63C16.48 15.44 16.82 15.41 17.11 15.55C18.27 16.12 19.52 16.49 20.82 16.63C21.17 16.67 21.54 16.7 21.93 16.73C22.48 16.78 22.9 17.26 22.9 17.82V17.82Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="method-content">
+                            <h3>Call Us</h3>
+                            <p>Mon-Fri from 9am to 6pm</p>
+                            <a href="tel:+91 7609050022" class="method-link">+91 7609050022</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="method-content">
+                            <h3>Visit Us</h3>
+                            <p>Come say hello at our office</p>
+                            <p>Srinivasa Nagar, Ameerpet Hyderabad, Telangana - 500016</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <div class="method-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="method-content">
+                            <h3>Live Chat</h3>
+                            <p>Get instant help from our team</p>
+                            <a href="Live contact.html" class="method-link">Start a conversation</a>
                         </div>
 
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="bi bi-telephone fs-5"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Call Us</h3>
-                                <p>Mon-Fri from 9am to 6pm</p>
-                                <a href="tel:+91 7609050022" class="method-link">+91 7609050022</a>
-                            </div>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="bi bi-geo-alt fs-5"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Visit Us</h3>
-                                <p>Come say hello at our office</p>
-                                <p>Srinivasa Nagar, Ameerpet Hyderabad, Telangana - 500016</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="bi bi-chat-dots fs-5"></i>
-                            </div>
-                            <div class="method-content">
-                                <h3>Live Chat</h3>
-                                <p>Get instant help from our team</p>
-                                <a href="Live contact.html" class="method-link">Start a conversation</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- FAQ Section -->
-        <div class="card-custom mb-5">
+        <div class="faq-section">
             <h2 class="section-title">Frequently Asked Questions</h2>
 
             <div class="faq-list">
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>How long does it take to receive support responses?</span>
-                        <i class="faq-toggle bi bi-chevron-down"></i>
+                        <svg class="faq-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="faq-answer">
                         <p>We typically respond to all support requests within 24 hours during business days. For urgent
@@ -641,7 +913,11 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Do you offer custom website development services?</span>
-                        <i class="faq-toggle bi bi-chevron-down"></i>
+                        <svg class="faq-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="faq-answer">
                         <p>Yes, we do offer custom development services. While we primarily focus on creating templates,
@@ -653,7 +929,11 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Can I modify the templates after purchase?</span>
-                        <i class="faq-toggle bi bi-chevron-down"></i>
+                        <svg class="faq-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="faq-answer">
                         <p>Absolutely! All our templates come with full source code and are completely customizable.
@@ -664,7 +944,11 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>What payment methods do you accept?</span>
-                        <i class="faq-toggle bi bi-chevron-down"></i>
+                        <svg class="faq-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="faq-answer">
                         <p>We accept all major credit cards (Visa, MasterCard, American Express), PayPal, and bank
@@ -675,7 +959,11 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Do you offer refunds for template purchases?</span>
-                        <i class="faq-toggle bi bi-chevron-down"></i>
+                        <svg class="faq-toggle" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="faq-answer">
                         <p>Due to the digital nature of our products, we generally don't offer refunds once a template
@@ -688,7 +976,7 @@
         </div>
 
         <!-- Map Section -->
-        <div class="card-custom mb-5">
+        <div class="map-section">
             <h2 class="section-title">Find Our Office</h2>
             <div class="map-placeholder">
                 <iframe
@@ -702,7 +990,11 @@
     <!-- Floating Contact Button -->
     <div class="floating-contact-btn" id="floatingContactBtn">
         <span>Contact Us</span>
-        <i class="bi bi-chat-dots"></i>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
     </div>
 
     <!-- Contact Modal -->
@@ -718,7 +1010,11 @@
                 <!-- Live Chat Section -->
                 <div class="contact-option" id="liveChatOption">
                     <div class="option-icon">
-                        <i class="bi bi-chat-dots"></i>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="option-content">
                         <h4>Live Chat</h4>
@@ -730,7 +1026,11 @@
                 <!-- Call Us Section -->
                 <div class="contact-option" id="callUsOption">
                     <div class="option-icon">
-                        <i class="bi bi-telephone"></i>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M22 16.92V19.92C22 20.52 21.53 20.99 20.96 21.03C20.46 21.07 19.97 21.1 19.5 21.1C10.39 21.1 3 13.71 3 4.6C3 4.13 3.03 3.64 3.07 3.14C3.11 2.57 3.58 2.1 4.18 2.1H7.18C7.74 2.1 8.22 2.52 8.27 3.07C8.3 3.46 8.33 3.83 8.37 4.18C8.51 5.48 8.88 6.73 9.45 7.89C9.59 8.18 9.56 8.52 9.37 8.78L8.07 10.48C9.41 13.17 11.83 15.59 14.52 16.93L16.22 15.63C16.48 15.44 16.82 15.41 17.11 15.55C18.27 16.12 19.52 16.49 20.82 16.63C21.17 16.67 21.54 16.7 21.93 16.73C22.48 16.78 22.9 17.26 22.9 17.82V17.82Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="option-content">
                         <h4>Call Us</h4>
@@ -742,7 +1042,13 @@
                 <!-- Video Call Section -->
                 <div class="contact-option" id="videoCallOption">
                     <div class="option-icon">
-                        <i class="bi bi-camera-video"></i>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 7L16 12L23 17V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M14 5H3C1.89543 5 1 5.89543 1 7V17C1 18.1046 1.89543 19 3 19H14C15.1046 19 16 18.1046 16 17V7C16 5.89543 15.1046 5 14 5Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
                     </div>
                     <div class="option-content">
                         <h4>Video Call</h4>
@@ -776,11 +1082,11 @@
             </div>
         </div>
     </div>
-<script src="./assets/main.js"></script>
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
+
+    <script src="./assets/main.js"></script>
     <script>
+
         // FAQ Accordion functionality
         document.addEventListener('DOMContentLoaded', function () {
             const faqItems = document.querySelectorAll('.faq-item');
@@ -875,6 +1181,8 @@
             alert('This would open a calendar to schedule a video call with our team.');
             // In a real implementation, this would open a scheduling system
         }
+
+// ok
     </script>
 </body>
 

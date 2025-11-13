@@ -4,101 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MND - Blog</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Blog - MND</title>
     <style>
-        /* Custom Styles */
-        :root {
-            --primary-color: #1c3974;
-            --secondary-color: #4a74c7;
-            --accent-color: #fef2f2;
-            --text-color: #1C1B1F;
-            --light-gray: #717171;
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--accent-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            color: #1C1B1F;
+            background-color: #fef2f2;
+            font-size: 16px;
         }
 
-        /* Header Styles */
-        .header {
-            background-color: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            color: white;
-            font-size: 18px;
-        }
-
-        .creator-name {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        .nav-link {
-            font-weight: 500;
-            color: var(--text-color);
-            position: relative;
-            padding: 8px 12px !important;
-            transition: color 0.2s;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 12px;
-            width: calc(100% - 24px);
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .auth-buttons .btn {
-            font-size: 14px;
-            padding: 8px 16px;
-        }
-
-        /* Main Content */
         .content-box {
             background-color: white;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             padding: 40px;
             margin-bottom: 32px;
         }
@@ -108,13 +34,13 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 16px;
-            color: var(--primary-color);
+            color: #1c3974;
         }
 
         .page-subtitle {
             font-size: 18px;
             text-align: center;
-            color: var(--light-gray);
+            color: #717171;
             margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
@@ -122,6 +48,13 @@
         }
 
         /* Blog Styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
         .blog-card {
             background: white;
             border-radius: 12px;
@@ -129,8 +62,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            height: 100%;
-            border: none;
         }
 
         .blog-card:hover {
@@ -152,7 +83,7 @@
         .blog-category {
             display: inline-block;
             background: #f0f4ff;
-            color: var(--primary-color);
+            color: #1c3974;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 12px;
@@ -164,7 +95,7 @@
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 12px;
-            color: var(--primary-color);
+            color: #1c3974;
             line-height: 1.3;
         }
 
@@ -182,77 +113,16 @@
             color: #888;
         }
 
-        .blog-date, .blog-read-time {
+        .blog-date {
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        /* Featured Post */
-        .featured-post {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            margin-bottom: 50px;
-        }
-
-        .featured-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .featured-content {
-            padding: 30px;
+        .blog-read-time {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .featured-category {
-            display: inline-block;
-            background: #f0f4ff;
-            color: var(--primary-color);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .featured-title {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-            line-height: 1.3;
-        }
-
-        .featured-excerpt {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .read-more {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.2s;
-            align-self: flex-start;
-            border: none;
-        }
-
-        .read-more:hover {
-            background: var(--secondary-color);
-            color: white;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Newsletter Section */
@@ -268,7 +138,7 @@
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: var(--primary-color);
+            color: #1c3974;
         }
 
         .newsletter-description {
@@ -295,7 +165,7 @@
         }
 
         .newsletter-button {
-            background: var(--primary-color);
+            background: #1c3974;
             color: white;
             border: none;
             padding: 12px 20px;
@@ -306,7 +176,79 @@
         }
 
         .newsletter-button:hover {
-            background: var(--secondary-color);
+            background: #4a74c7;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .featured-image {
+            flex: 1;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .featured-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-category {
+            display: inline-block;
+            background: #f0f4ff;
+            color: #1c3974;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .featured-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1c3974;
+            line-height: 1.3;
+        }
+
+        .featured-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: #1c3974;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            align-self: flex-start;
+        }
+
+        .read-more:hover {
+            background: #4a74c7;
         }
 
         /* Footer */
@@ -316,20 +258,107 @@
             margin-top: 40px;
         }
 
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
         .footer-link {
-            color: var(--text-color);
+            color: #1C1B1F;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.2s;
         }
 
         .footer-link:hover {
-            color: var(--primary-color);
+            color: #1c3974;
             text-decoration: underline;
         }
 
+        .footer-divider {
+            width: 1px;
+            height: 16px;
+            background-color: #e5e5e5;
+        }
+
+        .footer-cta {
+            text-align: center;
+        }
+
         /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .tabs {
+                gap: 15px;
+            }
+
+            .tab {
+                font-size: 13px;
+                padding: 6px;
+            }
+        }
+
         @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .creator-info {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .tabs {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 16px 0;
+                gap: 0;
+            }
+
+            .tabs.active {
+                display: flex;
+            }
+
+            .tab {
+                padding: 12px 20px;
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .tab:last-child {
+                border-bottom: none;
+            }
+
+            .tab.active::after {
+                display: none;
+            }
+
+            .tab.active {
+                background-color: #f0f4ff;
+            }
+
+            .auth-buttons {
+                display: none;
+            }
+
             .content-box {
                 padding: 24px 16px;
             }
@@ -338,191 +367,213 @@
                 font-size: 28px;
             }
 
-            .featured-content {
-                padding: 20px;
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            .featured-title {
-                font-size: 24px;
+            .featured-post {
+                flex-direction: column;
+            }
+
+            .featured-image {
+                min-height: 250px;
             }
 
             .newsletter-form {
                 flex-direction: column;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-divider {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                font-size: 16px;
+            }
+
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-post {
+                flex-direction: column;
+            }
+
+            .featured-image {
+                min-height: 300px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+        /* Specific example for tablets in landscape orientation */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 
 <body>
-       <!-- Main Content -->
+    <!-- Main Content -->
     <main class="main-content">
-        <div class="container py-5">
-            <div class="content-box">
-                <h1 class="page-title">MND Blog</h1>
-                <p class="page-subtitle">Insights, tutorials, and updates from the world of web development</p>
+        <div class="content-box">
+            <h1 class="page-title">MND Blog</h1>
+            <p class="page-subtitle">Insights, tutorials, and updates from the world of web development</p>
 
-                <!-- Featured Post -->
-                <div class="featured-post">
-                    <div class="row g-0">
-                        <div class="col-lg-6">
-                            <div class="featured-image">
-                                <img src="./img/pageimg/Top Web Development Trends to Watch in 20252.png"
-                                    alt="Featured Post - Top Web Development Trends to Watch in 2025">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="featured-content">
-                                <span class="featured-category">Trends</span>
-                                <h2 class="featured-title">Top Web Development Trends to Watch in 2025</h2>
-                                <p class="featured-excerpt">Explore the emerging technologies and approaches that are shaping the
-                                    future of web development. From AI-powered tools to new frameworks, discover what's next in the
-                                    industry.</p>
-                                <div class="blog-meta mb-3">
-                                    <div class="blog-date"><i class="far fa-calendar me-1"></i> March 15, 2025</div>
-                                    <div class="blog-read-time"><i class="far fa-clock me-1"></i> 8 min read</div>
-                                </div>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
+            <!-- Featured Post -->
+            <div class="featured-post">
+                <div class="featured-image">
+                    <img src="./img/pageimg/Top Web Development Trends to Watch in 20252.png"
+                        alt="Featured Post - Top Web Development Trends to Watch in 2025">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-category">Trends</span>
+                    <h2 class="featured-title">Top Web Development Trends to Watch in 2025</h2>
+                    <p class="featured-excerpt">Explore the emerging technologies and approaches that are shaping the
+                        future of web development. From AI-powered tools to new frameworks, discover what's next in the
+                        industry.</p>
+                    <div class="blog-meta">
+                        <div class="blog-date">📅 March 15, 2025</div>
+                        <div class="blog-read-time">⏱️ 8 min read</div>
+                    </div>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="./img/pageimg/CSS Grid vs Flexbox.png" alt="CSS Grid vs Flexbox">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Tutorial</span>
+                        <h3 class="blog-title">CSS Grid vs Flexbox: When to Use Each</h3>
+                        <p class="blog-excerpt">A comprehensive guide to understanding the differences and use cases for
+                            CSS Grid and Flexbox.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">📅 March 10, 2025</div>
+                            <div class="blog-read-time">⏱️ 6 min read</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Blog Grid -->
-                <div class="row g-4">
-                    <!-- Blog Post 1 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-card">
-                            <div class="blog-image">
-                                <img src="./img/pageimg/CSS Grid vs Flexbox.png" alt="CSS Grid vs Flexbox">
-                            </div>
-                            <div class="blog-content">
-                                <span class="blog-category">Tutorial</span>
-                                <h3 class="blog-title">CSS Grid vs Flexbox: When to Use Each</h3>
-                                <p class="blog-excerpt">A comprehensive guide to understanding the differences and use cases for
-                                    CSS Grid and Flexbox.</p>
-                                <div class="blog-meta">
-                                    <div class="blog-date"><i class="far fa-calendar me-1"></i> March 10, 2025</div>
-                                    <div class="blog-read-time"><i class="far fa-clock me-1"></i> 6 min read</div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Blog Post 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="./img/pageimg/Website Performance.png" alt="Website Performance">
                     </div>
-
-                    <!-- Blog Post 2 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-card">
-                            <div class="blog-image">
-                                <img src="./img/pageimg/Website Performance.png" alt="Website Performance">
-                            </div>
-                            <div class="blog-content">
-                                <span class="blog-category">Performance</span>
-                                <h3 class="blog-title">10 Tips to Improve Your Website Loading Speed</h3>
-                                <p class="blog-excerpt">Practical techniques to optimize your website's performance and enhance
-                                    user experience.</p>
-                                <div class="blog-meta">
-                                    <div class="blog-date"><i class="far fa-calendar me-1"></i> March 5, 2025</div>
-                                    <div class="blog-read-time"><i class="far fa-clock me-1"></i> 10 min read</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post 3 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-card">
-                            <div class="blog-image">
-                                <img src="./img/pageimg/Mobile-First Design.jpg" alt="Mobile-First Design">
-                            </div>
-                            <div class="blog-content">
-                                <span class="blog-category">Design</span>
-                                <h3 class="blog-title">Why Mobile-First Design is More Important Than Ever</h3>
-                                <p class="blog-excerpt">Understanding the shift to mobile-first design and how to implement it
-                                    effectively.</p>
-                                <div class="blog-meta">
-                                    <div class="blog-date"><i class="far fa-calendar me-1"></i> February 28, 2025</div>
-                                    <div class="blog-read-time"><i class="far fa-clock me-1"></i> 7 min read</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post 4 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-card">
-                            <div class="blog-image">
-                                <img src="./img/pageimg/SEO Best Practices.png" alt="SEO Best Practices">
-                            </div>
-                            <div class="blog-content">
-                                <span class="blog-category">SEO</span>
-                                <h3 class="blog-title">Essential SEO Practices for Modern Websites</h3>
-                                <p class="blog-excerpt">Key strategies to improve your website's search engine visibility and
-                                    organic traffic.</p>
-                                <div class="blog-meta">
-                                    <div class="blog-date"><i class="far fa-calendar me-1"></i> February 22, 2025</div>
-                                    <div class="blog-read-time"><i class="far fa-clock me-1"></i> 9 min read</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post 5 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-card">
-                            <div class="blog-image">
-                                <img src="./img/pageimg/JavaScript Frameworks.png" alt="JavaScript Frameworks">
-                            </div>
-                            <div class="blog-content">
-                                <span class="blog-category">Development</span>
-                                <h3 class="blog-title">Choosing the Right JavaScript Framework for Your Project</h3>
-                                <p class="blog-excerpt">A comparison of React, Vue, and Angular to help you make an informed
-                                    decision.</p>
-                                <div class="blog-meta">
-                                    <div class="blog-date"><i class="far fa-calendar me-1"></i> February 15, 2025</div>
-                                    <div class="blog-read-time"><i class="far fa-clock me-1"></i> 11 min read</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post 6 -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="blog-card">
-                            <div class="blog-image">
-                                <img src="./img/pageimg/Accessibility.jpg" alt="Accessibility">
-                            </div>
-                            <div class="blog-content">
-                                <span class="blog-category">Accessibility</span>
-                                <h3 class="blog-title">Building Accessible Web Applications: A Complete Guide</h3>
-                                <p class="blog-excerpt">Learn how to create websites that are usable by everyone, regardless of
-                                    abilities or disabilities.</p>
-                                <div class="blog-meta">
-                                    <div class="blog-date"><i class="far fa-calendar me-1"></i> February 10, 2025</div>
-                                    <div class="blog-read-time"><i class="far fa-clock me-1"></i> 12 min read</div>
-                                </div>
-                            </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Performance</span>
+                        <h3 class="blog-title">10 Tips to Improve Your Website Loading Speed</h3>
+                        <p class="blog-excerpt">Practical techniques to optimize your website's performance and enhance
+                            user experience.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">📅 March 5, 2025</div>
+                            <div class="blog-read-time">⏱️ 10 min read</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Newsletter Section -->
-                <div class="newsletter-section">
-                    <h3 class="newsletter-title">Stay Updated</h3>
-                    <p class="newsletter-description">Subscribe to our newsletter to receive the latest articles, tutorials,
-                        and industry insights directly in your inbox.</p>
-                    <form class="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
-                        <button type="submit" class="newsletter-button">Subscribe</button>
-                    </form>
+                <!-- Blog Post 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="./img/pageimg/Mobile-First Design.jpg" alt="Mobile-First Design">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Design</span>
+                        <h3 class="blog-title">Why Mobile-First Design is More Important Than Ever</h3>
+                        <p class="blog-excerpt">Understanding the shift to mobile-first design and how to implement it
+                            effectively.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">📅 February 28, 2025</div>
+                            <div class="blog-read-time">⏱️ 7 min read</div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Blog Post 4 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="./img/pageimg/SEO Best Practices.png" alt="SEO Best Practices">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">SEO</span>
+                        <h3 class="blog-title">Essential SEO Practices for Modern Websites</h3>
+                        <p class="blog-excerpt">Key strategies to improve your website's search engine visibility and
+                            organic traffic.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">📅 February 22, 2025</div>
+                            <div class="blog-read-time">⏱️ 9 min read</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 5 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="./img/pageimg/JavaScript Frameworks.png" alt="JavaScript Frameworks">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Development</span>
+                        <h3 class="blog-title">Choosing the Right JavaScript Framework for Your Project</h3>
+                        <p class="blog-excerpt">A comparison of React, Vue, and Angular to help you make an informed
+                            decision.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">📅 February 15, 2025</div>
+                            <div class="blog-read-time">⏱️ 11 min read</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 6 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="./img/pageimg/Accessibility.jpg" alt="Accessibility">
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-category">Accessibility</span>
+                        <h3 class="blog-title">Building Accessible Web Applications: A Complete Guide</h3>
+                        <p class="blog-excerpt">Learn how to create websites that are usable by everyone, regardless of
+                            abilities or disabilities.</p>
+                        <div class="blog-meta">
+                            <div class="blog-date">📅 February 10, 2025</div>
+                            <div class="blog-read-time">⏱️ 12 min read</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="newsletter-section">
+                <h3 class="newsletter-title">Stay Updated</h3>
+                <p class="newsletter-description">Subscribe to our newsletter to receive the latest articles, tutorials,
+                    and industry insights directly in your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
             </div>
         </div>
     </main>
 
-    <script src="./assets/main.js"></script>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="./assets/main.js"></script>
     <script>
         // Blog card click handlers
         document.querySelectorAll('.blog-card').forEach(card => {
@@ -546,6 +597,8 @@
             const title = document.querySelector('.featured-title').textContent;
             alert(`This would navigate to the full article: "${title}"`);
         });
+// ok
     </script>
 </body>
+
 </html>

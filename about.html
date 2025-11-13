@@ -4,14 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MND - About Us</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+    <title>About Us - MND</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -27,6 +20,7 @@
             background-color: #fef2f2;
             font-size: 16px;
         }
+
 
         .content-box {
             background-color: white;
@@ -55,6 +49,14 @@
         }
 
         /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
         .hero-content h1 {
             font-size: 42px;
             font-weight: 700;
@@ -77,6 +79,13 @@
         }
 
         /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 60px 0;
+        }
+
         .stat-card {
             text-align: center;
             padding: 30px 20px;
@@ -84,7 +93,7 @@
             border-radius: 12px;
             transition: transform 0.3s;
             box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.766) 0px 0px 0px 1px;
-            height: 100%;
+
         }
 
         .stat-card:hover {
@@ -105,14 +114,23 @@
         }
 
         /* Mission Section */
+        .mission-section {
+            margin: 60px 0;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
         .mission-card {
             background: #f8f9fa;
             padding: 30px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
             transition: transform 0.3s;
-            height: 100%;
         }
 
         .mission-card:hover {
@@ -577,6 +595,158 @@
             text-align: center;
         }
 
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .tabs {
+                gap: 15px;
+            }
+
+            .tab {
+                font-size: 13px;
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .creator-info {
+                flex: 1;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .tabs {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                padding: 16px 0;
+                gap: 0;
+            }
+
+            .tabs.active {
+                display: flex;
+            }
+
+            .tab {
+                padding: 12px 20px;
+                width: 100%;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .tab:last-child {
+                border-bottom: none;
+            }
+
+            .tab.active::after {
+                display: none;
+            }
+
+            .tab.active {
+                background-color: #f0f4ff;
+            }
+
+            .auth-buttons {
+                display: none;
+            }
+
+            .content-box {
+                padding: 24px 16px;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+                padding-left: 70px;
+            }
+
+            .timeline-item::after {
+                left: 22px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 22px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .footer-divider {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            body {
+                font-size: 16px;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+        /* Specific example for tablets in landscape orientation */
+        @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+            .stats-section {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         /* Back to top button */
         .back-to-top {
             position: fixed;
@@ -607,193 +777,148 @@
             background: linear-gradient(45deg, #0026ff, #040650);
             transform: translateY(-3px);
         }
-
-        /* Responsive Timeline */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
-            }
-
-            .timeline-item:nth-child(even) {
-                left: 0;
-                padding-left: 70px;
-            }
-
-            .timeline-item::after {
-                left: 22px;
-                right: auto;
-            }
-
-            .timeline-item:nth-child(even)::after {
-                left: 22px;
-            }
-        }
     </style>
 </head>
 
 <body>
     <!-- Main Content -->
     <main class="main-content">
-        <div class="container py-5">
-            <div class="content-box">
-                <h1 class="page-title">Our Story</h1>
-                <p class="page-subtitle">Learn about our journey, mission, and the values that drive everything we do at MND
-                    Development.</p>
+        <div class="content-box">
+            <h1 class="page-title">Our Story</h1>
+            <p class="page-subtitle">Learn about our journey, mission, and the values that drive everything we do at MND
+                Development.</p>
 
-                <!-- Hero Section -->
-                <section class="row align-items-center mb-5">
-                    <div class="col-md-6 order-md-2 mb-4 mb-md-0">
-                        <div class="hero-image-placeholder">
-                            <div class="w-100" style="height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 600;">
-                                <img src="./img/pageimg/Building the Future of Web Development.png"
-                                    alt="Building the Future of Web Development"
-                                    class="hero-image">
-                            </div>
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-image-placeholder">
+                    <div
+                        style="width: 100%; height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 600;">
+                        <img src="./img/pageimg/Building the Future of Web Development.png"
+                            alt="Building the Future of Web Development"
+                            style="width: 95%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <h1>Building the Future of Web Development</h1>
+                    <p>MND Development was founded with a simple mission: to create beautiful, functional websites that
+                        help businesses and creators thrive in the digital world. We believe that great design and
+                        powerful functionality should be accessible to everyone.</p>
+                    <p>Our team of passionate developers and designers work together to push the boundaries of what's
+                        possible on the web, creating solutions that are not only visually stunning but also incredibly
+                        effective.</p>
+                </div>
+                
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+            </section>
+
+            <!-- Mission Section -->
+            <section class="mission-section">
+                <h2 class="page-title">Our Mission & Values</h2>
+                <p class="page-subtitle">The principles that guide our work and define who we are</p>
+
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon">✓</div>
+                        <h3 class="mission-title">Quality First</h3>
+                        <p class="mission-description">We never compromise on quality. Every project receives the same
+                            attention to detail and commitment to excellence.</p>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-icon">👥</div>
+                        <h3 class="mission-title">Collaboration</h3>
+                        <p class="mission-description">We work closely with our clients, treating them as partners in
+                            the creative process to ensure the best possible outcomes.</p>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-icon">💡</div>
+                        <h3 class="mission-title">Innovation</h3>
+                        <p class="mission-description">We stay at the forefront of technology, constantly exploring new
+                            tools and techniques to deliver cutting-edge solutions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timeline Section with Balloon Animation -->
+            <section class="timeline-section">
+                <!-- <div class="particle-background" id="particle-background"></div> -->
+
+                <h2 class="page-title">Our Journey</h2>
+                <p class="page-subtitle">How MND Development grew from an idea to a leading web development agency</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021 - 2022</div>
+                            <h3 class="timeline-title">Foundation</h3>
+                            <p class="timeline-description">MND Development was founded with a vision to create
+                                accessible web solutions for businesses of all sizes.</p>
                         </div>
                     </div>
-                    <div class="col-md-6 order-md-1">
-                        <div class="hero-content">
-                            <h1>Building the Future of Web Development</h1>
-                            <p>MND Development was founded with a simple mission: to create beautiful, functional websites that
-                                help businesses and creators thrive in the digital world. We believe that great design and
-                                powerful functionality should be accessible to everyone.</p>
-                            <p>Our team of passionate developers and designers work together to push the boundaries of what's
-                                possible on the web, creating solutions that are not only visually stunning but also incredibly
-                                effective.</p>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2022 - 2023</div>
+                            <h3 class="timeline-title">Growth & Expansion</h3>
+                            <p class="timeline-description">We expanded our team and services, working with clients
+                                across various industries and launching our template marketplace.</p>
                         </div>
                     </div>
-                </section>
 
-                <!-- Stats Section -->
-                <section class="row g-4 my-5">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="stat-card">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label">Projects Completed</div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2022 - 2024</div>
+                            <h3 class="timeline-title">Innovation</h3>
+                            <p class="timeline-description">Introduced advanced web applications and e-commerce
+                                solutions, establishing ourselves as industry innovators.</p>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="stat-card">
-                            <div class="stat-number">4+</div>
-                            <div class="stat-label">Years Experience</div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021 - 2025</div>
+                            <h3 class="timeline-title">Future Vision</h3>
+                            <p class="timeline-description">Focusing on AI integration, progressive web apps, and
+                                sustainable web development practices.</p>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="stat-card">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Client Satisfaction</div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="stat-card">
-                            <div class="stat-number">5</div>
-                            <div class="stat-label">Team Members</div>
-                        </div>
-                    </div>
-                </section>
+                </div>
+            </section>
 
-                <!-- Mission Section -->
-                <section class="my-5">
-                    <h2 class="page-title">Our Mission & Values</h2>
-                    <p class="page-subtitle">The principles that guide our work and define who we are</p>
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
 
-                    <div class="row g-4 mt-4">
-                        <div class="col-md-4">
-                            <div class="mission-card">
-                                <div class="mission-icon"><i class="bi bi-check-lg"></i></div>
-                                <h3 class="mission-title">Quality First</h3>
-                                <p class="mission-description">We never compromise on quality. Every project receives the same
-                                    attention to detail and commitment to excellence.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="mission-card">
-                                <div class="mission-icon"><i class="bi bi-people-fill"></i></div>
-                                <h3 class="mission-title">Collaboration</h3>
-                                <p class="mission-description">We work closely with our clients, treating them as partners in
-                                    the creative process to ensure the best possible outcomes.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="mission-card">
-                                <div class="mission-icon"><i class="bi bi-lightbulb-fill"></i></div>
-                                <h3 class="mission-title">Innovation</h3>
-                                <p class="mission-description">We stay at the forefront of technology, constantly exploring new
-                                    tools and techniques to deliver cutting-edge solutions.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Timeline Section with Balloon Animation -->
-                <section class="timeline-section">
-                    <!-- <div class="particle-background" id="particle-background"></div> -->
-
-                    <h2 class="page-title">Our Journey</h2>
-                    <p class="page-subtitle">How MND Development grew from an idea to a leading web development agency</p>
-
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2021 - 2022</div>
-                                <h3 class="timeline-title">Foundation</h3>
-                                <p class="timeline-description">MND Development was founded with a vision to create
-                                    accessible web solutions for businesses of all sizes.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2022 - 2023</div>
-                                <h3 class="timeline-title">Growth & Expansion</h3>
-                                <p class="timeline-description">We expanded our team and services, working with clients
-                                    across various industries and launching our template marketplace.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2022 - 2024</div>
-                                <h3 class="timeline-title">Innovation</h3>
-                                <p class="timeline-description">Introduced advanced web applications and e-commerce
-                                    solutions, establishing ourselves as industry innovators.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-content">
-                                <div class="timeline-year">2021 - 2025</div>
-                                <h3 class="timeline-title">Future Vision</h3>
-                                <p class="timeline-description">Focusing on AI integration, progressive web apps, and
-                                    sustainable web development practices.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- CTA Section -->
-                <section class="cta-section mt-5">
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-                    <div class="floating-element"></div>
-
-                    <h2 class="cta-title">Ready to Start Your Project?</h2>
-                    <p class="cta-description">Join the growing list of businesses and creators who have trusted MND
-                        Development with their digital presence.</p>
-                    <div class="cta-buttons">
-                        <a href="contact.html" class="cta-button primary">Get In Touch</a>
-                        <a href="services.html" class="cta-button secondary">View Our Work</a>
-                    </div>
-                </section>
-            </div>
+                <h2 class="cta-title">Ready to Start Your Project?</h2>
+                <p class="cta-description">Join the growing list of businesses and creators who have trusted MND
+                    Development with their digital presence.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-button primary">Get In Touch</a>
+                    <a href="services.html" class="cta-button secondary">View Our Work</a>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -804,12 +929,11 @@
                 stroke-linejoin="round" />
         </svg>
     </div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
+
+
         // Particle Animation for Our Journey Section
         class Particle {
             constructor(svg, coordinates, friction) {
@@ -902,23 +1026,7 @@
             requestAnimationFrame(update.bind(this));
         }
         update();
-
-        // Back to top functionality
-        window.addEventListener('scroll', function() {
-            const backToTopButton = document.querySelector('.back-to-top');
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        document.querySelector('.back-to-top').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+// ok
     </script>
     
 </body>
