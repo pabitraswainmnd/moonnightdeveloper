@@ -186,8 +186,6 @@
 
         /* Main Content */
         .main-content {
-            /* max-width: 1500px;
-            margin: 0 auto; */
             padding: 40px 16px;
             flex: 1;
         }
@@ -297,7 +295,6 @@
         .slide-image img {
             width: 100%;
             height: 100%;
-            
             object-fit: cover;
         }
 
@@ -736,6 +733,7 @@
 </head>
 
 <body>
+    <!-- Header will be inserted by main.js -->
    
     <!-- Main Content -->
     <main class="main-content">
@@ -853,17 +851,16 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Slideshow Controls -->
-                <!-- <div class="slideshow-controls">
-                    <button class="slideshow-nav" id="prev-slide">❮</button>
-                    <div class="slideshow-dots" id="slideshow-dots">
-                       
-                    </div>
-                    <button class="slideshow-nav" id="next-slide">❯</button>
-                </div> -->
                 </div>
 
-                
+                <!-- Slideshow Controls -->
+                <div class="slideshow-controls">
+                    <button class="slideshow-nav" id="prev-slide">❮</button>
+                    <div class="slideshow-dots" id="slideshow-dots">
+                        <!-- Dots will be populated by JavaScript -->
+                    </div>
+                    <button class="slideshow-nav" id="next-slide">❯</button>
+                </div>
             </div>
 
             <!-- Team Grid -->
@@ -916,46 +913,13 @@
             </div>
         </div>
     </main>
-<script src="./assets/main.js"></script>
+
+    <!-- Footer will be inserted by main.js -->
+
+    <script src="./assets/main.js"></script>
     <script>
-        // Mobile menu toggle functionality
+        // Team page specific functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const tabs = document.querySelector('.tabs');
-
-            if (menuToggle && tabs) {
-                menuToggle.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    tabs.classList.toggle('active');
-                    menuToggle.classList.toggle('active');
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!e.target.closest('.header-container')) {
-                        tabs.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    }
-                });
-
-                // Close mobile menu when clicking on a tab
-                document.querySelectorAll('.tab').forEach(tab => {
-                    tab.addEventListener('click', function() {
-                        tabs.classList.remove('active');
-                        menuToggle.classList.remove('active');
-                    });
-                });
-            }
-
-            // Handle login/signup buttons
-            document.querySelectorAll('.login-btn, .signup-btn').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const isLogin = this.classList.contains('login-btn');
-                    alert(`This would open the ${isLogin ? 'login' : 'signup'} modal`);
-                });
-            });
-
             // Team Slideshow Functionality
             const slideshowContainer = document.querySelector('.slideshow-container');
             const slides = document.querySelectorAll('.team-slide');
@@ -968,13 +932,15 @@
             const slideDuration = 5000; // 5 seconds per slide
             
             // Create dots for each slide
-            slides.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('slideshow-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(index));
-                dotsContainer.appendChild(dot);
-            });
+            if (dotsContainer) {
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('slideshow-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+            }
             
             const dots = document.querySelectorAll('.slideshow-dot');
             
@@ -988,7 +954,9 @@
             
             // Function to update slide position
             function updateSlidePosition() {
-                slideshowContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                if (slideshowContainer) {
+                    slideshowContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                }
             }
             
             // Function to update active dot
@@ -1019,41 +987,51 @@
             }
             
             // Event listeners for navigation buttons
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    resetInterval();
+                });
+            }
             
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    resetInterval();
+                });
+            }
             
             // Start the auto-slideshow
-            slideInterval = setInterval(nextSlide, slideDuration);
+            if (slides.length > 0) {
+                slideInterval = setInterval(nextSlide, slideDuration);
+            }
             
             // Pause slideshow on hover
             const slideshow = document.querySelector('.team-slideshow');
-            slideshow.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            slideshow.addEventListener('mouseleave', () => {
-                resetInterval();
-            });
+            if (slideshow) {
+                slideshow.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                
+                slideshow.addEventListener('mouseleave', () => {
+                    resetInterval();
+                });
+            }
             
             // Touch swipe support for mobile
             let touchStartX = 0;
             let touchEndX = 0;
             
-            slideshow.addEventListener('touchstart', e => {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            
-            slideshow.addEventListener('touchend', e => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
+            if (slideshow) {
+                slideshow.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+                
+                slideshow.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+            }
             
             function handleSwipe() {
                 const swipeThreshold = 50;
@@ -1083,7 +1061,7 @@
                         role: "Lead Frontend Developer",
                         bio: "Pabitra specializes in creating responsive and interactive user interfaces with modern JavaScript frameworks. With over 5 years of experience, he leads our frontend development team.",
                         skills: ["HTML/CSS", "JavaScript", "React", "UI/UX", "TypeScript"],
-                        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                        image: "https://i.im.ge/2025/11/14/nG2529.IMG-20250226-181209.jpeg"
                     },
                     {
                         name: "Muna Badaiya",
@@ -1108,50 +1086,54 @@
                     }
                 ];
 
-                gridView.innerHTML = '';
+                if (gridView) {
+                    gridView.innerHTML = '';
 
-                teamMembers.forEach(member => {
-                    const memberElement = document.createElement('div');
-                    memberElement.className = 'team-member';
-                    
-                    memberElement.innerHTML = `
-                        <img src="${member.image}" alt="${member.name}" class="member-image">
-                        <div class="member-info">
-                            <h3 class="member-name">${member.name}</h3>
-                            <p class="member-role">${member.role}</p>
-                            <p class="member-bio">${member.bio}</p>
-                            <div class="member-skills">
-                                ${member.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                    teamMembers.forEach(member => {
+                        const memberElement = document.createElement('div');
+                        memberElement.className = 'team-member';
+                        
+                        memberElement.innerHTML = `
+                            <img src="${member.image}" alt="${member.name}" class="member-image">
+                            <div class="member-info">
+                                <h3 class="member-name">${member.name}</h3>
+                                <p class="member-role">${member.role}</p>
+                                <p class="member-bio">${member.bio}</p>
+                                <div class="member-skills">
+                                    ${member.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+                                </div>
+                                <div class="member-social">
+                                    <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                                    <a href="#" class="social-link" aria-label="GitHub">gh</a>
+                                    <a href="#" class="social-link" aria-label="Twitter">tw</a>
+                                </div>
                             </div>
-                            <div class="member-social">
-                                <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                            </div>
-                        </div>
-                    `;
-                    
-                    gridView.appendChild(memberElement);
-                });
+                        `;
+                        
+                        gridView.appendChild(memberElement);
+                    });
+                }
             }
 
             // Initialize team grid
             populateTeamGrid();
 
             // View toggle functionality
-            slideshowViewBtn.addEventListener('click', () => {
-                slideshowView.style.display = 'block';
-                gridView.style.display = 'none';
-                slideshowViewBtn.classList.add('active');
-                gridViewBtn.classList.remove('active');
-            });
+            if (slideshowViewBtn && gridViewBtn && slideshowView && gridView) {
+                slideshowViewBtn.addEventListener('click', () => {
+                    slideshowView.style.display = 'block';
+                    gridView.style.display = 'none';
+                    slideshowViewBtn.classList.add('active');
+                    gridViewBtn.classList.remove('active');
+                });
 
-            gridViewBtn.addEventListener('click', () => {
-                slideshowView.style.display = 'none';
-                gridView.style.display = 'grid';
-                gridViewBtn.classList.add('active');
-                slideshowViewBtn.classList.remove('active');
-            });
+                gridViewBtn.addEventListener('click', () => {
+                    slideshowView.style.display = 'none';
+                    gridView.style.display = 'grid';
+                    gridViewBtn.classList.add('active');
+                    slideshowViewBtn.classList.remove('active');
+                });
+            }
         });
     </script>
 </body>
