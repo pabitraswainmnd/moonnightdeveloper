@@ -7,7 +7,7 @@ Hi
 A modern, responsive contact page for MND Development with a fully mobile-responsive navbar and professional design.
 Girls Hostel
 ## 🚀 Features
-'https://i.im.ge/2025/11/19/4r3wiy.GH.jpeg'
+`https://i.im.ge/2025/11/19/4r3wiy.GH.jpeg`
 - **Fully Responsive Design** - Works perfectly on all devices (desktop, tablet, mobile)
 - **Modern UI/UX** - Clean, professional design with smooth animations
 - **Mobile-First Navigation** - Hamburger menu for mobile devices with smooth transitions
