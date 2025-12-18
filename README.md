@@ -6,7 +6,7 @@
 Hi 
 # EVERYONE
 
-# MND Development - **[LIVE DEMO](https://moonnightdeveloper.github.io/moonnightdeveloper/)**.
+# MND Development - **[LIVE DEMO](https://moonnightdevelopers.github.io/moonnightdeveloper/)**.
 #
 ![Girls Hostel](https://i.im.ge/2025/11/19/4r3wiy.GH.jpeg | width=100)
 A modern, responsive contact page for MND Development with a fully mobile-responsive navbar and professional design.
