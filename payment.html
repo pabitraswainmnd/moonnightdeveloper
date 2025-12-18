@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Purchase - MND</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .payment-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            overflow: hidden;
+        }
+
+        .payment-header {
+            background: linear-gradient(135deg, #1c3974 0%, #4a74c7 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .payment-header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .payment-header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .payment-content {
+            padding: 30px;
+        }
+
+        .order-summary {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .order-item.total {
+            font-weight: bold;
+            color: #1c3974;
+            font-size: 18px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 2px solid #1c3974;
+        }
+
+        .payment-methods {
+            margin-bottom: 25px;
+        }
+
+        .payment-method {
+            border: 2px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .payment-method:hover {
+            border-color: #4a74c7;
+            background: #f0f5ff;
+        }
+
+        .payment-method.active {
+            border-color: #1c3974;
+            background: #f0f5ff;
+        }
+
+        .method-icon {
+            width: 40px;
+            height: 40px;
+            background: #e5e5e5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #1c3974;
+        }
+
+        .method-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .method-info p {
+            font-size: 12px;
+            color: #717171;
+        }
+
+        .payment-form {
+            display: none;
+        }
+
+        .payment-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1c3974;
+            box-shadow: 0 0 0 2px rgba(28, 57, 116, 0.2);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .pay-button {
+            width: 100%;
+            background: linear-gradient(135deg, #1c3974 0%, #4a74c7 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pay-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(28, 57, 116, 0.3);
+        }
+
+        .pay-button:active {
+            transform: translateY(0);
+        }
+
+        .payment-success {
+            text-align: center;
+            padding: 40px 30px;
+            display: none;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #1c3974;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            background: #4a74c7;
+        }
+
+        .test-mode {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        
+        .invoice-redirect {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f5ff;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .invoice-redirect i {
+            color: #1c3974;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .redirect-countdown {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-container">
+        <div class="payment-header">
+            <h1><i class="fas fa-lock"></i> Secure Checkout</h1>
+            <p>Complete your purchase with MND Projects</p>
+        </div>
+
+        <div class="payment-content" id="paymentContent">
+            <div class="order-summary" id="orderSummary">
+                <!-- Order summary will be populated by JavaScript -->
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-method active" data-method="card">
+                    <div class="method-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="method-info">
+                        <h3>Credit/Debit Card</h3>
+                        <p>Pay with Visa, Mastercard, or Rupay</p>
+                    </div>
+                </div>
+
+                <div class="payment-method" data-method="upi">
+                    <div class="method-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="method-info">
+                        <h3>UPI Payment</h3>
+                        <p>Pay with Google Pay, PhonePe, or any UPI app</p>
+                    </div>
+                </div>
+
+                <div class="payment-method" data-method="netbanking">
+                    <div class="method-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="method-info">
+                        <h3>Net Banking</h3>
+                        <p>Pay directly from your bank account</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-form active" id="cardForm">
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="password" id="cvv" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName" placeholder="MUNA BADATIY">
+                </div>
+            </div>
+
+            <div class="payment-form" id="upiForm">
+                <div class="form-group">
+                    <label for="upiId">UPI ID</label>
+                    <input type="text" id="upiId" placeholder="123457890@upi">
+                </div>
+                <p style="font-size: 12px; color: #717171; margin-top: -10px; margin-bottom: 15px;">
+                    You'll be redirected to your UPI app to complete the payment
+                </p>
+            </div>
+
+            <div class="payment-form" id="netbankingForm">
+                <div class="form-group">
+                    <label for="bankSelect">Select Bank</label>
+                    <select id="bankSelect"
+                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                        <option value="">Select your bank</option>
+                        <option value="sbi">State Bank of India</option>
+                        <option value="hdfc">HDFC Bank</option>
+                        <option value="icici">ICICI Bank</option>
+                        <option value="axis">Axis Bank</option>
+                        <option value="kotak">Kotak Mahindra Bank</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="pay-button" id="payButton">
+                <i class="fas fa-lock"></i> Pay Now
+            </button>
+
+            <!-- <div class="test-mode">
+                <i class="fas fa-info-circle"></i> Test Mode: Use 4242 4242 4242 4242 for card testing
+            </div> -->
+            
+            <div class="invoice-redirect" id="invoiceRedirect">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>Generating Invoice...</h3>
+                <p>Your invoice is being prepared. You will be redirected shortly.</p>
+                <div class="redirect-countdown" id="redirectCountdown">Redirecting in 3 seconds...</div>
+            </div>
+        </div>
+
+        <div class="payment-success" id="paymentSuccess">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Payment Successful!</h2>
+            <p>Thank you for your purchase. Your order has been confirmed.</p>
+            <p>You will receive an email with the project details shortly.</p>
+            <a href="project.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load order data from localStorage
+            const orderData = JSON.parse(localStorage.getItem('currentOrder')) || {
+                projectId: "Sample Project",
+                quantity: 1,
+                unitPrice: 15000,
+                totalPrice: 15000,
+                description: "Project description"
+            };
+
+            // Display order summary
+            const orderSummary = document.getElementById('orderSummary');
+            orderSummary.innerHTML = `
+                <div class="order-item">
+                    <span>Project:</span>
+                    <span>${orderData.projectId}</span>
+                </div>
+                <div class="order-item">
+                    <span>Quantity:</span>
+                    <span>${orderData.quantity}</span>
+                </div>
+                <div class="order-item">
+                    <span>Unit Price:</span>
+                    <span>₹${orderData.unitPrice.toFixed(2)}</span>
+                </div>
+                <div class="order-item total">
+                    <span>Total Amount:</span>
+                    <span>₹${orderData.totalPrice.toFixed(2)}</span>
+                </div>
+            `;
+
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const paymentForms = document.querySelectorAll('.payment-form');
+
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function () {
+                    // Update active method
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Show corresponding form
+                    const methodType = this.getAttribute('data-method');
+                    paymentForms.forEach(form => form.classList.remove('active'));
+                    document.getElementById(`${methodType}Form`).classList.add('active');
+                });
+            });
+
+            // Format card number
+            const cardNumberInput = document.getElementById('cardNumber');
+            cardNumberInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+                if (value.length > 16) value = value.substr(0, 16);
+
+                // Add spaces every 4 digits
+                const formatted = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+                e.target.value = formatted;
+            });
+
+            // Format expiry date
+            const expiryInput = document.getElementById('expiryDate');
+            expiryInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/g, '');
+                if (value.length > 4) value = value.substr(0, 4);
+
+                // Add slash after 2 digits
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2);
+                }
+                e.target.value = value;
+            });
+
+            // Format CVV (only numbers)
+            const cvvInput = document.getElementById('cvv');
+            cvvInput.addEventListener('input', function (e) {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            });
+
+            // Pay button click
+            const payButton = document.getElementById('payButton');
+            payButton.addEventListener('click', function () {
+                const activeMethod = document.querySelector('.payment-method.active').getAttribute('data-method');
+
+                // Basic validation
+                let isValid = true;
+                let errorMessage = "";
+
+                if (activeMethod === 'card') {
+                    const cardNumber = cardNumberInput.value.replace(/\s+/g, '');
+                    const expiryDate = expiryInput.value;
+                    const cvv = cvvInput.value;
+                    const cardName = document.getElementById('cardName').value;
+
+                    if (cardNumber.length !== 16) {
+                        isValid = false;
+                        errorMessage = "Please enter a valid 16-digit card number";
+                    } else if (!expiryDate.match(/^\d{2}\/\d{2}$/)) {
+                        isValid = false;
+                        errorMessage = "Please enter a valid expiry date (MM/YY)";
+                    } else if (cvv.length !== 3) {
+                        isValid = false;
+                        errorMessage = "Please enter a valid 3-digit CVV";
+                    } else if (cardName.trim() === "") {
+                        isValid = false;
+                        errorMessage = "Please enter the name on card";
+                    }
+                } else if (activeMethod === 'upi') {
+                    const upiId = document.getElementById('upiId').value;
+                    if (!upiId.includes('@') || upiId.trim() === "") {
+                        isValid = false;
+                        errorMessage = "Please enter a valid UPI ID";
+                    }
+                } else if (activeMethod === 'netbanking') {
+                    const bankSelect = document.getElementById('bankSelect');
+                    if (bankSelect.value === "") {
+                        isValid = false;
+                        errorMessage = "Please select your bank";
+                    }
+                }
+
+                if (!isValid) {
+                    alert(`Error: ${errorMessage}`);
+                    return;
+                }
+
+                // Show processing animation
+                payButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                payButton.disabled = true;
+
+                // Hide other elements
+                document.querySelector('.test-mode').style.display = 'none';
+                document.querySelector('.payment-methods').style.display = 'none';
+                document.querySelectorAll('.payment-form').forEach(form => form.style.display = 'none');
+
+                // Show invoice redirect
+                const invoiceRedirect = document.getElementById('invoiceRedirect');
+                invoiceRedirect.style.display = 'block';
+
+                // Simulate payment processing
+                setTimeout(() => {
+                    // Generate invoice data
+                    generateInvoiceAndRedirect(orderData, activeMethod, cardName);
+                    
+                }, 2000);
+            });
+
+            // Generate invoice and redirect function
+            function generateInvoiceAndRedirect(orderData, paymentMethod, customerName) {
+                // Generate invoice data
+                const invoiceData = {
+                    invoiceId: 'INV-' + Date.now(),
+                    invoiceDate: new Date().toISOString().split('T')[0],
+                    order: orderData,
+                    payment: {
+                        method: paymentMethod,
+                        id: 'PAY-' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+                        status: 'Paid',
+                        date: new Date().toLocaleString()
+                    },
+                    customer: {
+                        name: 'MUNA BADATIY',
+                        email: 'munabadaty@gmail.com',
+                        phone: '+91 987643210'
+                    },
+                    billingAddress: {
+                        street: '123 Bijippur',
+                        city: 'Berhampur',
+                        state: 'Odisha',
+                        zip: '71013',
+                        country: 'India'
+                    }
+                };
+                
+                // Store invoice data in localStorage
+                localStorage.setItem('invoiceData', JSON.stringify(invoiceData));
+                
+                // Countdown for redirect
+                let countdown = 3;
+                const countdownElement = document.getElementById('redirectCountdown');
+                
+                const countdownInterval = setInterval(() => {
+                    countdown--;
+                    countdownElement.textContent = `Redirecting to invoice in ${countdown} seconds...`;
+                    
+                    if (countdown <= 0) {
+                        clearInterval(countdownInterval);
+                        // Redirect to invoice page
+                        window.location.href = 'invoice.html';
+                    }
+                }, 1000);
+                
+                // Also allow immediate redirect with click
+                invoiceRedirect.addEventListener('click', function() {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'invoice.html';
+                });
+            }
+
+            // Auto-select UPI ID if it's a common format
+            const upiIdInput = document.getElementById('upiId');
+            upiIdInput.addEventListener('focus', function () {
+                if (!this.value) {
+                    this.value = '987643210@upi';
+                }
+            });
+
+            // Auto-fill test card details for demo
+            cardNumberInput.addEventListener('focus', function () {
+                if (!this.value) {
+                    this.value = '1540 4242 0154 0022';
+                    document.getElementById('expiryDate').value = '11/26';
+                    document.getElementById('cvv').value = '988';
+                    document.getElementById('cardName').value = 'MUNA BADATIY';
+                }
+            });
+        });
+        
+    </script>
+</body>
+
+</html>

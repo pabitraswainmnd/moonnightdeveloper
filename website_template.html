@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Template Pricing & Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 25px auto;
+            line-height: 1.8;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #3498db;
+        }
+
+        /* Price Overview Cards */
+        .overview-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .overview-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .overview-card.diy {
+            border-color: #27ae60;
+        }
+
+        .overview-card.pro {
+            border-color: #3498db;
+        }
+
+        .overview-card.full {
+            border-color: #9b59b6;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .diy .card-icon {
+            color: #27ae60;
+        }
+
+        .pro .card-icon {
+            color: #3498db;
+        }
+
+        .full .card-icon {
+            color: #9b59b6;
+        }
+
+        .overview-title {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .overview-price {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .diy .overview-price {
+            background: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+        }
+
+        .pro .overview-price {
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+        }
+
+        .full .overview-price {
+            background: rgba(155, 89, 182, 0.1);
+            color: #9b59b6;
+        }
+
+        .price-breakdown {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .price-breakdown li {
+            padding: 10px 0;
+            color: #555;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-breakdown li:last-child {
+            border-bottom: none;
+        }
+
+        .price-tag {
+            background: #f8f9fa;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .diy .price-tag {
+            background: rgba(39, 174, 96, 0.2);
+            color: #27ae60;
+        }
+
+        .pro .price-tag {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+        }
+
+        .full .price-tag {
+            background: rgba(155, 89, 182, 0.2);
+            color: #9b59b6;
+        }
+
+        /* Factors Section */
+        .section-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin: 50px 0 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+        }
+
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .factor-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border-top: 4px solid #3498db;
+        }
+
+        .factor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .factor-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .factor-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .factor-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .factor-examples {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .example-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .example-item:last-child {
+            border-bottom: none;
+        }
+
+        .example-name {
+            color: #555;
+        }
+
+        .example-price {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Price Range Cards */
+        .range-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .range-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .range-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .range-header {
+            padding: 25px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .range-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 8s infinite linear;
+        }
+
+        .range-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .range-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .range-content {
+            padding: 25px;
+        }
+
+        .range-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .range-features li {
+            padding: 12px 0;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .range-features li:last-child {
+            border-bottom: none;
+        }
+
+        .range-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            background: rgba(39, 174, 96, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .range-footer {
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+
+        .hourly-rate {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .rate-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Marketplace Section */
+        .marketplace-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .marketplace-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .marketplace-card:hover {
+            background: white;
+            border-color: #3498db;
+            transform: translateY(-5px);
+        }
+
+        .marketplace-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+
+        .marketplace-name {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .marketplace-price {
+            color: #27ae60;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .marketplace-features {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Key Insights */
+        .insights-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insights-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,100 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .insights-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .insights-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .insight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .insight-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .insight-text {
+            flex: 1;
+            line-height: 1.8;
+        }
+
+        .insight-text strong {
+            color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .overview-cards,
+            .range-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .marketplace-section,
+            .insights-section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+                padding: 15px;
+            }
+
+            .overview-price {
+                font-size: 1.6rem;
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(45deg) translateX(-100%);
+            }
+
+            100% {
+                transform: rotate(45deg) translateX(100%);
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+
+        .mt-40 {
+            margin-top: 40px;
+        }
+
+        /* Decorative Elements */
+        .floating-shape {
+            position: fixed;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+            z-index: -1;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Website Template Pricing & Services</h1>
+            <p>Website template service prices vary widely from free to thousands of dollars, depending on if you buy a
+                pre-made template or hire someone to customize one. You'll pay less for a DIY template and more for
+                professional setup, customization, and features.</p>
+        </div>
+
+        <!-- Price Overview Cards -->
+        <h2 class="section-title">Service Categories & Pricing</h2>
+        <div class="overview-cards">
+            <!-- DIY/Basic Card -->
+            <div class="overview-card diy">
+                <div class="card-icon">🛠️</div>
+                <h3 class="overview-title">DIY / Basic Templates</h3>
+                <div class="overview-price">Free - $100+</div>
+                <ul class="price-breakdown">
+                    <li>
+                        <span>Free Templates</span>
+                        <span class="price-tag">₹0</span>
+                    </li>
+                    <li>
+                        <span>Premium Templates</span>
+                        <span class="price-tag">$20 - $100+</span>
+                    </li>
+                    <li>
+                        <span>Marketplace Purchases</span>
+                        <span class="price-tag">One-time fee</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Professional Setup Card -->
+            <div class="overview-card pro">
+                <div class="card-icon">👨‍💼</div>
+                <h3 class="overview-title">Professional Setup</h3>
+                <div class="overview-price">₹5K - ₹1L+</div>
+                <ul class="price-breakdown">
+                    <li>
+                        <span>Basic 5-page site</span>
+                        <span class="price-tag">₹5,000 - ₹15,000</span>
+                    </li>
+                    <li>
+                        <span>Hourly customization</span>
+                        <span class="price-tag">₹400 - ₹700/hr</span>
+                    </li>
+                    <li>
+                        <span>Comprehensive packages</span>
+                        <span class="price-tag">₹2,000 - ₹1,00,000+</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Full Custom Design Card -->
+            <div class="overview-card full">
+                <div class="card-icon">🎨</div>
+                <h3 class="overview-title">Full Custom Design</h3>
+                <div class="overview-price">₹10K - ₹1.5L+</div>
+                <ul class="price-breakdown">
+                    <li>
+                        <span>Simple informational site</span>
+                        <span class="price-tag">₹10,000 - ₹50,000</span>
+                    </li>
+                    <li>
+                        <span>Professional business site</span>
+                        <span class="price-tag">₹80,000 - ₹1,50,000+</span>
+                    </li>
+                    <li>
+                        <span>Complex customization</span>
+                        <span class="price-tag">₹1,00,000+</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Factors Section -->
+        <h2 class="section-title">Factors Influencing Price</h2>
+        <div class="factors-grid">
+            <div class="factor-card">
+                <div class="factor-header">
+                    <div class="factor-icon">📦</div>
+                    <h3 class="factor-title">Template Type</h3>
+                </div>
+                <p>Free vs. Premium templates significantly impact initial costs</p>
+                <div class="factor-examples">
+                    <div class="example-item">
+                        <span class="example-name">Free Templates</span>
+                        <span class="example-price">₹0</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-name">Premium Templates</span>
+                        <span class="example-price">$20-$100+</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="factor-card">
+                <div class="factor-header">
+                    <div class="factor-icon">✨</div>
+                    <h3 class="factor-title">Customization Level</h3>
+                </div>
+                <p>Simple tweaks vs. full redesign with added features</p>
+                <div class="factor-examples">
+                    <div class="example-item">
+                        <span class="example-name">Minor tweaks</span>
+                        <span class="example-price">₹5K-₹15K</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-name">Full redesign</span>
+                        <span class="example-price">₹50K+</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="factor-card">
+                <div class="factor-header">
+                    <div class="factor-icon">🏢</div>
+                    <h3 class="factor-title">Service Provider</h3>
+                </div>
+                <p>Freelancer vs. Agency pricing differences</p>
+                <div class="factor-examples">
+                    <div class="example-item">
+                        <span class="example-name">Freelancer</span>
+                        <span class="example-price">₹400-₹700/hr</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-name">Agency</span>
+                        <span class="example-price">₹1,000+/hr</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="factor-card">
+                <div class="factor-header">
+                    <div class="factor-icon">🖥️</div>
+                    <h3 class="factor-title">Platform</h3>
+                </div>
+                <p>Different platforms have varying template costs</p>
+                <div class="factor-examples">
+                    <div class="example-item">
+                        <span class="example-name">WordPress</span>
+                        <span class="example-price">$20-$100</span>
+                    </div>
+                    <div class="example-item">
+                        <span class="example-name">Shopify</span>
+                        <span class="example-price">$100-$300</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Price Ranges -->
+        <h2 class="section-title">Detailed Price Breakdown</h2>
+        <div class="range-cards">
+            <!-- Basic Service Card -->
+            <div class="range-card">
+                <div class="range-header">
+                    <h3 class="range-title">Basic Setup Service</h3>
+                    <div class="range-price">₹5,000 - ₹15,000</div>
+                </div>
+                <div class="range-content">
+                    <ul class="range-features">
+                        <li>5-page website using template</li>
+                        <li>Basic content integration</li>
+                        <li>Contact form setup</li>
+                        <li>Responsive design check</li>
+                        <li>Basic SEO configuration</li>
+                    </ul>
+                </div>
+                <div class="range-footer">
+                    <div class="hourly-rate">
+                        <span>Hourly rate equivalent:</span>
+                        <span class="rate-badge">₹400-₹700/hr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Business Card -->
+            <div class="range-card">
+                <div class="range-header">
+                    <h3 class="range-title">Professional Business</h3>
+                    <div class="range-price">₹80,000 - ₹1,50,000+</div>
+                </div>
+                <div class="range-content">
+                    <ul class="range-features">
+                        <li>10-20 page website</li>
+                        <li>Advanced template customization</li>
+                        <li>E-commerce integration</li>
+                        <li>Custom features development</li>
+                        <li>Performance optimization</li>
+                        <li>Advanced SEO setup</li>
+                    </ul>
+                </div>
+                <div class="range-footer">
+                    <div class="hourly-rate">
+                        <span>Project duration:</span>
+                        <span class="rate-badge">4-8 weeks</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complex Custom Card -->
+            <div class="range-card">
+                <div class="range-header">
+                    <h3 class="range-title">Complex Custom Design</h3>
+                    <div class="range-price">₹1,00,000+</div>
+                </div>
+                <div class="range-content">
+                    <ul class="range-features">
+                        <li>Large business portal</li>
+                        <li>Complete template redesign</li>
+                        <li>Multiple integrations</li>
+                        <li>Custom functionality</li>
+                        <li>Enterprise-level features</li>
+                        <li>Ongoing maintenance</li>
+                    </ul>
+                </div>
+                <div class="range-footer">
+                    <div class="hourly-rate">
+                        <span>Service level:</span>
+                        <span class="rate-badge">Agency/Enterprise</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marketplace Section -->
+        <div class="marketplace-section">
+            <h2 class="section-title">Where to Find Services</h2>
+            <p class="text-center mb-20">Popular platforms for templates and professional services</p>
+            <div class="marketplace-grid">
+                <div class="marketplace-card">
+                    <div class="marketplace-icon">🛒</div>
+                    <h3 class="marketplace-name">Envato Market</h3>
+                    <div class="marketplace-price">$20 - $100</div>
+                    <p class="marketplace-features">ThemeForest, CodeCanyon, massive template library</p>
+                </div>
+
+                <div class="marketplace-card">
+                    <div class="marketplace-icon">🌐</div>
+                    <h3 class="marketplace-name">TemplateMonster</h3>
+                    <div class="marketplace-price">$20 - $150</div>
+                    <p class="marketplace-features">Premium templates, various platforms support</p>
+                </div>
+
+                <div class="marketplace-card">
+                    <div class="marketplace-icon">⚡</div>
+                    <h3 class="marketplace-name">Webflow</h3>
+                    <div class="marketplace-price">$24 - $235</div>
+                    <p class="marketplace-features">Visual development platform with templates</p>
+                </div>
+
+                <div class="marketplace-card">
+                    <div class="marketplace-icon">🇮🇳</div>
+                    <h3 class="marketplace-name">IndiaMART</h3>
+                    <div class="marketplace-price">₹5K - ₹1L+</div>
+                    <p class="marketplace-features">Local service providers, custom quotes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="insights-section">
+            <h2 class="insights-title">Key Insights & Recommendations</h2>
+            <div class="insight-item">
+                <div class="insight-icon">💰</div>
+                <div class="insight-text">
+                    <strong>Cost vs. Value:</strong> Free templates work for basic needs, but premium templates
+                    ($20-$100) offer better design, support, and features. Professional setup (₹5K-₹15K) adds
+                    significant value over DIY.
+                </div>
+            </div>
+
+            <div class="insight-item">
+                <div class="insight-icon">⏱️</div>
+                <div class="insight-text">
+                    <strong>Time Investment:</strong> DIY templates save money but require significant time investment.
+                    Professional services cost more but deliver faster, polished results with expert support.
+                </div>
+            </div>
+
+            <div class="insight-item">
+                <div class="insight-icon">🎯</div>
+                <div class="insight-text">
+                    <strong>Choosing Providers:</strong> Freelancers (₹400-₹700/hr) are cost-effective for small
+                    projects. Agencies charge more but provide comprehensive services for complex requirements (₹1L+).
+                </div>
+            </div>
+
+            <div class="insight-item">
+                <div class="insight-icon">🚀</div>
+                <div class="insight-text">
+                    <strong>Scaling Considerations:</strong> Simple templates work for startups, but growing businesses
+                    should invest in customized solutions (₹80K-₹1.5L+) that can scale with their needs.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Interactive animations
+        document.addEventListener('DOMContentLoaded', function () {
+            // Card hover animations
+            const cards = document.querySelectorAll('.overview-card, .factor-card, .range-card, .marketplace-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.zIndex = '10';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.zIndex = '1';
+                });
+            });
+
+            // Price highlighting
+            const priceElements = document.querySelectorAll('.overview-price, .range-price');
+            priceElements.forEach(price => {
+                price.addEventListener('click', function () {
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Animate cards on scroll
+            document.querySelectorAll('.overview-card, .factor-card, .range-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Add click to copy price feature
+            priceElements.forEach(price => {
+                price.addEventListener('click', function () {
+                    const text = this.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        const originalText = this.textContent;
+                        this.textContent = 'Copied!';
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                        }, 1000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

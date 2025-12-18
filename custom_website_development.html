@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Website Development Costs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            color: #1c3974;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1c3974, #3b56f3);
+            border-radius: 2px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #1c3974, #3b56f3);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(28, 57, 116, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 8s infinite linear;
+        }
+
+        .highlight-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .highlight-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-icon {
+            font-size: 1.5rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .cost-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .cost-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            padding: 25px 25px 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            color: #1c3974;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .card-price {
+            padding: 20px 25px;
+            background: #1c3974;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-amount {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-range {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-decoration {
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            font-size: 8rem;
+            opacity: 0.1;
+            transform: rotate(15deg);
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            color: #555;
+            position: relative;
+            padding-left: 30px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1c3974;
+            font-weight: bold;
+            width: 22px;
+            height: 22px;
+            background: rgba(28, 57, 116, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-footer {
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .complexity-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .complexity-label {
+            font-weight: 600;
+            color: #1c3974;
+        }
+
+        .complexity-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        .dot.active {
+            background: #1c3974;
+        }
+
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .clock-icon {
+            color: #1c3974;
+            font-weight: bold;
+        }
+
+        /* Factors Section */
+        .factors-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #1c3974;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #1c3974, #3b56f3);
+        }
+
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .factor-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #1c3974;
+        }
+
+        .factor-card:hover {
+            transform: translateX(5px);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .factor-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #1c3974;
+        }
+
+        .factor-title {
+            font-size: 1.3rem;
+            color: #1c3974;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .factor-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #1c3974, #3b56f3);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .price-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(28, 57, 116, 0.1);
+            color: #1c3974;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        /* Key Takeaway */
+        .key-takeaway {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .key-takeaway::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .key-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .key-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .key-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .key-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .highlight-box {
+                padding: 20px;
+            }
+            
+            .factors-section,
+            .comparison-section,
+            .key-takeaway {
+                padding: 25px;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .price-amount {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-title {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+
+        /* Additional decorative elements */
+        .decoration {
+            position: fixed;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(28, 57, 116, 0.05), rgba(59, 86, 243, 0.05));
+            z-index: -1;
+        }
+
+        .decoration-1 {
+            width: 300px;
+            height: 300px;
+            top: -150px;
+            right: -150px;
+        }
+
+        .decoration-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -100px;
+            left: -100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Custom Website Development Costs</h1>
+            <p>Understand the investment required for custom web solutions tailored to your specific business needs. Prices vary based on complexity, features, and development approach.</p>
+        </div>
+
+        <div class="highlight-box">
+            <div class="highlight-content">
+                <h2><span class="highlight-icon">💡</span> Key Insight</h2>
+                <p>Custom website development costs vary widely from ₹20,000 for a tailored small business site to several lakhs (₹2,00,000+) for complex platforms with unique features, depending on functionality, design complexity, developer expertise, and ongoing maintenance needs.</p>
+            </div>
+        </div>
+
+        <div class="cards-grid">
+            <!-- Card 1: Basic Custom Site -->
+            <div class="cost-card">
+                <div class="card-header">
+                    <h3 class="card-title">Basic Custom Site</h3>
+                    <p class="card-subtitle">Portfolio, Brochure Site</p>
+                </div>
+                <div class="card-price">
+                    <div class="price-decoration">₹</div>
+                    <div class="price-amount">₹20K - ₹1L+</div>
+                    <div class="price-range">Starting Price Range</div>
+                </div>
+                <div class="card-content">
+                    <ul class="features-list">
+                        <li>Tailored responsive design</li>
+                        <li>Contact forms & basic functionality</li>
+                        <li>Blog integration</li>
+                        <li>5-10 custom pages</li>
+                        <li>Basic SEO setup</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="complexity-indicator">
+                        <span class="complexity-label">Complexity:</span>
+                        <div class="complexity-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="clock-icon">⏱️</span>
+                        <span>Timeline: 2-4 weeks</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Business Site -->
+            <div class="cost-card">
+                <div class="card-header">
+                    <h3 class="card-title">Business Website</h3>
+                    <p class="card-subtitle">Small/Medium Business Solution</p>
+                </div>
+                <div class="card-price">
+                    <div class="price-decoration">₹</div>
+                    <div class="price-amount">₹80K - ₹2L+</div>
+                    <div class="price-range">Standard Business Range</div>
+                </div>
+                <div class="card-content">
+                    <ul class="features-list">
+                        <li>15-25 custom pages</li>
+                        <li>Testimonials & case studies</li>
+                        <li>Advanced contact system</li>
+                        <li>Basic analytics dashboard</li>
+                        <li>Mobile-first responsive design</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="complexity-indicator">
+                        <span class="complexity-label">Complexity:</span>
+                        <div class="complexity-dots">
+                            <div class="dot active"></div>
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="clock-icon">⏱️</span>
+                        <span>Timeline: 4-8 weeks</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: E-commerce Site -->
+            <div class="cost-card">
+                <div class="card-header">
+                    <h3 class="card-title">E-commerce Platform</h3>
+                    <p class="card-subtitle">Online Store & Shopping Cart</p>
+                </div>
+                <div class="card-price">
+                    <div class="price-decoration">₹</div>
+                    <div class="price-amount">₹1.5L - ₹4L+</div>
+                    <div class="price-range">E-commerce Solution</div>
+                </div>
+                <div class="card-content">
+                    <ul class="features-list">
+                        <li>Product catalog management</li>
+                        <li>Payment gateway integration</li>
+                        <li>Shopping cart system</li>
+                        <li>Inventory management</li>
+                        <li>Order tracking & management</li>
+                        <li>Customer accounts</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="complexity-indicator">
+                        <span class="complexity-label">Complexity:</span>
+                        <div class="complexity-dots">
+                            <div class="dot active"></div>
+                            <div class="dot active"></div>
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="clock-icon">⏱️</span>
+                        <span>Timeline: 8-16 weeks</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Web Application -->
+            <div class="cost-card">
+                <div class="card-header">
+                    <h3 class="card-title">Custom Web Application</h3>
+                    <p class="card-subtitle">Complex Functionality & Integrations</p>
+                </div>
+                <div class="card-price">
+                    <div class="price-decoration">₹</div>
+                    <div class="price-amount">₹50K - ₹6L+</div>
+                    <div class="price-range">Advanced Development</div>
+                </div>
+                <div class="card-content">
+                    <ul class="features-list">
+                        <li>Custom functionality</li>
+                        <li>Advanced integrations</li>
+                        <li>Extensive backend system</li>
+                        <li>User authentication</li>
+                        <li>Real-time features</li>
+                        <li>API development</li>
+                        <li>Database management</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <div class="complexity-indicator">
+                        <span class="complexity-label">Complexity:</span>
+                        <div class="complexity-dots">
+                            <div class="dot active"></div>
+                            <div class="dot active"></div>
+                            <div class="dot active"></div>
+                            <div class="dot active"></div>
+                            <div class="dot active"></div>
+                        </div>
+                    </div>
+                    <div class="timeline">
+                        <span class="clock-icon">⏱️</span>
+                        <span>Timeline: 12-24 weeks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="factors-section">
+            <h2 class="section-title">Factors Influencing Price</h2>
+            <div class="factors-grid">
+                <div class="factor-card">
+                    <div class="factor-icon">⚙️</div>
+                    <h3 class="factor-title">Features & Functionality</h3>
+                    <p class="factor-description">E-commerce, user accounts, booking systems, custom tools, and advanced features significantly increase development costs.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-icon">🎨</div>
+                    <h3 class="factor-title">Design Complexity</h3>
+                    <p class="factor-description">Unique, highly interactive designs cost more than template-based ones. Custom animations and illustrations add to the price.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-icon">👨‍💻</div>
+                    <h3 class="factor-title">Developer Choice</h3>
+                    <p class="factor-description">Freelancers often offer lower rates than agencies. International teams typically charge more than local developers.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-icon">🛠️</div>
+                    <h3 class="factor-title">Technology Stack</h3>
+                    <p class="factor-description">Choice of CMS (WordPress, etc.) vs custom coding impacts price. Advanced frameworks may increase development costs.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-icon">🔄</div>
+                    <h3 class="factor-title">Maintenance & Support</h3>
+                    <p class="factor-description">Ongoing costs for security updates, content updates, technical support, and performance optimization.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 class="section-title">Developer Cost Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Developer Type</th>
+                        <th>Price Range</th>
+                        <th>Best For</th>
+                        <th>Timeline</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Freelancers</strong></td>
+                        <td><span class="price-badge">₹10K - ₹50K+</span></td>
+                        <td>Small projects, tight budgets, basic custom work</td>
+                        <td>Variable, often faster</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Local Agencies</strong></td>
+                        <td><span class="price-badge">₹25K - ₹2L+</span></td>
+                        <td>Medium projects, comprehensive solutions, ongoing support</td>
+                        <td>Standard, well-defined</td>
+                    </tr>
+                    <tr>
+                        <td><strong>International Teams</strong></td>
+                        <td><span class="price-badge">₹50K - ₹6L+</span></td>
+                        <td>Large projects, complex features, enterprise solutions</td>
+                        <td>Longer, milestone-based</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="key-takeaway">
+            <div class="key-content">
+                <div class="key-icon">🚀</div>
+                <h2 class="key-title">Key Takeaway</h2>
+                <p class="key-text">For a truly custom solution, expect significant investment beyond basic templates. Prices rise exponentially with unique features and advanced integrations. Basic custom sites start around ₹20K-₹50K, while larger projects with complex functionality can easily cross ₹1 Lakh to ₹6 Lakhs or more. Always consider ongoing maintenance costs which typically range from 15-20% of initial development cost annually.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click animation to cards
+            const cards = document.querySelectorAll('.cost-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-10px)';
+                    }, 150);
+                });
+            });
+
+            // Add scroll animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards and sections
+            document.querySelectorAll('.cost-card, .factor-card, .highlight-box').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(el);
+            });
+
+            // Price hover effect
+            const priceElements = document.querySelectorAll('.price-amount');
+            priceElements.forEach(price => {
+                price.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                price.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Solution Pricing Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 70px 40px;
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            border-radius: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(229, 62, 62, 0.25);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 45px;
+            line-height: 1.8;
+        }
+
+        .price-range-highlight {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .price-pill {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            min-width: 280px;
+            transition: all 0.4s ease;
+        }
+
+        .price-pill:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .pill-title {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .pill-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .pill-description {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 2.8rem;
+            color: #1a202c;
+            margin: 80px 0 50px;
+            text-align: center;
+            position: relative;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, #e53e3e, #ed8936);
+            border-radius: 3px;
+        }
+
+        /* Platform Comparison */
+        .platform-section {
+            margin-bottom: 80px;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border-top: 8px solid;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-25px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .platform-header {
+            padding: 45px 40px 35px;
+            position: relative;
+            min-height: 180px;
+        }
+
+        .platform-badge {
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .platform-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .platform-title {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .platform-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+        }
+
+        .platform-pricing {
+            padding: 40px;
+            background: #f7fafc;
+            border-top: 3px dashed #e2e8f0;
+            border-bottom: 3px dashed #e2e8f0;
+        }
+
+        .monthly-price {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #e53e3e, #ed8936);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-details {
+            color: #4a5568;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .platform-features {
+            padding: 40px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 18px 0;
+            color: #2d3748;
+            position: relative;
+            padding-left: 40px;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #e53e3e;
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            background: rgba(229, 62, 62, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Development Cost Cards */
+        .development-section {
+            margin-bottom: 80px;
+        }
+
+        .development-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+
+        .dev-card {
+            background: white;
+            border-radius: 25px;
+            padding: 45px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border-left: 8px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dev-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .dev-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: inherit;
+            border-left: 8px solid;
+        }
+
+        .dev-icon {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .dev-title {
+            font-size: 1.8rem;
+            color: #1a202c;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .dev-description {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .dev-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 30px 0;
+            text-align: center;
+            background: linear-gradient(90deg, #e53e3e, #ed8936);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dev-details {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #cbd5e0;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: linear-gradient(135deg, #2d3748, #1a202c);
+            color: white;
+            padding: 70px 50px;
+            border-radius: 35px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,100 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .services-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: #fbd38d;
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .service-price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 25px 0;
+            color: #f6ad55;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Factors Section */
+        .factors-section {
+            background: white;
+            border-radius: 35px;
+            padding: 70px 50px;
+            margin: 80px 0;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .factors-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #e53e3e, #ed8936, #dd6b20, #c05621);
+        }
+
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .factor-card {
+            background: linear-gradient(135deg, #ffffff, #f7fafc);
+            padding: 35px;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .factor-card:hover {
+            border-color: #e53e3e;
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(229, 62, 62, 0.15);
+        }
+
+        .factor-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e53e3e, #ed8936);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(229, 62, 62, 0.3);
+        }
+
+        .factor-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-top: 15px;
+        }
+
+        .factor-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #e53e3e, #ed8936);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            flex-shrink: 0;
+        }
+
+        .factor-title {
+            font-size: 1.7rem;
+            color: #1a202c;
+            font-weight: 800;
+        }
+
+        .factor-content {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .factor-impact {
+            background: linear-gradient(135deg, rgba(229, 62, 62, 0.05), rgba(237, 137, 54, 0.05));
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #e53e3e;
+            margin-top: 20px;
+        }
+
+        .impact-title {
+            font-weight: 800;
+            color: #e53e3e;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .impact-value {
+            color: #2d3748;
+            font-size: 1rem;
+        }
+
+        /* Indian Market Section */
+        .indian-market {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 35px;
+            padding: 70px 50px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #d69e2e;
+        }
+
+        .indian-market::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,100 L0,100 Z" fill="rgba(214, 158, 46, 0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .market-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .market-title {
+            font-size: 2.5rem;
+            color: #92400e;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .market-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            border: 3px solid #d69e2e;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .market-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(214, 158, 46, 0.3);
+        }
+
+        .market-icon {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #d69e2e;
+        }
+
+        .market-service {
+            font-size: 1.6rem;
+            color: #92400e;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .market-price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 25px 0;
+            color: #b45309;
+            text-align: center;
+        }
+
+        .market-type {
+            display: inline-block;
+            padding: 8px 20px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+            color: white;
+            padding: 80px 50px;
+            border-radius: 35px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
+            background-size: cover;
+        }
+
+        .summary-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .summary-title {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #f6ad55, #fbd38d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .summary-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 50px;
+        }
+
+        .summary-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            min-width: 250px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight-value {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #f6ad55;
+            margin-bottom: 15px;
+        }
+
+        .highlight-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.2rem;
+            }
+            
+            .platform-grid,
+            .development-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section {
+                padding: 50px 25px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .platform-grid,
+            .development-grid,
+            .services-grid,
+            .factors-grid,
+            .market-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .price-range-highlight {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .price-pill {
+                min-width: 100%;
+                max-width: 400px;
+            }
+            
+            .platform-header,
+            .platform-pricing,
+            .platform-features {
+                padding: 30px 25px;
+            }
+            
+            .services-section,
+            .factors-section,
+            .indian-market,
+            .summary-section {
+                padding: 50px 30px;
+            }
+            
+            .monthly-price {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .dev-card,
+            .factor-card,
+            .market-card {
+                padding: 30px 25px;
+            }
+            
+            .factor-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Platform Colors */
+        .hosted-platform {
+            border-top-color: #38a169;
+        }
+        .hosted-platform .platform-header,
+        .hosted-platform .platform-badge {
+            background: linear-gradient(135deg, #38a169, #2f855a);
+        }
+
+        .opensource-platform {
+            border-top-color: #3182ce;
+        }
+        .opensource-platform .platform-header,
+        .opensource-platform .platform-badge {
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+        }
+
+        .custom-platform {
+            border-top-color: #d69e2e;
+        }
+        .custom-platform .platform-header,
+        .custom-platform .platform-badge {
+            background: linear-gradient(135deg, #d69e2e, #b7791f);
+        }
+
+        /* Development Card Colors */
+        .basic-dev {
+            border-left-color: #38a169;
+        }
+        .basic-dev .dev-icon {
+            background: linear-gradient(135deg, #38a169, #2f855a);
+        }
+
+        .complex-dev {
+            border-left-color: #3182ce;
+        }
+        .complex-dev .dev-icon {
+            background: linear-gradient(135deg, #3182ce, #2c5282);
+        }
+
+        .enterprise-dev {
+            border-left-color: #d69e2e;
+        }
+        .enterprise-dev .dev-icon {
+            background: linear-gradient(135deg, #d69e2e, #b7791f);
+        }
+
+        /* Background Elements */
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(229, 62, 62, 0.05), rgba(237, 137, 54, 0.05));
+            filter: blur(40px);
+        }
+
+        .bg-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .bg-2 {
+            width: 300px;
+            height: 300px;
+            bottom: 20%;
+            left: -150px;
+            animation: float 10s ease-in-out infinite 2s;
+        }
+
+        .bg-3 {
+            width: 500px;
+            height: 500px;
+            top: 60%;
+            right: 30%;
+            animation: float 12s ease-in-out infinite 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-elements">
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+        <div class="bg-element bg-3"></div>
+    </div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">E-commerce Solution Pricing Guide</h1>
+                <p class="hero-subtitle">
+                    E-commerce solution pricing varies from free (open-source) to thousands of dollars, 
+                    depending on platform choice, features, services, and scale. Monthly platform fees range 
+                    from $5-$300+, with custom development starting from ₹60k to ₹10 Lakhs+ in India.
+                </p>
+                
+                <div class="price-range-highlight">
+                    <div class="price-pill animate-float">
+                        <div class="pill-title">Platform Fees</div>
+                        <div class="pill-value">$5 - $300+</div>
+                        <div class="pill-description">Monthly subscription</div>
+                    </div>
+                    <div class="price-pill animate-float" style="animation-delay: 0.5s">
+                        <div class="pill-title">Basic Development</div>
+                        <div class="pill-value">₹60K - ₹1L+</div>
+                        <div class="pill-description">Custom setup in India</div>
+                    </div>
+                    <div class="price-pill animate-float" style="animation-delay: 1s">
+                        <div class="pill-title">Enterprise Solutions</div>
+                        <div class="pill-value">₹10L+</div>
+                        <div class="pill-description">Complex custom builds</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Platform Comparison -->
+        <h2 class="section-title">Platform Cost Structures</h2>
+        <div class="platform-section">
+            <div class="platform-grid">
+                <!-- Hosted Platform -->
+                <div class="platform-card hosted-platform animate-in">
+                    <div class="platform-header">
+                        <div class="platform-badge">Most Popular</div>
+                        <div class="platform-icon">🛍️</div>
+                        <h2 class="platform-title">Hosted Platforms</h2>
+                        <p class="platform-subtitle">Shopify, BigCommerce, Wix</p>
+                    </div>
+                    
+                    <div class="platform-pricing">
+                        <div class="monthly-price">$29 - $299/mo</div>
+                        <div class="price-details">+ Transaction fees (0.5%-2%)</div>
+                        <div class="price-details">Annual plans: $348 - $3,588+</div>
+                    </div>
+                    
+                    <div class="platform-features">
+                        <ul class="feature-list">
+                            <li>Easy setup & maintenance</li>
+                            <li>Built-in security & hosting</li>
+                            <li>App store for extensions</li>
+                            <li>24/7 customer support</li>
+                            <li>Monthly subscription model</li>
+                            <li>Transaction fees apply</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Open Source Platform -->
+                <div class="platform-card opensource-platform animate-in">
+                    <div class="platform-header">
+                        <div class="platform-badge">Flexible</div>
+                        <div class="platform-icon">⚙️</div>
+                        <h2 class="platform-title">Open-Source</h2>
+                        <p class="platform-subtitle">WooCommerce, Magento, PrestaShop</p>
+                    </div>
+                    
+                    <div class="platform-pricing">
+                        <div class="monthly-price">Software: Free</div>
+                        <div class="price-details">+ Hosting: $10-$200/mo</div>
+                        <div class="price-details">+ Development: Custom</div>
+                    </div>
+                    
+                    <div class="platform-features">
+                        <ul class="feature-list">
+                            <li>Free software license</li>
+                            <li>Complete customization</li>
+                            <li>No transaction fees</li>
+                            <li>Self-hosted solution</li>
+                            <li>Pay for what you need</li>
+                            <li>Requires technical expertise</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Custom Development -->
+                <div class="platform-card custom-platform animate-in">
+                    <div class="platform-header">
+                        <div class="platform-badge">Enterprise</div>
+                        <div class="platform-icon">🏗️</div>
+                        <h2 class="platform-title">Custom Build</h2>
+                        <p class="platform-subtitle">Tailored solutions from scratch</p>
+                    </div>
+                    
+                    <div class="platform-pricing">
+                        <div class="monthly-price">₹60K - ₹10L+</div>
+                        <div class="price-details">One-time development cost</div>
+                        <div class="price-details">+ Ongoing maintenance</div>
+                    </div>
+                    
+                    <div class="platform-features">
+                        <ul class="feature-list">
+                            <li>Complete control & ownership</li>
+                            <li>Scalable architecture</li>
+                            <li>Unique competitive advantage</li>
+                            <li>No platform limitations</li>
+                            <li>Higher upfront investment</li>
+                            <li>Long-term cost efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Development Costs -->
+        <h2 class="section-title">Development Cost Breakdown</h2>
+        <div class="development-section">
+            <div class="development-grid">
+                <div class="dev-card basic-dev animate-in">
+                    <div class="dev-icon">🛒</div>
+                    <h3 class="dev-title">Basic Store Setup</h3>
+                    <p class="dev-description">
+                        Simple e-commerce store with standard features, basic design, 
+                        and essential payment integration.
+                    </p>
+                    <div class="dev-price">₹60,000 - ₹1,00,000</div>
+                    <div class="dev-details">
+                        <div class="detail-item">
+                            <span>Timeline:</span>
+                            <span>4-8 weeks</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Features:</span>
+                            <span>Basic catalog, cart, checkout</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Platform:</span>
+                            <span>Shopify/WooCommerce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dev-card complex-dev animate-in">
+                    <div class="dev-icon">🚀</div>
+                    <h3 class="dev-title">Complex Store</h3>
+                    <p class="dev-description">
+                        Advanced e-commerce with custom features, multiple integrations, 
+                        and sophisticated inventory management.
+                    </p>
+                    <div class="dev-price">₹1,00,000 - ₹5,00,000+</div>
+                    <div class="dev-details">
+                        <div class="detail-item">
+                            <span>Timeline:</span>
+                            <span>8-16 weeks</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Features:</span>
+                            <span>Multi-vendor, custom apps</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Platform:</span>
+                            <span>Magento/Custom</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dev-card enterprise-dev animate-in">
+                    <div class="dev-icon">🏢</div>
+                    <h3 class="dev-title">Enterprise Solution</h3>
+                    <p class="dev-description">
+                        Large-scale e-commerce platform with custom development, 
+                        AI features, and enterprise integrations.
+                    </p>
+                    <div class="dev-price">₹10,00,000+</div>
+                    <div class="dev-details">
+                        <div class="detail-item">
+                            <span>Timeline:</span>
+                            <span>4-8+ months</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Features:</span>
+                            <span>AI, personalization, ERP</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Platform:</span>
+                            <span>Fully Custom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-section">
+            <div class="services-content">
+                <h2 class="section-title" style="color: white;">Monthly Services & Support</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card animate-in">
+                        <div class="service-icon">📈</div>
+                        <h3 class="service-title">Digital Marketing</h3>
+                        <div class="service-price">₹6,000 - ₹50,000+/mo</div>
+                        <ul class="service-features">
+                            <li>SEO optimization</li>
+                            <li>Social media campaigns</li>
+                            <li>Email marketing</li>
+                            <li>PPC advertising</li>
+                            <li>Content creation</li>
+                            <li>Analytics & reporting</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card animate-in">
+                        <div class="service-icon">🔧</div>
+                        <h3 class="service-title">Support & Maintenance</h3>
+                        <div class="service-price">₹3,000 - ₹10,000+/mo</div>
+                        <ul class="service-features">
+                            <li>Technical support</li>
+                            <li>Security updates</li>
+                            <li>Bug fixes</li>
+                            <li>Performance monitoring</li>
+                            <li>Backup management</li>
+                            <li>Server maintenance</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card animate-in">
+                        <div class="service-icon">🎯</div>
+                        <h3 class="service-title">Consultation & Strategy</h3>
+                        <div class="service-price">₹25,000 - ₹50,000+</div>
+                        <ul class="service-features">
+                            <li>Platform selection</li>
+                            <li>Feature planning</li>
+                            <li>Conversion optimization</li>
+                            <li>Competitor analysis</li>
+                            <li>Roadmap development</li>
+                            <li>Team training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Factors Section -->
+        <div class="factors-section">
+            <h2 class="section-title">Key Factors Influencing Price</h2>
+            
+            <div class="factors-grid">
+                <div class="factor-card animate-in">
+                    <div class="factor-number">1</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">🛒</div>
+                        <h3 class="factor-title">Platform Choice</h3>
+                    </div>
+                    <p class="factor-content">
+                        Shopify (hosted) vs WooCommerce (self-hosted) vs Magento (enterprise) vs Custom development.
+                        Each has different cost structures and scalability.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Cost Impact: High</div>
+                        <div class="impact-value">Can affect total cost by 3-10x</div>
+                    </div>
+                </div>
+
+                <div class="factor-card animate-in">
+                    <div class="factor-number">2</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">⚙️</div>
+                        <h3 class="factor-title">Features Needed</h3>
+                    </div>
+                    <p class="factor-content">
+                        Payment gateways, inventory management, CRM integration, personalization, 
+                        multi-vendor capabilities, AI recommendations.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Feature Premium: 20-200%</div>
+                        <div class="impact-value">Each major feature adds significant cost</div>
+                    </div>
+                </div>
+
+                <div class="factor-card animate-in">
+                    <div class="factor-number">3</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">🎨</div>
+                        <h3 class="factor-title">Design Complexity</h3>
+                    </div>
+                    <p class="factor-content">
+                        Basic template vs custom design, unique branding, mobile responsiveness, 
+                        user experience optimization, animations.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Design Cost: 15-40%</div>
+                        <div class="impact-value">Custom design significantly increases cost</div>
+                    </div>
+                </div>
+
+                <div class="factor-card animate-in">
+                    <div class="factor-number">4</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">📈</div>
+                        <h3 class="factor-title">Marketing & SEO</h3>
+                    </div>
+                    <p class="factor-content">
+                        Driving traffic requires ongoing investment in SEO, social media, 
+                        PPC campaigns, content marketing, and conversion optimization.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Ongoing Cost: 20-50%</div>
+                        <div class="impact-value">Of total e-commerce budget</div>
+                    </div>
+                </div>
+
+                <div class="factor-card animate-in">
+                    <div class="factor-number">5</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">📊</div>
+                        <h3 class="factor-title">Business Scale</h3>
+                    </div>
+                    <p class="factor-content">
+                        Small business (<100 products) vs medium (100-10,000) vs large enterprise 
+                        (>10,000 products, international).
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Scale Factor: 2-100x</div>
+                        <div class="impact-value">Enterprise solutions cost significantly more</div>
+                    </div>
+                </div>
+
+                <div class="factor-card animate-in">
+                    <div class="factor-number">6</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">🔒</div>
+                        <h3 class="factor-title">Security & Compliance</h3>
+                    </div>
+                    <p class="factor-content">
+                        PCI DSS compliance, GDPR/CCPA compliance, SSL certificates, 
+                        fraud prevention, data protection measures.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Security Cost: 10-30%</div>
+                        <div class="impact-value">Added to development and maintenance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indian Market Section -->
+        <div class="indian-market">
+            <div class="market-content">
+                <h2 class="market-title">Indian Market Pricing (IndiaMART)</h2>
+                
+                <div class="market-grid">
+                    <div class="market-card animate-in">
+                        <div class="market-icon">💻</div>
+                        <h3 class="market-service">E-commerce Software Dev</h3>
+                        <span class="market-type">Monthly Service</span>
+                        <div class="market-price">₹3,000 - ₹10,000+/mo</div>
+                        <p>Ongoing development and feature addition services for existing e-commerce platforms.</p>
+                    </div>
+
+                    <div class="market-card animate-in">
+                        <div class="market-icon">🔧</div>
+                        <h3 class="market-service">E-commerce Solutions</h3>
+                        <span class="market-type">Project/Service Based</span>
+                        <div class="market-price">₹25,000 - ₹50,000+</div>
+                        <p>Complete e-commerce solution packages including setup, customization, and basic training.</p>
+                    </div>
+
+                    <div class="market-card animate-in">
+                        <div class="market-icon">📱</div>
+                        <h3 class="market-service">Website/App Development</h3>
+                        <span class="market-type">Project Based</span>
+                        <div class="market-price">₹80,000+ per project</div>
+                        <p>Custom e-commerce website or mobile app development with advanced features and integrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <div class="summary-content">
+                <h2 class="summary-title">Investment Summary</h2>
+                <p class="summary-text">
+                    E-commerce solution costs encompass platform fees, development, marketing, 
+                    and ongoing maintenance. Startups can begin with ₹60k basic setups, while 
+                    enterprises should budget ₹10L+ for robust solutions. Remember to allocate 
+                    20-50% of budget for ongoing marketing and maintenance.
+                </p>
+                
+                <div class="summary-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-value">₹60K - ₹1L</div>
+                        <div class="highlight-label">Basic Setup in India</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-value">$5 - $300+</div>
+                        <div class="highlight-label">Monthly Platform Fees</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-value">20-50%</div>
+                        <div class="highlight-label">Ongoing Marketing Budget</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced animations and interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize animations with staggered delays
+            const animateElements = document.querySelectorAll('.animate-in');
+            animateElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all major sections
+            document.querySelectorAll('.platform-card, .dev-card, .service-card, .factor-card, .market-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Enhanced card hover effects
+            const cards = document.querySelectorAll('.platform-card, .dev-card, .service-card, .factor-card, .market-card, .price-pill');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '100';
+                    this.style.transform = this.style.transform.replace('scale(1.02)', 'scale(1.05)');
+                    
+                    if (this.classList.contains('platform-card')) {
+                        this.style.boxShadow = '0 50px 100px rgba(0, 0, 0, 0.25)';
+                    } else {
+                        this.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.2)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                    this.style.transform = this.style.transform.replace('scale(1.05)', 'scale(1.02)');
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // Price click animation with currency conversion
+            const priceElements = document.querySelectorAll('.monthly-price, .dev-price, .service-price, .market-price, .pill-value');
+            priceElements.forEach(price => {
+                price.addEventListener('click', function(e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(229, 62, 62, 0.3);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                        pointer-events: none;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    // Scale animation
+                    this.style.transform = 'scale(1.1)';
+                    this.style.transition = 'transform 0.3s ease';
+                    
+                    setTimeout(() => {
+                        this.style.transform = this.style.transform.replace('scale(1.1)', 'scale(1)');
+                        ripple.remove();
+                    }, 300);
+                });
+            });
+
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Feature list item hover enhancement
+            const featureItems = document.querySelectorAll('.feature-list li');
+            featureItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(10px)';
+                    this.style.transition = 'transform 0.3s ease';
+                    this.style.background = 'linear-gradient(90deg, rgba(229, 62, 62, 0.05), transparent)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                    this.style.background = 'transparent';
+                });
+            });
+
+            // Dynamic currency conversion on hover
+            const indianPrices = document.querySelectorAll('.market-price, .dev-price:contains("₹")');
+            indianPrices.forEach(price => {
+                price.addEventListener('mouseenter', function() {
+                    const text = this.textContent;
+                    const match = text.match(/₹([\d,]+)/);
+                    if (match) {
+                        const inr = parseInt(match[1].replace(/,/g, ''));
+                        const usd = (inr / 83).toFixed(0); // Approximate conversion
+                        const originalText = this.textContent;
+                        this.dataset.original = originalText;
+                        this.textContent = `≈ $${usd} USD`;
+                        
+                        setTimeout(() => {
+                            this.textContent = originalText;
+                        }, 2000);
+                    }
+                });
+            });
+
+            // Platform comparison toggle
+            const platformCards = document.querySelectorAll('.platform-card');
+            platformCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    platformCards.forEach(c => c.style.transform = 'translateY(0) scale(0.98)');
+                    this.style.transform = 'translateY(-30px) scale(1.05)';
+                    
+                    // Reset after delay
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-25px) scale(1.02)';
+                    }, 300);
+                });
+            });
+
+            // Detail item expansion
+            const detailItems = document.querySelectorAll('.detail-item');
+            detailItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.background = 'rgba(229, 62, 62, 0.1)';
+                    this.style.borderRadius = '8px';
+                    this.style.padding = '12px 15px';
+                    this.style.margin = '0 -15px';
+                    this.style.transition = 'all 0.3s ease';
+                    
+                    setTimeout(() => {
+                        this.style.background = '';
+                        this.style.borderRadius = '';
+                        this.style.padding = '12px 0';
+                        this.style.margin = '';
+                    }, 1000);
+                });
+            });
+
+            // Hero gradient animation
+            const hero = document.querySelector('.hero-section');
+            const gradients = [
+                'linear-gradient(135deg, #e53e3e 0%, #c53030 100%)',
+                'linear-gradient(135deg, #d69e2e 0%, #b7791f 100%)',
+                'linear-gradient(135deg, #38a169 0%, #2f855a 100%)',
+                'linear-gradient(135deg, #3182ce 0%, #2c5282 100%)'
+            ];
+            
+            let gradientIndex = 0;
+            setInterval(() => {
+                hero.style.background = gradients[gradientIndex];
+                gradientIndex = (gradientIndex + 1) % gradients.length;
+            }, 10000);
+
+            // Progress indicator
+            window.addEventListener('scroll', function() {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                document.documentElement.style.setProperty('--scroll-progress', `${scrolled}%`);
+            });
+
+            // Factor impact reveal with animation
+            const factorCards = document.querySelectorAll('.factor-card');
+            factorCards.forEach(card => {
+                const impact = card.querySelector('.factor-impact');
+                if (impact) {
+                    card.addEventListener('mouseenter', () => {
+                        impact.style.opacity = '1';
+                        impact.style.transform = 'translateY(0) scale(1.05)';
+                        impact.style.transition = 'all 0.3s ease';
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        impact.style.transform = 'translateY(0) scale(1)';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

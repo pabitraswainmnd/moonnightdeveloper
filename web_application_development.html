@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Application Development Pricing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 70px;
+            padding: 70px 40px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 70px rgba(37, 99, 235, 0.25);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 45px;
+            line-height: 1.8;
+        }
+
+        .price-range-highlight {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .price-pill {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            min-width: 280px;
+            transition: all 0.4s ease;
+        }
+
+        .price-pill:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .pill-title {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+        }
+
+        .pill-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .pill-description {
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* Complexity Cards */
+        .section-title {
+            font-size: 2.8rem;
+            color: #1e293b;
+            margin: 80px 0 50px;
+            text-align: center;
+            position: relative;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            border-radius: 3px;
+        }
+
+        .complexity-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            margin-bottom: 80px;
+        }
+
+        .complexity-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .complexity-card:hover {
+            transform: translateY(-25px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .complexity-header {
+            padding: 45px 40px 35px;
+            position: relative;
+            min-height: 200px;
+        }
+
+        .complexity-badge {
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        .complexity-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .complexity-title {
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .complexity-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+        }
+
+        .complexity-pricing {
+            padding: 40px;
+            background: #f8fafc;
+            border-top: 3px dashed #e2e8f0;
+            border-bottom: 3px dashed #e2e8f0;
+            text-align: center;
+        }
+
+        .global-price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .india-price {
+            font-size: 1.8rem;
+            color: #475569;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .price-label {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .complexity-features {
+            padding: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .feature-item {
+            background: #f1f5f9;
+            padding: 25px;
+            border-radius: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: #e2e8f0;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-text {
+            color: #334155;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Factors Section */
+        .factors-section {
+            background: white;
+            border-radius: 35px;
+            padding: 70px 50px;
+            margin: 80px 0;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .factors-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6, #8b5cf6, #ec4899);
+        }
+
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+        }
+
+        .factor-item {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            padding: 35px;
+            border-radius: 25px;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .factor-item:hover {
+            border-color: #2563eb;
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+        }
+
+        .factor-number {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .factor-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            padding-top: 15px;
+        }
+
+        .factor-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            flex-shrink: 0;
+        }
+
+        .factor-title {
+            font-size: 1.7rem;
+            color: #1e293b;
+            font-weight: 800;
+        }
+
+        .factor-content {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .factor-impact {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(59, 130, 246, 0.05));
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #2563eb;
+            margin-top: 20px;
+        }
+
+        .impact-title {
+            font-weight: 800;
+            color: #2563eb;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .impact-value {
+            color: #334155;
+            font-size: 1rem;
+        }
+
+        /* Location Comparison */
+        .location-section {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 70px 50px;
+            border-radius: 35px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,100 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .location-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .location-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .location-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .location-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-15px);
+        }
+
+        .location-flag {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .location-name {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .location-rate {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 25px 0;
+            color: #60a5fa;
+        }
+
+        .location-description {
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Example Projects */
+        .examples-section {
+            background: white;
+            border-radius: 35px;
+            padding: 70px 50px;
+            margin: 80px 0;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.08);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .example-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            padding: 40px;
+            border-radius: 25px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-card:hover {
+            border-color: #2563eb;
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+        }
+
+        .example-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+        }
+
+        .example-icon {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+        }
+
+        .example-title {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .example-description {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .example-price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 25px 0;
+            text-align: center;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .example-timeline {
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 25px;
+            font-weight: 600;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 80px 50px;
+            border-radius: 35px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
+            background-size: cover;
+        }
+
+        .summary-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .summary-title {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .summary-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 50px;
+        }
+
+        .summary-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            min-width: 250px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight-value {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #60a5fa;
+            margin-bottom: 15px;
+        }
+
+        .highlight-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.2rem;
+            }
+
+            .complexity-cards {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-section {
+                padding: 50px 25px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .complexity-cards,
+            .factors-grid,
+            .location-grid,
+            .examples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-range-highlight {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .price-pill {
+                min-width: 100%;
+                max-width: 400px;
+            }
+
+            .factors-section,
+            .location-section,
+            .examples-section,
+            .summary-section {
+                padding: 50px 30px;
+            }
+
+            .global-price {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .complexity-header,
+            .complexity-pricing,
+            .complexity-features {
+                padding: 30px 25px;
+            }
+
+            .factor-item {
+                padding: 25px 20px;
+            }
+
+            .factor-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* Color Variations */
+        .basic-card .complexity-header,
+        .basic-card .complexity-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .mid-card .complexity-header,
+        .mid-card .complexity-badge {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+
+        .enterprise-card .complexity-header,
+        .enterprise-card .complexity-badge {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        /* Decorative Elements */
+        .background-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(139, 92, 246, 0.05));
+            filter: blur(40px);
+        }
+
+        .bg-1 {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .bg-2 {
+            width: 300px;
+            height: 300px;
+            bottom: 20%;
+            left: -150px;
+            animation: float 10s ease-in-out infinite 2s;
+        }
+
+        .bg-3 {
+            width: 500px;
+            height: 500px;
+            top: 60%;
+            right: 30%;
+            animation: float 12s ease-in-out infinite 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-elements">
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+        <div class="bg-element bg-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Web Application Development Pricing</h1>
+                <p class="hero-subtitle">
+                    Web application development costs vary widely, from a few hundred dollars for simple projects
+                    to tens of thousands or more for complex enterprise solutions, typically ranging from
+                    $5,000 to $200,000+, depending on complexity, features, team location, and project size.
+                </p>
+
+                <div class="price-range-highlight">
+                    <div class="price-pill animate-float">
+                        <div class="pill-title">Basic Apps</div>
+                        <div class="pill-value">$12K - $40K</div>
+                        <div class="pill-description">Simple projects & MVPs</div>
+                    </div>
+                    <div class="price-pill animate-float" style="animation-delay: 0.5s">
+                        <div class="pill-title">Mid-Range Apps</div>
+                        <div class="pill-value">$50K - $150K</div>
+                        <div class="pill-description">Complex applications</div>
+                    </div>
+                    <div class="price-pill animate-float" style="animation-delay: 1s">
+                        <div class="pill-title">Enterprise Apps</div>
+                        <div class="pill-value">$150K+</div>
+                        <div class="pill-description">SaaS & B2B solutions</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Complexity Cards -->
+        <h2 class="section-title">Cost by Project Complexity</h2>
+        <div class="complexity-cards">
+            <!-- Basic/MVP Card -->
+            <div class="complexity-card basic-card animate-in">
+                <div class="complexity-header">
+                    <div class="complexity-badge">Most Affordable</div>
+                    <div class="complexity-icon">🚀</div>
+                    <h2 class="complexity-title">Basic / MVP Apps</h2>
+                    <p class="complexity-subtitle">Portfolio sites, simple catalogs, basic applications</p>
+                </div>
+
+                <div class="complexity-pricing">
+                    <div class="global-price">$5,000 - $40,000</div>
+                    <div class="price-label">Global Market Range</div>
+
+                    <div class="india-price">₹10,000 - ₹50,000+</div>
+                    <div class="price-label">India-Specific Pricing</div>
+                </div>
+
+                <div class="complexity-features">
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">📱</span>
+                            <div class="feature-text">5-10 screens</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <div class="feature-text">Basic functionality</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎨</span>
+                            <div class="feature-text">Standard UI/UX</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⏱️</span>
+                            <div class="feature-text">1-3 months timeline</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mid-Level Card -->
+            <div class="complexity-card mid-card animate-in">
+                <div class="complexity-header">
+                    <div class="complexity-badge">Most Popular</div>
+                    <div class="complexity-icon">💼</div>
+                    <h2 class="complexity-title">Mid-Level Apps</h2>
+                    <p class="complexity-subtitle">Complex e-commerce, HR systems, social media apps</p>
+                </div>
+
+                <div class="complexity-pricing">
+                    <div class="global-price">$50,000 - $150,000</div>
+                    <div class="price-label">Global Market Range</div>
+
+                    <div class="india-price">₹4L - ₹12L+</div>
+                    <div class="price-label">India-Specific Pricing</div>
+                </div>
+
+                <div class="complexity-features">
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">📱</span>
+                            <div class="feature-text">20-50 screens</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <div class="feature-text">Advanced features</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔗</span>
+                            <div class="feature-text">API integrations</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⏱️</span>
+                            <div class="feature-text">3-6 months timeline</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enterprise Card -->
+            <div class="complexity-card enterprise-card animate-in">
+                <div class="complexity-header">
+                    <div class="complexity-badge">Premium</div>
+                    <div class="complexity-icon">🏢</div>
+                    <h2 class="complexity-title">Enterprise Apps</h2>
+                    <p class="complexity-subtitle">B2B SaaS, business automation, AI/ML integration</p>
+                </div>
+
+                <div class="complexity-pricing">
+                    <div class="global-price">$150,000+</div>
+                    <div class="price-label">Global Market Range</div>
+
+                    <div class="india-price">₹12L+</div>
+                    <div class="price-label">India-Specific Pricing</div>
+                </div>
+
+                <div class="complexity-features">
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">📱</span>
+                            <div class="feature-text">50+ screens</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🤖</span>
+                            <div class="feature-text">AI/ML features</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔒</span>
+                            <div class="feature-text">Enterprise security</div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⏱️</span>
+                            <div class="feature-text">6-12+ months timeline</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Factors Section -->
+        <div class="factors-section">
+            <h2 class="section-title">Key Factors Influencing Price</h2>
+
+            <div class="factors-grid">
+                <div class="factor-item">
+                    <div class="factor-number">1</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">⚙️</div>
+                        <h3 class="factor-title">Functionality & Features</h3>
+                    </div>
+                    <p class="factor-content">
+                        More custom features, complex business logic, and integrations
+                        (payment gateways, CRMs, third-party APIs) significantly increase development time and cost.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Cost Impact: High</div>
+                        <div class="impact-value">Each major feature adds 10-30% to project cost</div>
+                    </div>
+                </div>
+
+                <div class="factor-item">
+                    <div class="factor-number">2</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">🌍</div>
+                        <h3 class="factor-title">Developer Location</h3>
+                    </div>
+                    <p class="factor-content">
+                        Hourly rates differ significantly by region. North American developers cost more
+                        than those in Latin America or India.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Cost Variation: 3-5x</div>
+                        <div class="impact-value">US: $100-200/hr vs India: $20-50/hr</div>
+                    </div>
+                </div>
+
+                <div class="factor-item">
+                    <div class="factor-number">3</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">📊</div>
+                        <h3 class="factor-title">Project Size & Timeline</h3>
+                    </div>
+                    <p class="factor-content">
+                        Larger projects with more screens, user flows, and functionality require
+                        more development time and resources.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Scale Factor: Linear</div>
+                        <div class="impact-value">Each additional month adds $15K-$50K+</div>
+                    </div>
+                </div>
+
+                <div class="factor-item">
+                    <div class="factor-number">4</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">🛠️</div>
+                        <h3 class="factor-title">Technology Stack</h3>
+                    </div>
+                    <p class="factor-content">
+                        Modern frameworks (React, Angular, Vue) and specialized technologies
+                        (AI/ML, blockchain) affect development costs and timeline.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Tech Premium: 15-40%</div>
+                        <div class="impact-value">Specialized tech can increase costs significantly</div>
+                    </div>
+                </div>
+
+                <div class="factor-item">
+                    <div class="factor-number">5</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">👥</div>
+                        <h3 class="factor-title">Team Experience</h3>
+                    </div>
+                    <p class="factor-content">
+                        Experienced agencies charge more but deliver better quality,
+                        reducing future maintenance and scaling costs.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Quality Premium: 20-50%</div>
+                        <div class="impact-value">Expert teams cost more but save long-term</div>
+                    </div>
+                </div>
+
+                <div class="factor-item">
+                    <div class="factor-number">6</div>
+                    <div class="factor-header">
+                        <div class="factor-icon">🔒</div>
+                        <h3 class="factor-title">Post-Launch Costs</h3>
+                    </div>
+                    <p class="factor-content">
+                        Hosting, security (GDPR/CCPA compliance), maintenance, updates,
+                        and scaling add 15-25% of initial cost annually.
+                    </p>
+                    <div class="factor-impact">
+                        <div class="impact-title">Ongoing: 15-25%/year</div>
+                        <div class="impact-value">Maintenance is a recurring investment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Comparison -->
+        <div class="location-section">
+            <div class="location-content">
+                <h2 class="location-title">Developer Cost by Location</h2>
+
+                <div class="location-grid">
+                    <div class="location-card">
+                        <div class="location-flag">🇺🇸</div>
+                        <h3 class="location-name">North America</h3>
+                        <div class="location-rate">$100 - $200/hr</div>
+                        <p class="location-description">
+                            Highest rates but often fastest communication and cultural alignment.
+                            Ideal for enterprise projects with complex requirements.
+                        </p>
+                    </div>
+
+                    <div class="location-card">
+                        <div class="location-flag">🇪🇺</div>
+                        <h3 class="location-name">Europe</h3>
+                        <div class="location-rate">$60 - $150/hr</div>
+                        <p class="location-description">
+                            Strong technical expertise with good English proficiency.
+                            Excellent for GDPR-compliant projects.
+                        </p>
+                    </div>
+
+                    <div class="location-card">
+                        <div class="location-flag">🇮🇳</div>
+                        <h3 class="location-name">India</h3>
+                        <div class="location-rate">$20 - $50/hr</div>
+                        <p class="location-description">
+                            Most cost-effective option with large talent pool.
+                            Excellent for startups and cost-sensitive projects.
+                        </p>
+                    </div>
+
+                    <div class="location-card">
+                        <div class="location-flag">🇧🇷</div>
+                        <h3 class="location-name">Latin America</h3>
+                        <div class="location-rate">$30 - $80/hr</div>
+                        <p class="location-description">
+                            Good balance of cost and quality with minimal time zone differences for US clients.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Projects -->
+        <div class="examples-section">
+            <h2 class="section-title">Example Project Pricing</h2>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-icon">🛒</div>
+                    <h3 class="example-title">E-commerce Platform</h3>
+                    <p class="example-description">
+                        Complete online store with product catalog, shopping cart,
+                        payment integration, and admin dashboard.
+                    </p>
+                    <div class="example-price">$40,000 - $80,000</div>
+                    <div class="example-timeline">
+                        <span>Timeline:</span>
+                        <span>4-6 months</span>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-icon">🏥</div>
+                    <h3 class="example-title">Healthcare Portal</h3>
+                    <p class="example-description">
+                        Patient management system with appointments, medical records,
+                        telemedicine, and prescription management.
+                    </p>
+                    <div class="example-price">$60,000 - $120,000</div>
+                    <div class="example-timeline">
+                        <span>Timeline:</span>
+                        <span>5-8 months</span>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-icon">🤖</div>
+                    <h3 class="example-title">AI Analytics Dashboard</h3>
+                    <p class="example-description">
+                        Business intelligence platform with machine learning predictions,
+                        data visualization, and real-time analytics.
+                    </p>
+                    <div class="example-price">$100,000 - $200,000+</div>
+                    <div class="example-timeline">
+                        <span>Timeline:</span>
+                        <span>6-12 months</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <div class="summary-content">
+                <h2 class="summary-title">Investment Summary</h2>
+                <p class="summary-text">
+                    Expect a significant investment for robust web applications, with costs driven by
+                    unique features, team expertise, and geographical location. Basic projects can start
+                    from ₹10,000 in India, while complex enterprise solutions can exceed $200,000 globally.
+                </p>
+
+                <div class="summary-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-value">₹50K - ₹10L+</div>
+                        <div class="highlight-label">Custom Apps in India</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-value">2-3x</div>
+                        <div class="highlight-label">US vs India Cost Difference</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-value">15-25%</div>
+                        <div class="highlight-label">Annual Maintenance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced animations and interactivity
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize animations with staggered delays
+            const animateElements = document.querySelectorAll('.animate-in');
+            animateElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+                el.style.opacity = '0';
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all major sections
+            document.querySelectorAll('.complexity-card, .factor-item, .location-card, .example-card').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Enhanced card hover effects
+            const cards = document.querySelectorAll('.complexity-card, .factor-item, .location-card, .example-card, .price-pill');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.zIndex = '100';
+                    if (this.classList.contains('complexity-card')) {
+                        this.style.boxShadow = '0 50px 100px rgba(0, 0, 0, 0.2)';
+                    } else {
+                        this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+                    }
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.zIndex = '1';
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // Price click animation with ripple effect
+            const priceElements = document.querySelectorAll('.global-price, .india-price, .example-price, .location-rate');
+            priceElements.forEach(price => {
+                price.addEventListener('click', function (e) {
+                    // Create ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(37, 99, 235, 0.3);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                        pointer-events: none;
+                    `;
+
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+
+                    // Scale animation
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.3s ease';
+
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        ripple.remove();
+                    }, 300);
+
+                    // Copy to clipboard on double click
+                    let clickTimer;
+                    let clicks = 0;
+                    this.addEventListener('click', function (event) {
+                        clicks++;
+                        if (clicks === 1) {
+                            clickTimer = setTimeout(() => {
+                                clicks = 0;
+                            }, 300);
+                        } else if (clicks === 2) {
+                            clearTimeout(clickTimer);
+                            clicks = 0;
+                            navigator.clipboard.writeText(this.textContent).then(() => {
+                                const originalText = this.textContent;
+                                this.textContent = 'Copied!';
+                                setTimeout(() => {
+                                    this.textContent = originalText;
+                                }, 1500);
+                            });
+                        }
+                    });
+                });
+            });
+
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Feature item hover enhancement
+            const featureItems = document.querySelectorAll('.feature-item');
+            featureItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    const icon = this.querySelector('.feature-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2) rotate(5deg)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                });
+
+                item.addEventListener('mouseleave', function () {
+                    const icon = this.querySelector('.feature-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1) rotate(0)';
+                    }
+                });
+            });
+
+            // Background color cycling for hero section
+            const hero = document.querySelector('.hero-section');
+            const gradients = [
+                'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+                'linear-gradient(135deg, #059669 0%, #047857 100%)',
+                'linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)',
+                'linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)'
+            ];
+
+            let gradientIndex = 0;
+            setInterval(() => {
+                hero.style.background = gradients[gradientIndex];
+                gradientIndex = (gradientIndex + 1) % gradients.length;
+            }, 10000);
+
+            // Scroll progress indicator
+            window.addEventListener('scroll', function () {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                document.documentElement.style.setProperty('--scroll-progress', `${scrolled}%`);
+            });
+
+            // Factor item impact reveal
+            const factorItems = document.querySelectorAll('.factor-item');
+            factorItems.forEach(item => {
+                const impact = item.querySelector('.factor-impact');
+                if (impact) {
+                    item.addEventListener('mouseenter', () => {
+                        impact.style.opacity = '1';
+                        impact.style.transform = 'translateY(0)';
+                        impact.style.transition = 'all 0.3s ease';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
