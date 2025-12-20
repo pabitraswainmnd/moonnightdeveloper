@@ -656,7 +656,7 @@
             const subtotal = invoiceData.order.totalPrice;
             const taxRate = 0.18; // 18% GST
             const taxAmount = subtotal * taxRate;
-            const discount = subtotal > 50000 ? subtotal * 0.05 : 0; // 5% discount for orders above ₹50,000
+            const discount = subtotal * 0.10; // 10% discount for orders above ₹50,000
             const totalAmount = subtotal + taxAmount - discount;
             
             // Update summary
