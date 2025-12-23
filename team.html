@@ -288,7 +288,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
             z-index: 1;
         }
 
@@ -625,7 +625,7 @@
             .tabs {
                 gap: 15px;
             }
-            
+
             .tab {
                 font-size: 13px;
                 padding: 6px;
@@ -734,10 +734,10 @@
 
 <body>
     <!-- Header will be inserted by main.js -->
-   
+
     <!-- Main Content -->
     <main class="main-content">
-        <div class="content-box">
+        <div class="content">
             <h1 class="page-title">Meet Our Team</h1>
             <p class="page-subtitle">The passionate developers and designers behind MND Development</p>
 
@@ -748,10 +748,10 @@
             </div>
 
             <!-- View Toggle -->
-            <div class="view-toggle">
+            <!-- <div class="view-toggle">
                 <button class="view-btn active" id="slideshow-view">Slideshow View</button>
                 <button class="view-btn" id="grid-view">Grid View</button>
-            </div>
+            </div> -->
 
             <!-- Team Slideshow -->
             <div class="team-slideshow" id="slideshow-container">
@@ -759,12 +759,15 @@
                     <!-- Slide 1 -->
                     <div class="team-slide">
                         <div class="slide-image">
-                            <img src="https://i.im.ge/2025/12/08/4ZjvjT.pabitraswain.jpeg" alt="Pabitra Swain">
+                            <img src="./assets/img/pabitra.png" alt="Pabitra Swain">
                         </div>
                         <div class="slide-content">
                             <h3 class="slide-name">Pabitra Swain</h3>
                             <p class="slide-role">Lead Frontend Developer</p>
-                            <p class="slide-bio">Pabitra specializes in creating responsive and interactive user interfaces with modern JavaScript frameworks. With over 5 years of experience, he leads our frontend development team and ensures all projects meet the highest standards of quality and performance.</p>
+                            <p class="slide-bio">Pabitra specializes in creating responsive and interactive user
+                                interfaces with modern JavaScript frameworks. With over 5 years of experience, he leads
+                                our frontend development team and ensures all projects meet the highest standards of
+                                quality and performance.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">HTML/CSS</span>
                                 <span class="skill-tag">JavaScript</span>
@@ -783,12 +786,14 @@
                     <!-- Slide 2 -->
                     <div class="team-slide">
                         <div class="slide-image">
-                            <img src="https://i.im.ge/2025/12/08/4Zjc9C.munabdatya.jpeg" alt="Muna Badaiya">
+                            <img src="./assets/img/muna.png" alt="Muna Badaiya">
                         </div>
                         <div class="slide-content">
                             <h3 class="slide-name">Muna Badaiya</h3>
                             <p class="slide-role">UI/UX Designer</p>
-                            <p class="slide-bio">Muna creates intuitive and visually appealing user experiences that balance aesthetics with functionality. Her background in psychology and design allows her to create interfaces that are both beautiful and user-friendly.</p>
+                            <p class="slide-bio">Muna creates intuitive and visually appealing user experiences that
+                                balance aesthetics with functionality. Her background in psychology and design allows
+                                her to create interfaces that are both beautiful and user-friendly.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">Figma</span>
                                 <span class="skill-tag">Adobe XD</span>
@@ -807,12 +812,14 @@
                     <!-- Slide 3 -->
                     <div class="team-slide">
                         <div class="slide-image">
-                            <img src="https://i.im.ge/2025/12/08/4ZjgRq.nirmalakumarsahu.jpeg" alt="Nirmal Kumar Sahu">
+                            <img src="./assets/img/nirmala.png" alt="Nirmal Kumar Sahu">
                         </div>
                         <div class="slide-content">
                             <h3 class="slide-name">Nirmal Kumar Sahu</h3>
                             <p class="slide-role">Full Stack Developer</p>
-                            <p class="slide-bio">Nirmal builds robust backend systems and APIs that power our applications with efficiency and scalability. His expertise in both frontend and backend technologies makes him a versatile member of our team.</p>
+                            <p class="slide-bio">Nirmal builds robust backend systems and APIs that power our
+                                applications with efficiency and scalability. His expertise in both frontend and backend
+                                technologies makes him a versatile member of our team.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">Spring Boot</span>
                                 <span class="skill-tag">Java</span>
@@ -821,7 +828,7 @@
                                 <span class="skill-tag">Oracle</span>
                             </div>
                             <div class="slide-social">
-                                 <a href="#" class="social-link" aria-label="LinkedIn">In</a>
+                                <a href="#" class="social-link" aria-label="LinkedIn">In</a>
                                 <a href="#" class="social-link" aria-label="GitHub">Gh</a>
                                 <a href="#" class="social-link" aria-label="Twitter">X</a>
                             </div>
@@ -831,12 +838,14 @@
                     <!-- Slide 4 -->
                     <div class="team-slide">
                         <div class="slide-image">
-                            <img src="https://i.im.ge/2025/12/08/4ZjxPY.msatishkumar.jpeg" alt="M. Satish Kumar">
+                            <img src="./assets/img/satish.png" alt="M. Satish Kumar">
                         </div>
                         <div class="slide-content">
                             <h3 class="slide-name">M. Satish Kumar</h3>
                             <p class="slide-role">Full Stack Developer</p>
-                            <p class="slide-bio">Satish specializes in cloud infrastructure and full-stack development, ensuring our applications are scalable and secure. He has extensive experience in deploying applications to various cloud platforms.</p>
+                            <p class="slide-bio">Satish specializes in cloud infrastructure and full-stack development,
+                                ensuring our applications are scalable and secure. He has extensive experience in
+                                deploying applications to various cloud platforms.</p>
                             <div class="slide-skills">
                                 <span class="skill-tag">Node.js</span>
                                 <span class="skill-tag">C#</span>
@@ -852,18 +861,43 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Slideshow Controls -->
-                <div class="slideshow-controls">
-                    <button class="slideshow-nav" id="prev-slide">❮</button>
-                    <div class="slideshow-dots" id="slideshow-dots">
-                        <!-- Dots will be populated by JavaScript -->
+                    <!-- Slide 5 -->
+                    <div class="team-slide">
+                        <div class="slide-image">
+                            <img src="./assets/img/papu.png" alt="papu Kumar Sahu">
+                        </div>
+                        <div class="slide-content">
+                            <h3 class="slide-name">Papu Sahu</h3>
+                            <p class="slide-role">Full Stack Developer</p>
+                            <p class="slide-bio">Papu builds robust backend systems and APIs that power our
+                                applications with efficiency and scalability. His expertise in both frontend and backend
+                                technologies makes him a versatile member of our team.</p>
+                            <div class="slide-skills">
+                                <span class="skill-tag">Spring Boot</span>
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">docker</span>
+                                <span class="skill-tag">API Design</span>
+                                <span class="skill-tag">Oracle</span>
+                            </div>
+                            <div class="slide-social">
+                                <a href="#" class="social-link" aria-label="LinkedIn">In</a>
+                                <a href="#" class="social-link" aria-label="GitHub">Gh</a>
+                                <a href="#" class="social-link" aria-label="Twitter">X</a>
+                            </div>
+                        </div>
                     </div>
-                    <button class="slideshow-nav" id="next-slide">❯</button>
                 </div>
-            </div>
 
+
+            </div>
+            <!-- Slideshow Controls -->
+            <div class="slideshow-controls">
+                <button class="slideshow-nav" id="prev-slide">❮</button>
+                <div class="slideshow-dots" id="slideshow-dots">
+                    <!-- Dots will be populated by JavaScript -->
+                </div>
+                <button class="slideshow-nav" id="next-slide">❯</button>
+            </div>
             <!-- Team Grid -->
             <div class="team-grid" id="team-grid" style="display: none;">
                 <!-- Team members will be populated by JavaScript -->
@@ -920,18 +954,18 @@
     <script src="./assets/main.js"></script>
     <script>
         // Team page specific functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Team Slideshow Functionality
             const slideshowContainer = document.querySelector('.slideshow-container');
             const slides = document.querySelectorAll('.team-slide');
             const prevBtn = document.getElementById('prev-slide');
             const nextBtn = document.getElementById('next-slide');
             const dotsContainer = document.getElementById('slideshow-dots');
-            
+
             let currentSlide = 0;
             let slideInterval;
             const slideDuration = 5000; // 5 seconds per slide
-            
+
             // Create dots for each slide
             if (dotsContainer) {
                 slides.forEach((_, index) => {
@@ -942,9 +976,9 @@
                     dotsContainer.appendChild(dot);
                 });
             }
-            
+
             const dots = document.querySelectorAll('.slideshow-dot');
-            
+
             // Function to go to a specific slide
             function goToSlide(slideIndex) {
                 currentSlide = slideIndex;
@@ -952,41 +986,41 @@
                 updateDots();
                 resetInterval();
             }
-            
+
             // Function to update slide position
             function updateSlidePosition() {
                 if (slideshowContainer) {
                     slideshowContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
                 }
             }
-            
+
             // Function to update active dot
             function updateDots() {
                 dots.forEach((dot, index) => {
                     dot.classList.toggle('active', index === currentSlide);
                 });
             }
-            
+
             // Function to go to next slide
             function nextSlide() {
                 currentSlide = (currentSlide + 1) % slides.length;
                 updateSlidePosition();
                 updateDots();
             }
-            
+
             // Function to go to previous slide
             function prevSlide() {
                 currentSlide = (currentSlide - 1 + slides.length) % slides.length;
                 updateSlidePosition();
                 updateDots();
             }
-            
+
             // Function to reset the auto-slide interval
             function resetInterval() {
                 clearInterval(slideInterval);
                 slideInterval = setInterval(nextSlide, slideDuration);
             }
-            
+
             // Event listeners for navigation buttons
             if (prevBtn) {
                 prevBtn.addEventListener('click', () => {
@@ -994,49 +1028,49 @@
                     resetInterval();
                 });
             }
-            
+
             if (nextBtn) {
                 nextBtn.addEventListener('click', () => {
                     nextSlide();
                     resetInterval();
                 });
             }
-            
+
             // Start the auto-slideshow
             if (slides.length > 0) {
                 slideInterval = setInterval(nextSlide, slideDuration);
             }
-            
+
             // Pause slideshow on hover
             const slideshow = document.querySelector('.team-slideshow');
             if (slideshow) {
                 slideshow.addEventListener('mouseenter', () => {
                     clearInterval(slideInterval);
                 });
-                
+
                 slideshow.addEventListener('mouseleave', () => {
                     resetInterval();
                 });
             }
-            
+
             // Touch swipe support for mobile
             let touchStartX = 0;
             let touchEndX = 0;
-            
+
             if (slideshow) {
                 slideshow.addEventListener('touchstart', e => {
                     touchStartX = e.changedTouches[0].screenX;
                 });
-                
+
                 slideshow.addEventListener('touchend', e => {
                     touchEndX = e.changedTouches[0].screenX;
                     handleSwipe();
                 });
             }
-            
+
             function handleSwipe() {
                 const swipeThreshold = 50;
-                
+
                 if (touchEndX < touchStartX - swipeThreshold) {
                     // Swipe left - next slide
                     nextSlide();
@@ -1089,12 +1123,12 @@
 
                 if (gridView) {
                     gridView.innerHTML = '';
-                    
+
 
                     teamMembers.forEach(member => {
                         const memberElement = document.createElement('div');
                         memberElement.className = 'team-member';
-                        
+
                         memberElement.innerHTML = `
                             <img src="${member.image}" alt="${member.name}" class="member-image">
                             <div class="member-info">
@@ -1111,7 +1145,7 @@
                                 </div>
                             </div>
                         `;
-                        
+
                         gridView.appendChild(memberElement);
                     });
                 }
@@ -1139,4 +1173,5 @@
         });
     </script>
 </body>
+
 </html>
